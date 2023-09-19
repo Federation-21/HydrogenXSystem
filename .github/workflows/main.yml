@@ -96,6 +96,7 @@ jobs:
             echo ${GITHUB_SHA}
             printf "%s" "$PROJECT_ENV" > "${BASE_PATH}/.env"
             printf "%s" "${GITHUB_SHA}" > "${BASE_PATH}/${GITHUB_SHA}.txt"
+            printf "%s" "$HTACCESS" > "${BASE_PATH}/.htaccess"
             cd ${BASE_PATH} && ${CONF_CACHE} && ${ROUTE_CACHE} && ${VIEW_CACHE}
 
   migrating-db:
@@ -137,5 +138,5 @@ jobs:
           username: ${{ SECRETS.SERVER_USERNAME }}
           password: ${{ SECRETS.SERVER_PASSWORD }}
           script: |
-            rm -rf domains/codebumble.net/public_html/cbl_system/${{github.sha}}.tar.gz
+            rm -rf domains/codebumble.net/public_html/${{github.sha}}.tar.gz
             rm -rf domains/codebumble.net/public_html/cbl_system/${{github.sha}}.txt
