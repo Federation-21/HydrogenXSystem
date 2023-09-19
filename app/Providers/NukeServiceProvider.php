@@ -76,9 +76,9 @@ class NukeServiceProvider extends ServiceProvider
 
             if ($user && Hash::check($request->password, $user->password)) {
 
-                if ($user->profile && $user->profile->status == '0') {
-                    return session()->flash('error', Lang::get('passwords.inactive'));
-                }
+                // if ($user->profile && $user->profile->status == '0') {
+                //     return session()->flash('error', Lang::get('passwords.inactive'));
+                // }
 
                 RateLimiter::clear($this->throttleKey());
 

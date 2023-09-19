@@ -4,7 +4,7 @@
 
 @extends('layouts/layoutMaster')
 
-@section('title', 'Hawk Dashboard')
+@section('title', 'Home')
 
 @section('content')
     <h4>Home Page</h4>

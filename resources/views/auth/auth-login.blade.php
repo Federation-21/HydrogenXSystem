@@ -66,7 +66,7 @@
                             </div>
                         @endif
 
-                        @if ($errors->any())
+                        @if ($errors->any() && !Session::has('error'))
                             <div class="alert alert-danger py-1">
                                 @foreach ($errors->all() as $error)
                                     <div class="fw-bold text-center">{{ $error }}</div>
