@@ -14,7 +14,9 @@ use App\Http\Controllers\HawkController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/', function () {
+    return redirect()->route('hawk.home');
+});
 Route::middleware(['auth', 'verified'])->prefix('hawk')->group(function () {
     Route::get('home', [HawkController::class, 'index'])->name('hawk.home');
 });
