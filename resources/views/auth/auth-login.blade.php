@@ -37,13 +37,16 @@
                         <!-- Logo -->
                         <div class="app-brand justify-content-center mb-4 mt-2">
                             <a href="{{ url('/') }}" class="app-brand-link gap-2">
-                                <span class="app-brand-logo demo">@include('_partials.macros', ['height' => 20, 'withbg' => 'fill: #fff;'])</span>
+                                <span class="app-brand-logo demo">
+                                    <img src="{{ asset('assets/img/logo/solo-coloured.png') }}" alt="Brand Logo"
+                                        class="img-fluid" />
+                                </span>
                                 <span
-                                    class="app-brand-text demo text-body fw-bold ms-1">{{ config('variables.templateName') }}</span>
+                                    class="app-brand-text demo text-body fw-bold ms-1">Codebumble Inc.</span>
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-1 pt-2">Welcome to {{ config('variables.templateName') }}! 👋</h4>
+                        <h4 class="mb-1 pt-2">Welcome to The CodeBumble! 👋</h4>
                         <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
 
