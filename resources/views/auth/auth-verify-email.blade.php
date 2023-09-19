@@ -33,7 +33,7 @@
                 <!-- verify email basic -->
                 <div class="card mb-0">
                     <div class="card-body">
-                        <a href="{{ route('home') }}" class="brand-logo align-items-center justify-center">
+                        <a href="{{ route('hawk.home') }}" class="brand-logo align-items-center justify-center">
 
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 viewBox="0 0 47.45 47.45" height="38">

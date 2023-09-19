@@ -5,7 +5,7 @@
 
 @extends('layouts/blankLayout')
 
-@section('title', 'Login Basic - Pages')
+@section('title', 'Login')
 
 @section('vendor-style')
     <!-- Vendor -->
