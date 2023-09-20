@@ -21,15 +21,7 @@ class LogoutResponse implements LogoutResponseContract
      */
     public function toResponse($request)
     {
-        UserDumpLog::update(
-            [
-                'loggedout_at' => now(),
-            ],
-            [
-                '_token' => $request->session()->token(),
-                'action_type' => 'login'
-            ]
-        );
+        DB::table('userdumplog')->where('_token', $request->_token)->update(['loggedout_at' => now()]);
         return $request->wantsJson()
             ? new JsonResponse('', 204)
             : redirect()->route('login');
