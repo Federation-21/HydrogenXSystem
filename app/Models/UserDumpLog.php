@@ -23,6 +23,7 @@ class UserDumpLog extends Model
     ];
 
     protected $table = 'userdumplog';
+    public $timestamps = false;
 
 
 }
