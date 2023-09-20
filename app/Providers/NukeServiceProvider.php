@@ -37,8 +37,7 @@ class NukeServiceProvider extends ServiceProvider
     public function boot()
     {
         RateLimiter::for('login', function (Request $request) {
-            $email = (string)$request->username;
-
+            $email = (string)$request->email;
             return Limit::perMinute(5)->by($email . $request->ip());
         });
 
@@ -70,8 +69,8 @@ class NukeServiceProvider extends ServiceProvider
                 return session()->put(['attempt-failed' => Lang::get('passwords.attempt'), 'end_time' => time() + 300]);
             }
 
-            $user = User::where('email', $request->username)
-                ->orWhere('username', $request->username)
+            $user = User::where('email', $request->email)
+                ->orWhere('username', $request->email)
                 ->first();
 
             if ($user && Hash::check($request->password, $user->password)) {
