@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HawkController;
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -20,4 +21,5 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->prefix('hawk')->group(function () {
     Route::get('home', [HawkController::class, 'index'])->name('hawk.home');
+    Route::get('profile', [ProfileController::class, 'index'])->name('hawk.profile');
 });
