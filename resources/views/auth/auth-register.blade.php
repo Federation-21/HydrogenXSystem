@@ -100,7 +100,7 @@
                                         name="password"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                         aria-describedby="register-password" tabindex="3" required />
-                                    <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                    <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                                 </div>
                                 @error('password')
                                     <div class="text-danger">{{ $message }}</div>
@@ -115,7 +115,7 @@
                                         name="password_confirmation"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                         aria-describedby="retype-password" tabindex="3" required />
-                                    <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                    <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                                 </div>
                             </div>
 
