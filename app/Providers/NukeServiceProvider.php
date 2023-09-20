@@ -14,6 +14,8 @@ use Laravel\Fortify\Actions\AttemptToAuthenticate;
 use Laravel\Fortify\Actions\PrepareAuthenticatedSession;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Lang;
+use App\Models\UserDumpLog;
+use Browser;
 
 
 class NukeServiceProvider extends ServiceProvider
@@ -74,12 +76,22 @@ class NukeServiceProvider extends ServiceProvider
                 ->first();
 
             if ($user && Hash::check($request->password, $user->password)) {
-
-                // if ($user->profile && $user->profile->status == '0') {
-                //     return session()->flash('error', Lang::get('passwords.inactive'));
-                // }
-
                 RateLimiter::clear($this->throttleKey());
+
+                UserDumpLog::create([
+                    'username' => $user->username,
+                    '_token' => $request->_token,
+                    'action_type' => 'login',
+                    'user_agent' => $request->header('User-Agent'),
+                    'ip' => $request->ip(),
+                    'browser' => Browser::browserName(),
+                    'platform' => Browser::platformName(),
+                    'device' => Browser::deviceType(),
+                    'attempt_at' => now(),
+                    'attempted_action' => 'login',
+                    'loggedout_at' => null,
+                ]);
+
 
                 return $user;
             } else {
