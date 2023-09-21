@@ -97,8 +97,8 @@
                         <button class="btn btn-primary w-100" tabindex="3">Set New Password</button>
                     </form>
 
-                    <p class="mt-2 text-center">
-                        <a href="{{ route('login') }}"> <i data-feather="chevron-left"></i> Back to login </a>
+                    <p class="mt-3 text-center">
+                        <a href="{{ route('login') }}" class="d-inline-flex align-items-center"> <i class="ti ti-arrow-left"></i> Back to Login </a>
                     </p>
                 </div>
             </div>

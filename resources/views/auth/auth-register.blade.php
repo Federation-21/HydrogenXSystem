@@ -124,7 +124,7 @@
                                     <input class="form-check-input" type="checkbox" id="register-privacy-policy"
                                         name="register-privacy-policy" tabindex="4" />
                                     <label class="form-check-label" for="register-privacy-policy">
-                                        I agree to <a href="">privacy policy & terms</a>
+                                        I agree to <a href="{{url('https://codebumble.net/terms-of-service')}}">Privacy Policy & Terms</a>
                                     </label>
                                 </div>
                             </div>

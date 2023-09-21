@@ -25,10 +25,11 @@ document.addEventListener('DOMContentLoaded', function (e) {
           email: {
             validators: {
               notEmpty: {
-                message: 'Please enter your email'
+                message: 'Please enter your Username or Email'
               },
-              emailAddress: {
-                message: 'Please enter valid email address'
+              stringLength: {
+                min: 6,
+                message: 'Username or Email must be more than 6 characters'
               }
             }
           },
