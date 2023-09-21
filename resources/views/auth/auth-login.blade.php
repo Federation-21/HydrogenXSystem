@@ -1,6 +1,6 @@
 @php
     $customizerHidden = 'customizer-hide';
-
+    
 @endphp
 
 @extends('layouts/blankLayout')
@@ -41,8 +41,7 @@
                                     <img src="{{ asset('assets/img/logo/solo-coloured.png') }}" alt="Brand Logo"
                                         class="img-fluid" />
                                 </span>
-                                <span
-                                    class="app-brand-text demo text-body fw-bold ms-1">Codebumble Inc.</span>
+                                <span class="app-brand-text demo text-body fw-bold ms-1">Codebumble Inc.</span>
                             </a>
                         </div>
                         <!-- /Logo -->
@@ -62,7 +61,7 @@
                         @endif
                         @if (session('error'))
                             <div class="alert alert-danger p-1 text-center">
-                                {{ session('error') }}
+                                {{ __(session('error')) }}
                             </div>
                         @endif
 

@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Lang;
 use App\Models\UserDumpLog;
 use Browser;
+use Illuminate\Support\Facades\App;
 
 
 class NukeServiceProvider extends ServiceProvider
@@ -95,8 +96,16 @@ class NukeServiceProvider extends ServiceProvider
 
                 return $user;
             } else {
+
+                App::setLocale('bn');
+
                 RateLimiter::hit($this->throttleKey(), $seconds = 300);
-                return session()->flash('error', 'You Have ' . RateLimiter::remaining($this->throttleKey(), 3) . ' Attempts Left.');
+
+                $attemptLeft = RateLimiter::remaining($this->throttleKey(), 99);
+
+                $message = Lang::get('passwords.left', ['left_attempt' => strtr($attemptLeft, __('numbers'))]);
+
+                return session()->flash('error', $message);
             }
         });
 
@@ -117,7 +126,7 @@ class NukeServiceProvider extends ServiceProvider
      */
     public function checkTooManyFailedAttempts()
     {
-        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 3)) {
+        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 99)) {
             return true;
         } else {
             return false;
