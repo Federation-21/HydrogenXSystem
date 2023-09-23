@@ -45,7 +45,7 @@
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-1 pt-2">Welcome to The CodeBumble! 👋</h4>
+                        <h4 class="mb-1 pt-2">{{ __('translate.welcome_message') }}</h4>
                         <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
 
