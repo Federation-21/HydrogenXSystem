@@ -23,3 +23,7 @@ Route::middleware(['auth', 'verified'])->prefix('hawk')->group(function () {
     Route::get('home', [HawkController::class, 'index'])->name('hawk.home');
     Route::get('profile', [ProfileController::class, 'index'])->name('hawk.profile');
 });
+
+// Language Handler
+@include('lang.php');
+// Language Handler End

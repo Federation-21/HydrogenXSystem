@@ -17,7 +17,7 @@
       themesPath: '',
       defaultStyle: "{{$configData['style']}}",
       displayCustomizer: {{$configData['displayCustomizer']}},
-      lang: '{{ app()->getLocale() }}',
+      lang: '{{ session()->get('locale') ?? app()->getLocale() }}',
       pathResolver: function(path) {
         var resolvedPaths = {
           // Core stylesheets

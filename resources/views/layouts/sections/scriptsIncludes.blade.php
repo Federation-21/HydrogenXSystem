@@ -23,7 +23,7 @@ $menuCollapsed = ($configData['menuCollapsed'] === 'layout-menu-collapsed') ? js
       defaultShowDropdownOnHover: {{$configData['showDropdownOnHover']}}, // true/false (for horizontal layout only)
       displayCustomizer: {{$configData['displayCustomizer']}},
       defaultMenuCollapsed: "{{$menuCollapsed}}",
-      lang: '{{ app()->getLocale() }}',
+      lang: '{{ session()->get('locale') ?? app()->getLocale() }}',
       pathResolver: function(path) {
         var resolvedPaths = {
           // Core stylesheets

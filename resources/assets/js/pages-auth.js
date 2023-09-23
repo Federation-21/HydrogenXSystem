@@ -8,6 +8,7 @@ const formAuthentication = document.querySelector('#formAuthentication');
 document.addEventListener('DOMContentLoaded', function (e) {
   (function () {
     // Form validation for Add new record
+    console.log(lang);
     if (formAuthentication) {
       const fv = FormValidation.formValidation(formAuthentication, {
         fields: {

@@ -1,6 +1,6 @@
 @php
     $customizerHidden = 'customizer-hide';
-    
+
 @endphp
 
 @extends('layouts/blankLayout')
@@ -24,6 +24,9 @@
 @endsection
 
 @section('page-script')
+    <script>
+    let lang = "{{ session()->get('locale') ?? app()->getLocale() }}";
+    </script>
     <script src="{{ asset('assets/js/pages-auth.js') }}"></script>
 @endsection
 
@@ -46,7 +49,7 @@
                         </div>
                         <!-- /Logo -->
                         <h4 class="mb-1 pt-2">{{ __('translate.welcome_message') }}</h4>
-                        <p class="mb-4">Please sign-in to your account and start the adventure</p>
+                        <p class="mb-4">{{ __('translate.welcome_short_message') }}</p>
 
 
                         @if (session('success'))
@@ -91,15 +94,18 @@
                             <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email or Username</label>
+                                    <label for="email" class="form-label">{{
+                                        __('translate.email_or_username') }}</label>
                                     <input type="text" class="form-control" id="email" name="email"
                                         placeholder="Enter your email or username" autofocus>
                                 </div>
                                 <div class="mb-3 form-password-toggle">
                                     <div class="d-flex justify-content-between">
-                                        <label class="form-label" for="password">Password</label>
+                                        <label class="form-label" for="password">{{
+                                        __('translate.password') }}</label>
                                         <a href="{{ route('password.request') }}">
-                                            <small>Forgot Password?</small>
+                                            <small>{{
+                                        __('translate.forgot_password') }}</small>
                                         </a>
                                     </div>
                                     <div class="input-group input-group-merge">
@@ -113,24 +119,29 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="remember-me">
                                         <label class="form-check-label" for="remember-me">
-                                            Remember Me
+                                            {{
+                                        __('translate.remember_me') }}
                                         </label>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                                    <button class="btn btn-primary d-grid w-100" type="submit">{{
+                                        __('translate.login') }}</button>
                                 </div>
                             </form>
 
                             <p class="text-center">
-                                <span>New on our platform?</span>
+                                <span>{{
+                                        __('translate.new_on_our_platform') }}</span>
                                 <a href="{{ route('register') }}">
-                                    <span>Create an account</span>
+                                    <span>{{
+                                        __('translate.create_an_account') }}</span>
                                 </a>
                             </p>
 
                             <div class="divider my-4">
-                                <div class="divider-text">or</div>
+                                <div class="divider-text">{{
+                                        __('translate.or') }}</div>
                             </div>
 
                             <div class="d-flex justify-content-center">
@@ -152,6 +163,20 @@
                     </div>
                 </div>
                 <!-- /Register -->
+                <div class="text-center text-muted mt-2">
+                    <a href="{{ route("change.language.english") }}" class="text-muted me-1">English</a> | <a
+                        href="{{ route("change.language.bangla") }}" class="text-muted ms-1">বাংলা</a> | <a
+                        href="{{ route("change.language.hindi") }}" class="text-muted ms-1">हिंदी</a> | <a
+                        href="{{ route("change.language.arabic") }}" class="text-muted ms-1">العربية</a> | <a
+                        href="{{ route("change.language.french") }}" class="text-muted ms-1">Français</a> | <a
+                        href="{{ route("change.language.german") }}" class="text-muted ms-1">Deutsche</a> <a
+                        href="{{ route("change.language.italian") }}" class="text-muted ms-1">Italiano</a> | <a
+                        href="{{ route("change.language.japanese") }}" class="text-muted ms-1">日本語</a> | <a
+                        href="{{ route("change.language.korean") }}" class="text-muted ms-1">한국어</a> | <a
+                        href="{{ route("change.language.russian") }}" class="text-muted ms-1">Русский</a> | <a
+                        href="{{ route("change.language.spanish") }}" class="text-muted ms-1">Español</a>
+
+                </div>
             </div>
         </div>
     </div>
