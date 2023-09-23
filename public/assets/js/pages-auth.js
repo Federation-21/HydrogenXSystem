@@ -4,7 +4,6 @@
 
 'use strict';
 
-import { use } from "browser-sync";
 
 const formAuthentication = document.querySelector('#formAuthentication');
 
