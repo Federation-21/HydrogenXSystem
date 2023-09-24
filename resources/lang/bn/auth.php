@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed' => 'আপনি ভুল তথ্য প্রদান করেছেন। আবার চেষ্টা করুন।',
     'password' => 'আপনার পাসওয়ার্ডটি সঠিক নয়',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'throttle' => ' আপনি অনেকবার ব্যর্থ চেষ্টা করেছেন। অনুগ্রহ করে :seconds সেকেন্ড পর আবার চেষ্টা করুন।',
 
 ];

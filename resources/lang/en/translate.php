@@ -1,6 +1,7 @@
 <?php
 
 return [
+    //login Page
     'welcome_message' => 'Welcome to The CodeBumble! 👋',
     'welcome_short_message' => 'Please sign-in to your account and start the adventure',
     'email_or_username' => 'Email or Username',

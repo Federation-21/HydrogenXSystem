@@ -13,14 +13,14 @@ return [
     |
     */
 
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have emailed your password reset link!',
+    'reset' => 'আপনার পাসওয়ার্ড পুনরায় সেট করা হয়েছে!',
+    'sent' => 'আমরা আপনার পাসওয়ার্ড রিসেট লিঙ্ক ইমেল করেছি!',
     'throttled' => 'Please wait before retrying.',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that email address.",
+    'token' => 'এই পাসওয়ার্ড রিসেট টোকেন অবৈধ।',
+    'user' => "আমরা সেই ইমেল ঠিকানা সহ একজন ব্যবহারকারী খুঁজে পাচ্ছি না।",
     'inactive' => 'আপনার একাউন্টটি সক্রিয় নয়।',
-    'expired' => 'Your password reset link has expired.',
-    'invalid' => 'Your password reset link is invalid.',
+    'expired' => 'আপনার পাসওয়ার্ড রিসেট লিঙ্ক মেয়াদ উত্তীর্ণ হয়েছে। আবার চেষ্টা করুন।',
+    'invalid' => 'আপনার পাসওয়ার্ড রিসেট লিঙ্কটি অবৈধ।',
     'invalid_stroke' => 'Your License Key is invalid.',
     'ghost' => 'License Key not found in provider\'s database.',
     'attempt' => 'Too many attempts failed. IP Blocked for 5 Minutes.',
