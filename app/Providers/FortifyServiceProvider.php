@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
+use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Mail\Mailable;
+use Illuminate\Notifications\Messages\MailMessage;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -51,6 +54,22 @@ class FortifyServiceProvider extends ServiceProvider
             \Laravel\Fortify\Contracts\LoginResponse::class,
             \App\Http\Responses\LoginResponse::class
         );
+
+        ResetPassword::toMailUsing(function($user, string $token) {
+            return (new MailMessage)
+                ->subject('Reset Password')
+                ->view('mail.password_reset', [
+                    'user' => $user,
+                    'url' => route('password.reset', [
+                        'token' => $token,
+                        'email' => $user->email
+                    ]),
+                    'ip' => request()->ip(),
+                    'username' => $user->username,
+                    'email' => $user->email,
+                    'name' => $user->name,
+            ]);
+        });
     }
 
 
