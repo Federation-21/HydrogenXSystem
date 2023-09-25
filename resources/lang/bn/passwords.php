@@ -23,6 +23,6 @@ return [
     'invalid' => 'আপনার পাসওয়ার্ড রিসেট লিঙ্কটি অবৈধ।',
     'invalid_stroke' => 'Your License Key is invalid.',
     'ghost' => 'License Key not found in provider\'s database.',
-    'attempt' => 'Too many attempts failed. IP Blocked for 5 Minutes.',
+    'attempt' => 'অনেক প্রচেষ্টা ব্যর্থ হয়েছে. আইপি ৫ মিনিটের জন্য ব্লক করা হয়েছে।',
     'left' => 'আপনার :left_attempt টি এটেম্পট বাকি আছে।'
 ];

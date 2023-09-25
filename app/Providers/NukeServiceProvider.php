@@ -69,7 +69,7 @@ class NukeServiceProvider extends ServiceProvider
         Fortify::authenticateUsing(function (Request $request) {
 
             if (!$this->checkTooManyFailedAttempts()) {
-                return session()->put(['attempt-failed' => Lang::get('passwords.attempt'), 'end_time' => time() + 300]);
+                return session()->put(['attempt-failed' => 'passwords.attempt', 'end_time' => time() + 300]);
             }
 
             $user = User::where('email', $request->email)
@@ -96,16 +96,9 @@ class NukeServiceProvider extends ServiceProvider
 
                 return $user;
             } else {
-
-                App::setLocale('bn');
-
                 RateLimiter::hit($this->throttleKey(), $seconds = 300);
-
-                $attemptLeft = RateLimiter::remaining($this->throttleKey(), 99);
-
-                $message = Lang::get('passwords.left', ['left_attempt' => strtr($attemptLeft, __('numbers'))]);
-
-                return session()->flash('error', $message);
+                $attemptLeft = RateLimiter::remaining($this->throttleKey(), 6);
+                return session()->flash('error-wrong-password', strtr($attemptLeft, __('numbers')));
             }
         });
 
@@ -126,7 +119,7 @@ class NukeServiceProvider extends ServiceProvider
      */
     public function checkTooManyFailedAttempts()
     {
-        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 99)) {
+        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 6)) {
             return true;
         } else {
             return false;

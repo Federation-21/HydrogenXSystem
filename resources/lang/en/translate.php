@@ -12,4 +12,5 @@ return [
     'new_on_our_platform' => 'New on our platform?',
     'create_an_account' => 'Create an account',
     'or' => 'or',
+    'minutes_left' => 'Minute(s) Left',
 ];

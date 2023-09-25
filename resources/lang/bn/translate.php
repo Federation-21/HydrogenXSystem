@@ -13,4 +13,5 @@ return [
     'new_on_our_platform' => 'আমাদের প্ল্যাটফর্মে নতুন?',
     'create_an_account' => 'একটি অ্যাকাউন্ট তৈরি করুন',
     'or' => 'অথবা',
+    'minutes_left' => 'মিনিট বাকি',
 ];

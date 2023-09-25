@@ -62,13 +62,20 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+
                         @if (session('error'))
                             <div class="alert alert-danger p-1 text-center">
-                                {{ __(session('error')) }}
+                                {{ session('error') }}
                             </div>
                         @endif
 
-                        @if ($errors->any() && !Session::has('error'))
+                        @if (session('error-wrong-password'))
+                            <div class="alert alert-danger p-1 text-center">
+                                {{__('auth.failed')}} {{ __('passwords.left', ['left_attempt' => session('error-wrong-password')]) }}
+                            </div>
+                        @endif
+
+                        @if ($errors->any() && !Session::has('error-wrong-password'))
                             <div class="alert alert-danger py-1">
                                 @foreach ($errors->all() as $error)
                                     <div class="fw-bold text-center">{{ $error }}</div>
@@ -87,8 +94,8 @@
 
                         @if (Session::has('attempt-failed'))
                             <div class="alert alert-danger p-1 text-center">
-                                {{ Session::get('attempt-failed') }}
-                                {{ substr((Session::get('end_time') - time()) / 60, 0, 2) }} Minutes left
+                                {{ __(Session::get('attempt-failed')) }}
+                                {{ __('numbers.'.strval(round((Session::get('end_time') - time()) / 60))) }} {{__('translate.minutes_left')}}
                             </div>
                         @else
                             <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
