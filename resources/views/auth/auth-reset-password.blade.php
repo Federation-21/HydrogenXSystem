@@ -23,6 +23,9 @@ $customizerHidden = 'customizer-hide';
 @endsection
 
 @section('page-script')
+<script>
+    let lang = "{{ session()->get('locale') ?? app()->getLocale() }}";
+</script>
 <script src="{{asset('assets/js/pages-auth.js')}}"></script>
 @endsection
 
