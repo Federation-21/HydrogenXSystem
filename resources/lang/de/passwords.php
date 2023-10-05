@@ -21,8 +21,6 @@ return [
     'inactive' => 'আপনার একাউন্টটি সক্রিয় নয়।',
     'expired' => 'আপনার পাসওয়ার্ড রিসেট লিঙ্ক মেয়াদ উত্তীর্ণ হয়েছে। আবার চেষ্টা করুন।',
     'invalid' => 'আপনার পাসওয়ার্ড রিসেট লিঙ্কটি অবৈধ।',
-    'invalid_stroke' => 'Your License Key is invalid.',
-    'ghost' => 'License Key not found in provider\'s database.',
     'attempt' => 'অনেক প্রচেষ্টা ব্যর্থ হয়েছে. আইপি ৫ মিনিটের জন্য ব্লক করা হয়েছে।',
     'left' => 'আপনার :left_attempt টি এটেম্পট বাকি আছে।'
 ];

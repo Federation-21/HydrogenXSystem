@@ -21,8 +21,6 @@ return [
     'inactive' => 'Your account is inactive.',
     'expired' => 'Your password reset link has expired.',
     'invalid' => 'Your password reset link is invalid.',
-    'invalid_stroke' => 'Your License Key is invalid.',
-    'ghost' => 'License Key not found in provider\'s database.',
     'attempt' => 'Too many attempts failed. IP Blocked for 5 Minutes.',
     'left' => 'You have :left_attempt Attempts Left.'
 ];

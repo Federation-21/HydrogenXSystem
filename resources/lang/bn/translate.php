@@ -34,4 +34,16 @@ return [
     'resend' => 'পুনরায় পাঠান',
     'logout' => 'লগ আউট',
     'skip_for_now' => 'এখনই এগিয়ে যান',
+    // Register Page
+    'register' => 'হালকা, সহজ এবং প্রযুক্তিগত',
+    'register_text' => 'পাখির মতো আপনার জীবনকে সহজ করুন!',
+    'username' => 'ব্যবহারকারীর নাম',
+    'full_name' => 'পূর্ণ নাম',
+    'mobile_number' => 'মোবাইল নাম্বার',
+    'retype_password' => 'আপনার পাসওয়ার্ড পুনরায় টাইপ করুন',
+    'i_agree_to_the' => 'আমি একমত',
+    'terms_and_conditions' => 'গোপনীয়তা নীতি এবং শর্তাবলি',
+    'sign_up' => 'সাইন আপ করুন',
+    'already_have_an_account' => 'ইতিমধ্যে একটি অ্যাকাউন্ট আছে?',
+    'sign_in_instead' => 'সাইন ইন বদলে'
 ];

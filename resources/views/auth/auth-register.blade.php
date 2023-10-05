@@ -49,14 +49,14 @@
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-1 pt-2">Adventure starts here 🚀</h4>
-                        <p class="mb-4">Make your app management easy and fun!</p>
+                        <h4 class="mb-1 pt-2">{{ __('translate.register') }} 🚀</h4>
+                        <p class="mb-4">{{ __('translate.register_text') }} </p>
 
                         <form id="formAuthentication" class="mb-3" action="{{ route('register') }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label for="register-username" class="form-label">Username</label>
+                                <label for="register-username" class="form-label">{{ __('translate.username') }}</label>
                                 <input type="text" class="form-control" id="register-username" name="username"
                                     placeholder="johndoe" aria-describedby="register-username" tabindex="1" autofocus
                                     required />
@@ -66,7 +66,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="full-name" class="form-label">Full Name</label>
+                                <label for="full-name" class="form-label">{{ __('translate.full_name') }}</label>
                                 <input type="text" class="form-control" id="full-name" name="name"
                                     placeholder="Jhone Doe" aria-describedby="full-name" tabindex="1" autofocus
                                     required />
@@ -76,7 +76,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="mobile-number" class="form-label">Mobile Number</label>
+                                <label for="mobile-number" class="form-label">{{ __('translate.mobile_number') }}</label>
                                 <input type="tel" class="form-control" id="mobile-number" name="mobile"
                                     placeholder="01700000000" aria-describedby="mobile-number" tabindex="1"
                                     pattern="[0-9]{4}[0-9]{3}[0-9]{4}" autofocus required />
@@ -86,7 +86,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="register-email" class="form-label">Email</label>
+                                <label for="register-email" class="form-label">{{ __('translate.email') }}</label>
                                 <input type="text" class="form-control" id="register-email" name="email"
                                     placeholder="john@example.com" aria-describedby="register-email" tabindex="2"
                                     required />
@@ -96,7 +96,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="register-password" class="form-label">Password</label>
+                                <label for="register-password" class="form-label">{{ __('translate.password') }}</label>
 
                                 <div class="input-group input-group-merge form-password-toggle">
                                     <input type="password" class="form-control form-control-merge" id="register-password"
@@ -111,7 +111,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="retype-password" class="form-label">Retype your Password</label>
+                                <label for="retype-password" class="form-label">{{ __('translate.retype_password') }}</label>
 
                                 <div class="input-group input-group-merge form-password-toggle">
                                     <input type="password" class="form-control form-control-merge" id="retype-password"
@@ -127,24 +127,24 @@
                                     <input class="form-check-input" type="checkbox" id="register-privacy-policy"
                                         name="register-privacy-policy" tabindex="4" />
                                     <label class="form-check-label" for="register-privacy-policy">
-                                        I agree to <a href="{{url('https://codebumble.net/terms-of-service')}}">Privacy Policy & Terms</a>
+                                        {{ __('translate.i_agree_to_the') }} <a href="{{url('https://codebumble.net/terms-of-service')}}">{{ __('translate.terms_and_conditions') }} </a>
                                     </label>
                                 </div>
                             </div>
                             <button class="btn btn-primary d-grid w-100">
-                                Sign up
+                                {{ __('translate.sign_up') }}
                             </button>
                         </form>
 
                         <p class="text-center">
-                            <span>Already have an account?</span>
+                            <span>{{ __('translate.already_have_an_account') }}</span>
                             <a href="{{ route('login') }}">
-                                <span>Sign in instead</span>
+                                <span>{{ __('translate.sign_in_instead') }}</span>
                             </a>
                         </p>
 
                         <div class="divider my-4">
-                            <div class="divider-text">or</div>
+                            <div class="divider-text">{{ __('translate.or') }}</div>
                         </div>
 
                         <div class="d-flex justify-content-center">

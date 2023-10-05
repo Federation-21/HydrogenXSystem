@@ -33,4 +33,16 @@ return [
     'resend' => 'Resend',
     'logout' => 'Logout',
     'skip_for_now' => 'Skip for now',
+    // Register Page
+    'register' => 'Adventure starts here',
+    'register_text' => 'Make your life smooth like a butterfly!',
+    'username' => 'Username',
+    'full_name' => 'Full Name',
+    'mobile_number' => 'Mobile Number',
+    'retype_password' => 'Retype Your Password',
+    'i_agree_to_the' => 'I agree to the',
+    'terms_and_conditions' => 'Privacy Policy & Terms',
+    'sign_up' => 'Sign Up',
+    'already_have_an_account' => 'Already have an account?',
+    'sign_in_instead' => 'Sign in instead',
 ];
