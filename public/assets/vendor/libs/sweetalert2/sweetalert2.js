@@ -18,13 +18,54 @@ return /******/ (function() { // webpackBootstrap
 /***/ (function(module) {
 
 /*!
-* sweetalert2 v11.7.12
+* sweetalert2 v11.7.31
 * Released under the MIT License.
 */
 (function (global, factory) {
    true ? module.exports = factory() :
   0;
 })(this, (function () { 'use strict';
+
+  function _classPrivateFieldGet(receiver, privateMap) {
+    var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");
+    return _classApplyDescriptorGet(receiver, descriptor);
+  }
+  function _classPrivateFieldSet(receiver, privateMap, value) {
+    var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set");
+    _classApplyDescriptorSet(receiver, descriptor, value);
+    return value;
+  }
+  function _classExtractFieldDescriptor(receiver, privateMap, action) {
+    if (!privateMap.has(receiver)) {
+      throw new TypeError("attempted to " + action + " private field on non-instance");
+    }
+    return privateMap.get(receiver);
+  }
+  function _classApplyDescriptorGet(receiver, descriptor) {
+    if (descriptor.get) {
+      return descriptor.get.call(receiver);
+    }
+    return descriptor.value;
+  }
+  function _classApplyDescriptorSet(receiver, descriptor, value) {
+    if (descriptor.set) {
+      descriptor.set.call(receiver, value);
+    } else {
+      if (!descriptor.writable) {
+        throw new TypeError("attempted to set read only private field");
+      }
+      descriptor.value = value;
+    }
+  }
+  function _checkPrivateRedeclaration(obj, privateCollection) {
+    if (privateCollection.has(obj)) {
+      throw new TypeError("Cannot initialize the same private elements twice on an object");
+    }
+  }
+  function _classPrivateFieldInitSpec(obj, privateMap, value) {
+    _checkPrivateRedeclaration(obj, privateMap);
+    privateMap.set(obj, value);
+  }
 
   const RESTORE_FOCUS_TIMEOUT = 100;
 
@@ -59,22 +100,6 @@ return /******/ (function() { // webpackBootstrap
 
       window.scrollTo(x, y);
     });
-  };
-
-  /**
-   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
-   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
-   * This is the approach that Babel will probably take to implement private methods/fields
-   *   https://github.com/tc39/proposal-private-methods
-   *   https://github.com/babel/babel/pull/7555
-   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
-   *   then we can use that language feature.
-   */
-
-  var privateProps = {
-    promise: new WeakMap(),
-    innerParams: new WeakMap(),
-    domCache: new WeakMap()
   };
 
   const swalPrefix = 'swal2-';
@@ -189,7 +214,7 @@ return /******/ (function() { // webpackBootstrap
    * @param {string | string[]} message
    */
   const warn = message => {
-    console.warn(`${consolePrefix} ${typeof message === 'object' ? message.join(' ') : message}`);
+    console.warn("".concat(consolePrefix, " ").concat(typeof message === 'object' ? message.join(' ') : message));
   };
 
   /**
@@ -198,7 +223,7 @@ return /******/ (function() { // webpackBootstrap
    * @param {string} message
    */
   const error = message => {
-    console.error(`${consolePrefix} ${message}`);
+    console.error("".concat(consolePrefix, " ").concat(message));
   };
 
   /**
@@ -228,7 +253,7 @@ return /******/ (function() { // webpackBootstrap
    * @param {string} useInstead
    */
   const warnAboutDeprecation = (deprecatedParam, useInstead) => {
-    warnOnce(`"${deprecatedParam}" is deprecated and will be removed in the next major release. Please use "${useInstead}" instead.`);
+    warnOnce("\"".concat(deprecatedParam, "\" is deprecated and will be removed in the next major release. Please use \"").concat(useInstead, "\" instead."));
   };
 
   /**
@@ -263,7 +288,7 @@ return /******/ (function() { // webpackBootstrap
    *
    * @returns {HTMLElement | null}
    */
-  const getContainer = () => document.body.querySelector(`.${swalClasses.container}`);
+  const getContainer = () => document.body.querySelector(".".concat(swalClasses.container));
 
   /**
    * @param {string} selectorString
@@ -279,7 +304,7 @@ return /******/ (function() { // webpackBootstrap
    * @returns {HTMLElement | null}
    */
   const elementByClass = className => {
-    return elementBySelector(`.${className}`);
+    return elementBySelector(".".concat(className));
   };
 
   /**
@@ -325,17 +350,17 @@ return /******/ (function() { // webpackBootstrap
   /**
    * @returns {HTMLButtonElement | null}
    */
-  const getConfirmButton = () => /** @type {HTMLButtonElement} */elementBySelector(`.${swalClasses.actions} .${swalClasses.confirm}`);
+  const getConfirmButton = () => /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.confirm));
 
   /**
    * @returns {HTMLButtonElement | null}
    */
-  const getCancelButton = () => /** @type {HTMLButtonElement} */elementBySelector(`.${swalClasses.actions} .${swalClasses.cancel}`);
+  const getCancelButton = () => /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.cancel));
 
   /**
    * @returns {HTMLButtonElement | null}
    */
-  const getDenyButton = () => /** @type {HTMLButtonElement} */elementBySelector(`.${swalClasses.actions} .${swalClasses.deny}`);
+  const getDenyButton = () => /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.deny));
 
   /**
    * @returns {HTMLElement | null}
@@ -345,7 +370,7 @@ return /******/ (function() { // webpackBootstrap
   /**
    * @returns {HTMLElement | null}
    */
-  const getLoader = () => elementBySelector(`.${swalClasses.loader}`);
+  const getLoader = () => elementBySelector(".".concat(swalClasses.loader));
 
   /**
    * @returns {HTMLElement | null}
@@ -368,33 +393,22 @@ return /******/ (function() { // webpackBootstrap
   const getCloseButton = () => elementByClass(swalClasses.close);
 
   // https://github.com/jkup/focusable/blob/master/index.js
-  const focusable = `
-  a[href],
-  area[href],
-  input:not([disabled]),
-  select:not([disabled]),
-  textarea:not([disabled]),
-  button:not([disabled]),
-  iframe,
-  object,
-  embed,
-  [tabindex="0"],
-  [contenteditable],
-  audio[controls],
-  video[controls],
-  summary
-`;
+  const focusable = "\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex=\"0\"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n";
   /**
    * @returns {HTMLElement[]}
    */
   const getFocusableElements = () => {
+    const popup = getPopup();
+    if (!popup) {
+      return [];
+    }
     /** @type {NodeListOf<HTMLElement>} */
-    const focusableElementsWithTabindex = getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])');
+    const focusableElementsWithTabindex = popup.querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])');
     const focusableElementsWithTabindexSorted = Array.from(focusableElementsWithTabindex)
     // sort according to tabindex
     .sort((a, b) => {
-      const tabindexA = parseInt(a.getAttribute('tabindex'));
-      const tabindexB = parseInt(b.getAttribute('tabindex'));
+      const tabindexA = parseInt(a.getAttribute('tabindex') || '0');
+      const tabindexB = parseInt(b.getAttribute('tabindex') || '0');
       if (tabindexA > tabindexB) {
         return 1;
       } else if (tabindexA < tabindexB) {
@@ -404,7 +418,7 @@ return /******/ (function() { // webpackBootstrap
     });
 
     /** @type {NodeListOf<HTMLElement>} */
-    const otherFocusableElements = getPopup().querySelectorAll(focusable);
+    const otherFocusableElements = popup.querySelectorAll(focusable);
     const otherFocusableElementsFiltered = Array.from(otherFocusableElements).filter(el => el.getAttribute('tabindex') !== '-1');
     return [...new Set(focusableElementsWithTabindexSorted.concat(otherFocusableElementsFiltered))].filter(el => isVisible$1(el));
   };
@@ -420,14 +434,22 @@ return /******/ (function() { // webpackBootstrap
    * @returns {boolean}
    */
   const isToast = () => {
-    return getPopup() && hasClass(getPopup(), swalClasses.toast);
+    const popup = getPopup();
+    if (!popup) {
+      return false;
+    }
+    return hasClass(popup, swalClasses.toast);
   };
 
   /**
    * @returns {boolean}
    */
   const isLoading = () => {
-    return getPopup().hasAttribute('data-loading');
+    const popup = getPopup();
+    if (!popup) {
+      return false;
+    }
+    return popup.hasAttribute('data-loading');
   };
 
   /**
@@ -441,11 +463,13 @@ return /******/ (function() { // webpackBootstrap
     elem.textContent = '';
     if (html) {
       const parser = new DOMParser();
-      const parsed = parser.parseFromString(html, `text/html`);
-      Array.from(parsed.querySelector('head').childNodes).forEach(child => {
+      const parsed = parser.parseFromString(html, "text/html");
+      const head = parsed.querySelector('head');
+      head && Array.from(head.childNodes).forEach(child => {
         elem.appendChild(child);
       });
-      Array.from(parsed.querySelector('body').childNodes).forEach(child => {
+      const body = parsed.querySelector('body');
+      body && Array.from(body.childNodes).forEach(child => {
         if (child instanceof HTMLVideoElement || child instanceof HTMLAudioElement) {
           elem.appendChild(child.cloneNode(true)); // https://github.com/sweetalert2/sweetalert2/issues/2507
         } else {
@@ -479,7 +503,7 @@ return /******/ (function() { // webpackBootstrap
    */
   const removeCustomClasses = (elem, params) => {
     Array.from(elem.classList).forEach(className => {
-      if (!Object.values(swalClasses).includes(className) && !Object.values(iconTypes).includes(className) && !Object.values(params.showClass).includes(className)) {
+      if (!Object.values(swalClasses).includes(className) && !Object.values(iconTypes).includes(className) && !Object.values(params.showClass || {}).includes(className)) {
         elem.classList.remove(className);
       }
     });
@@ -494,7 +518,7 @@ return /******/ (function() { // webpackBootstrap
     removeCustomClasses(elem, params);
     if (params.customClass && params.customClass[className]) {
       if (typeof params.customClass[className] !== 'string' && !params.customClass[className].forEach) {
-        warn(`Invalid type of customClass.${className}! Expected string or iterable object, got "${typeof params.customClass[className]}"`);
+        warn("Invalid type of customClass.".concat(className, "! Expected string or iterable object, got \"").concat(typeof params.customClass[className], "\""));
         return;
       }
       addClass(elem, params.customClass[className]);
@@ -503,7 +527,7 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * @param {HTMLElement} popup
-   * @param {import('./renderers/renderInput').InputClass} inputClass
+   * @param {import('./renderers/renderInput').InputClass | SweetAlertInput} inputClass
    * @returns {HTMLInputElement | null}
    */
   const getInput$1 = (popup, inputClass) => {
@@ -514,15 +538,15 @@ return /******/ (function() { // webpackBootstrap
       case 'select':
       case 'textarea':
       case 'file':
-        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses[inputClass]}`);
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses[inputClass]));
       case 'checkbox':
-        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.checkbox} input`);
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.checkbox, " input"));
       case 'radio':
-        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.radio} input:checked`) || popup.querySelector(`.${swalClasses.popup} > .${swalClasses.radio} input:first-child`);
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.radio, " input:checked")) || popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.radio, " input:first-child"));
       case 'range':
-        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.range} input`);
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.range, " input"));
       default:
-        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.input}`);
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.input));
     }
   };
 
@@ -543,7 +567,7 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * @param {HTMLElement | HTMLElement[] | null} target
-   * @param {string | string[] | readonly string[]} classList
+   * @param {string | string[] | readonly string[] | undefined} classList
    * @param {boolean} condition
    */
   const toggleClass = (target, classList, condition) => {
@@ -566,7 +590,7 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * @param {HTMLElement | HTMLElement[] | null} target
-   * @param {string | string[] | readonly string[]} classList
+   * @param {string | string[] | readonly string[] | undefined} classList
    */
   const addClass = (target, classList) => {
     toggleClass(target, classList, true);
@@ -574,7 +598,7 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * @param {HTMLElement | HTMLElement[] | null} target
-   * @param {string | string[] | readonly string[]} classList
+   * @param {string | string[] | readonly string[] | undefined} classList
    */
   const removeClass = (target, classList) => {
     toggleClass(target, classList, false);
@@ -603,11 +627,11 @@ return /******/ (function() { // webpackBootstrap
    * @param {*} value
    */
   const applyNumericalStyle = (elem, property, value) => {
-    if (value === `${parseInt(value)}`) {
+    if (value === "".concat(parseInt(value))) {
       value = parseInt(value);
     }
     if (value || parseInt(value) === 0) {
-      elem.style[property] = typeof value === 'number' ? `${value}px` : value;
+      elem.style[property] = typeof value === 'number' ? "".concat(value, "px") : value;
     } else {
       elem.style.removeProperty(property);
     }
@@ -656,7 +680,7 @@ return /******/ (function() { // webpackBootstrap
   /**
    * borrowed from jquery $(elem).is(':visible') implementation
    *
-   * @param {HTMLElement} elem
+   * @param {HTMLElement | null} elem
    * @returns {boolean}
    */
   const isVisible$1 = elem => !!(elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length));
@@ -692,25 +716,31 @@ return /******/ (function() { // webpackBootstrap
   const animateTimerProgressBar = function (timer) {
     let reset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     const timerProgressBar = getTimerProgressBar();
+    if (!timerProgressBar) {
+      return;
+    }
     if (isVisible$1(timerProgressBar)) {
       if (reset) {
         timerProgressBar.style.transition = 'none';
         timerProgressBar.style.width = '100%';
       }
       setTimeout(() => {
-        timerProgressBar.style.transition = `width ${timer / 1000}s linear`;
+        timerProgressBar.style.transition = "width ".concat(timer / 1000, "s linear");
         timerProgressBar.style.width = '0%';
       }, 10);
     }
   };
   const stopTimerProgressBar = () => {
     const timerProgressBar = getTimerProgressBar();
+    if (!timerProgressBar) {
+      return;
+    }
     const timerProgressBarWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
     timerProgressBar.style.removeProperty('transition');
     timerProgressBar.style.width = '100%';
     const timerProgressBarFullWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
     const timerProgressBarPercent = timerProgressBarWidth / timerProgressBarFullWidth * 100;
-    timerProgressBar.style.width = `${timerProgressBarPercent}%`;
+    timerProgressBar.style.width = "".concat(timerProgressBarPercent, "%");
   };
 
   /**
@@ -720,40 +750,7 @@ return /******/ (function() { // webpackBootstrap
    */
   const isNodeEnv = () => typeof window === 'undefined' || typeof document === 'undefined';
 
-  const sweetHTML = `
- <div aria-labelledby="${swalClasses.title}" aria-describedby="${swalClasses['html-container']}" class="${swalClasses.popup}" tabindex="-1">
-   <button type="button" class="${swalClasses.close}"></button>
-   <ul class="${swalClasses['progress-steps']}"></ul>
-   <div class="${swalClasses.icon}"></div>
-   <img class="${swalClasses.image}" />
-   <h2 class="${swalClasses.title}" id="${swalClasses.title}"></h2>
-   <div class="${swalClasses['html-container']}" id="${swalClasses['html-container']}"></div>
-   <input class="${swalClasses.input}" />
-   <input type="file" class="${swalClasses.file}" />
-   <div class="${swalClasses.range}">
-     <input type="range" />
-     <output></output>
-   </div>
-   <select class="${swalClasses.select}"></select>
-   <div class="${swalClasses.radio}"></div>
-   <label for="${swalClasses.checkbox}" class="${swalClasses.checkbox}">
-     <input type="checkbox" />
-     <span class="${swalClasses.label}"></span>
-   </label>
-   <textarea class="${swalClasses.textarea}"></textarea>
-   <div class="${swalClasses['validation-message']}" id="${swalClasses['validation-message']}"></div>
-   <div class="${swalClasses.actions}">
-     <div class="${swalClasses.loader}"></div>
-     <button type="button" class="${swalClasses.confirm}"></button>
-     <button type="button" class="${swalClasses.deny}"></button>
-     <button type="button" class="${swalClasses.cancel}"></button>
-   </div>
-   <div class="${swalClasses.footer}"></div>
-   <div class="${swalClasses['timer-progress-bar-container']}">
-     <div class="${swalClasses['timer-progress-bar']}"></div>
-   </div>
- </div>
-`.replace(/(^|\n)\s*/g, '');
+  const sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses['html-container'], "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n   <div class=\"").concat(swalClasses.icon, "\"></div>\n   <img class=\"").concat(swalClasses.image, "\" />\n   <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n   <div class=\"").concat(swalClasses['html-container'], "\" id=\"").concat(swalClasses['html-container'], "\"></div>\n   <input class=\"").concat(swalClasses.input, "\" id=\"").concat(swalClasses.input, "\" />\n   <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n   <div class=\"").concat(swalClasses.range, "\">\n     <input type=\"range\" />\n     <output></output>\n   </div>\n   <select class=\"").concat(swalClasses.select, "\" id=\"").concat(swalClasses.select, "\"></select>\n   <div class=\"").concat(swalClasses.radio, "\"></div>\n   <label class=\"").concat(swalClasses.checkbox, "\">\n     <input type=\"checkbox\" id=\"").concat(swalClasses.checkbox, "\" />\n     <span class=\"").concat(swalClasses.label, "\"></span>\n   </label>\n   <textarea class=\"").concat(swalClasses.textarea, "\" id=\"").concat(swalClasses.textarea, "\"></textarea>\n   <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <div class=\"").concat(swalClasses.loader, "\"></div>\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\"></button>\n     <button type=\"button\" class=\"").concat(swalClasses.deny, "\"></button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar-container'], "\">\n     <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n   </div>\n </div>\n").replace(/(^|\n)\s*/g, '');
 
   /**
    * @returns {boolean}
@@ -775,12 +772,12 @@ return /******/ (function() { // webpackBootstrap
     const input = getDirectChildByClass(popup, swalClasses.input);
     const file = getDirectChildByClass(popup, swalClasses.file);
     /** @type {HTMLInputElement} */
-    const range = popup.querySelector(`.${swalClasses.range} input`);
+    const range = popup.querySelector(".".concat(swalClasses.range, " input"));
     /** @type {HTMLOutputElement} */
-    const rangeOutput = popup.querySelector(`.${swalClasses.range} output`);
+    const rangeOutput = popup.querySelector(".".concat(swalClasses.range, " output"));
     const select = getDirectChildByClass(popup, swalClasses.select);
     /** @type {HTMLInputElement} */
-    const checkbox = popup.querySelector(`.${swalClasses.checkbox} input`);
+    const checkbox = popup.querySelector(".".concat(swalClasses.checkbox, " input"));
     const textarea = getDirectChildByClass(popup, swalClasses.textarea);
     input.oninput = resetValidationMessage$1;
     file.onchange = resetValidationMessage$1;
@@ -832,8 +829,6 @@ return /******/ (function() { // webpackBootstrap
   const init = params => {
     // Clean up the old popup container if it exists
     const oldContainerExisted = resetOldContainer();
-
-    /* istanbul ignore if */
     if (isNodeEnv()) {
       error('SweetAlert2 requires document to initialize');
       return;
@@ -873,7 +868,7 @@ return /******/ (function() { // webpackBootstrap
   };
 
   /**
-   * @param {object} param
+   * @param {any} param
    * @param {HTMLElement} target
    */
   const handleObject = (param, target) => {
@@ -890,7 +885,7 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * @param {HTMLElement} target
-   * @param {HTMLElement} elem
+   * @param {any} elem
    */
   const handleJqueryElem = (target, elem) => {
     target.textContent = '';
@@ -908,21 +903,19 @@ return /******/ (function() { // webpackBootstrap
    */
   const animationEndEvent = (() => {
     // Prevent run in Node env
-    /* istanbul ignore if */
     if (isNodeEnv()) {
       return false;
     }
     const testEl = document.createElement('div');
-    const transEndEventNames = {
-      WebkitAnimation: 'webkitAnimationEnd',
-      // Chrome, Safari and Opera
-      animation: 'animationend' // Standard syntax
-    };
 
-    for (const i in transEndEventNames) {
-      if (Object.prototype.hasOwnProperty.call(transEndEventNames, i) && typeof testEl.style[i] !== 'undefined') {
-        return transEndEventNames[i];
-      }
+    // Chrome, Safari and Opera
+    if (typeof testEl.style.webkitAnimation !== 'undefined') {
+      return 'webkitAnimationEnd';
+    }
+
+    // Standard syntax
+    if (typeof testEl.style.animation !== 'undefined') {
+      return 'animationend';
     }
     return false;
   })();
@@ -934,6 +927,9 @@ return /******/ (function() { // webpackBootstrap
   const renderActions = (instance, params) => {
     const actions = getActions();
     const loader = getLoader();
+    if (!actions || !loader) {
+      return;
+    }
 
     // Actions (buttons) wrapper
     if (!params.showConfirmButton && !params.showDenyButton && !params.showCancelButton) {
@@ -949,7 +945,7 @@ return /******/ (function() { // webpackBootstrap
     renderButtons(actions, loader, params);
 
     // Loader
-    setInnerHtml(loader, params.loaderHtml);
+    setInnerHtml(loader, params.loaderHtml || '');
     applyCustomClass(loader, params, 'loader');
   };
 
@@ -962,6 +958,9 @@ return /******/ (function() { // webpackBootstrap
     const confirmButton = getConfirmButton();
     const denyButton = getDenyButton();
     const cancelButton = getCancelButton();
+    if (!confirmButton || !denyButton || !cancelButton) {
+      return;
+    }
 
     // Render buttons
     renderButton(confirmButton, 'confirm', params);
@@ -1014,14 +1013,14 @@ return /******/ (function() { // webpackBootstrap
    * @param {SweetAlertOptions} params
    */
   function renderButton(button, buttonType, params) {
-    toggle(button, params[`show${capitalizeFirstLetter(buttonType)}Button`], 'inline-block');
-    setInnerHtml(button, params[`${buttonType}ButtonText`]); // Set caption text
-    button.setAttribute('aria-label', params[`${buttonType}ButtonAriaLabel`]); // ARIA label
+    const buttonName = /** @type {'Confirm' | 'Deny' | 'Cancel'} */capitalizeFirstLetter(buttonType);
+    toggle(button, params["show".concat(buttonName, "Button")], 'inline-block');
+    setInnerHtml(button, params["".concat(buttonType, "ButtonText")] || ''); // Set caption text
+    button.setAttribute('aria-label', params["".concat(buttonType, "ButtonAriaLabel")] || ''); // ARIA label
 
     // Add buttons custom classes
     button.className = swalClasses[buttonType];
-    applyCustomClass(button, params, `${buttonType}Button`);
-    addClass(button, params[`${buttonType}ButtonClass`]);
+    applyCustomClass(button, params, "".concat(buttonType, "Button"));
   }
 
   /**
@@ -1075,6 +1074,9 @@ return /******/ (function() { // webpackBootstrap
    * @param {SweetAlertOptions['position']} position
    */
   function handlePositionParam(container, position) {
+    if (!position) {
+      return;
+    }
     if (position in swalClasses) {
       addClass(container, swalClasses[position]);
     } else {
@@ -1088,13 +1090,26 @@ return /******/ (function() { // webpackBootstrap
    * @param {SweetAlertOptions['grow']} grow
    */
   function handleGrowParam(container, grow) {
-    if (grow && typeof grow === 'string') {
-      const growClass = `grow-${grow}`;
-      if (growClass in swalClasses) {
-        addClass(container, swalClasses[growClass]);
-      }
+    if (!grow) {
+      return;
     }
+    addClass(container, swalClasses["grow-".concat(grow)]);
   }
+
+  /**
+   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */
+
+  var privateProps = {
+    innerParams: new WeakMap(),
+    domCache: new WeakMap()
+  };
 
   /// <reference path="../../../../sweetalert2.d.ts"/>
 
@@ -1108,10 +1123,16 @@ return /******/ (function() { // webpackBootstrap
    */
   const renderInput = (instance, params) => {
     const popup = getPopup();
+    if (!popup) {
+      return;
+    }
     const innerParams = privateProps.innerParams.get(instance);
     const rerender = !innerParams || params.input !== innerParams.input;
     inputClasses.forEach(inputClass => {
       const inputContainer = getDirectChildByClass(popup, swalClasses[inputClass]);
+      if (!inputContainer) {
+        return;
+      }
 
       // set attributes
       setAttributes(inputClass, params.inputAttributes);
@@ -1135,8 +1156,11 @@ return /******/ (function() { // webpackBootstrap
    * @param {SweetAlertOptions} params
    */
   const showInput = params => {
+    if (!params.input) {
+      return;
+    }
     if (!renderInputType[params.input]) {
-      error(`Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "${params.input}"`);
+      error("Unexpected type of input! Expected \"text\", \"email\", \"password\", \"number\", \"tel\", \"select\", \"radio\", \"checkbox\", \"textarea\", \"file\" or \"url\", got \"".concat(params.input, "\""));
       return;
     }
     const inputContainer = getInputContainer(params.input);
@@ -1157,7 +1181,7 @@ return /******/ (function() { // webpackBootstrap
   const removeAttributes = input => {
     for (let i = 0; i < input.attributes.length; i++) {
       const attrName = input.attributes[i].name;
-      if (!['type', 'value', 'style'].includes(attrName)) {
+      if (!['id', 'type', 'value', 'style'].includes(attrName)) {
         input.removeAttribute(attrName);
       }
     }
@@ -1205,7 +1229,6 @@ return /******/ (function() { // webpackBootstrap
    */
   const setInputLabel = (input, prependTo, params) => {
     if (params.inputLabel) {
-      input.id = swalClasses.input;
       const label = document.createElement('label');
       const labelClass = swalClasses['input-label'];
       label.setAttribute('for', input.id);
@@ -1232,13 +1255,13 @@ return /******/ (function() { // webpackBootstrap
    */
   const checkAndSetInputValue = (input, inputValue) => {
     if (['string', 'number'].includes(typeof inputValue)) {
-      input.value = `${inputValue}`;
+      input.value = "".concat(inputValue);
     } else if (!isPromise(inputValue)) {
-      warn(`Unexpected type of inputValue! Expected "string", "number" or "Promise", got "${typeof inputValue}"`);
+      warn("Unexpected type of inputValue! Expected \"string\", \"number\" or \"Promise\", got \"".concat(typeof inputValue, "\""));
     }
   };
 
-  /** @type {Record<string, (input: Input | HTMLElement, params: SweetAlertOptions) => Input>} */
+  /** @type {Record<SweetAlertInput, (input: Input | HTMLElement, params: SweetAlertOptions) => Input>} */
   const renderInputType = {};
 
   /**
@@ -1316,7 +1339,6 @@ return /******/ (function() { // webpackBootstrap
   renderInputType.checkbox = (checkboxContainer, params) => {
     const checkbox = getInput$1(getPopup(), 'checkbox');
     checkbox.value = '1';
-    checkbox.id = swalClasses.checkbox;
     checkbox.checked = Boolean(params.inputValue);
     const label = checkboxContainer.querySelector('span');
     setInnerHtml(label, params.inputPlaceholder);
@@ -1345,11 +1367,15 @@ return /******/ (function() { // webpackBootstrap
       if ('MutationObserver' in window) {
         const initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
         const textareaResizeHandler = () => {
+          // check if texarea is still in document (i.e. popup wasn't closed in the meantime)
+          if (!document.body.contains(textarea)) {
+            return;
+          }
           const textareaWidth = textarea.offsetWidth + getMargin(textarea);
           if (textareaWidth > initialPopupWidth) {
-            getPopup().style.width = `${textareaWidth}px`;
+            getPopup().style.width = "".concat(textareaWidth, "px");
           } else {
-            getPopup().style.width = null;
+            applyNumericalStyle(getPopup(), 'width', params.width);
           }
         };
         new MutationObserver(textareaResizeHandler).observe(textarea, {
@@ -1400,7 +1426,7 @@ return /******/ (function() { // webpackBootstrap
     if (!footer) {
       return;
     }
-    toggle(footer, params.footer);
+    toggle(footer, params.footer, 'block');
     if (params.footer) {
       parseHtmlToContainer(params.footer, footer);
     }
@@ -1416,6 +1442,9 @@ return /******/ (function() { // webpackBootstrap
   const renderIcon = (instance, params) => {
     const innerParams = privateProps.innerParams.get(instance);
     const icon = getIcon();
+    if (!icon) {
+      return;
+    }
 
     // if the given icon already rendered, apply the styling without re-rendering the icon
     if (innerParams && params.icon === innerParams.icon) {
@@ -1429,7 +1458,7 @@ return /******/ (function() { // webpackBootstrap
       return;
     }
     if (params.icon && Object.keys(iconTypes).indexOf(params.icon) === -1) {
-      error(`Unknown icon! Expected "success", "error", "warning", "info" or "question", got "${params.icon}"`);
+      error("Unknown icon! Expected \"success\", \"error\", \"warning\", \"info\" or \"question\", got \"".concat(params.icon, "\""));
       hide(icon);
       return;
     }
@@ -1440,7 +1469,7 @@ return /******/ (function() { // webpackBootstrap
     applyStyles(icon, params);
 
     // Animate icon
-    addClass(icon, params.showClass.icon);
+    addClass(icon, params.showClass && params.showClass.icon);
   };
 
   /**
@@ -1448,12 +1477,12 @@ return /******/ (function() { // webpackBootstrap
    * @param {SweetAlertOptions} params
    */
   const applyStyles = (icon, params) => {
-    for (const iconType in iconTypes) {
+    for (const [iconType, iconClassName] of Object.entries(iconTypes)) {
       if (params.icon !== iconType) {
-        removeClass(icon, iconTypes[iconType]);
+        removeClass(icon, iconClassName);
       }
     }
-    addClass(icon, iconTypes[params.icon]);
+    addClass(icon, params.icon && iconTypes[params.icon]);
 
     // Icon color
     setColor(icon, params);
@@ -1468,6 +1497,9 @@ return /******/ (function() { // webpackBootstrap
   // Adjust success icon background color to match the popup background color
   const adjustSuccessIconBackgroundColor = () => {
     const popup = getPopup();
+    if (!popup) {
+      return;
+    }
     const popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
     /** @type {NodeListOf<HTMLElement>} */
     const successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
@@ -1475,26 +1507,19 @@ return /******/ (function() { // webpackBootstrap
       successIconParts[i].style.backgroundColor = popupBackgroundColor;
     }
   };
-  const successIconHtml = `
-  <div class="swal2-success-circular-line-left"></div>
-  <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
-  <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>
-  <div class="swal2-success-circular-line-right"></div>
-`;
-  const errorIconHtml = `
-  <span class="swal2-x-mark">
-    <span class="swal2-x-mark-line-left"></span>
-    <span class="swal2-x-mark-line-right"></span>
-  </span>
-`;
+  const successIconHtml = "\n  <div class=\"swal2-success-circular-line-left\"></div>\n  <span class=\"swal2-success-line-tip\"></span> <span class=\"swal2-success-line-long\"></span>\n  <div class=\"swal2-success-ring\"></div> <div class=\"swal2-success-fix\"></div>\n  <div class=\"swal2-success-circular-line-right\"></div>\n";
+  const errorIconHtml = "\n  <span class=\"swal2-x-mark\">\n    <span class=\"swal2-x-mark-line-left\"></span>\n    <span class=\"swal2-x-mark-line-right\"></span>\n  </span>\n";
 
   /**
    * @param {HTMLElement} icon
    * @param {SweetAlertOptions} params
    */
   const setContent = (icon, params) => {
+    if (!params.icon && !params.iconHtml) {
+      return;
+    }
     let oldContent = icon.innerHTML;
-    let newContent;
+    let newContent = '';
     if (params.iconHtml) {
       newContent = iconContent(params.iconHtml);
     } else if (params.icon === 'success') {
@@ -1502,7 +1527,7 @@ return /******/ (function() { // webpackBootstrap
       oldContent = oldContent.replace(/ style=".*?"/g, ''); // undo adjustSuccessIconBackgroundColor()
     } else if (params.icon === 'error') {
       newContent = errorIconHtml;
-    } else {
+    } else if (params.icon) {
       const defaultIconHtml = {
         question: '?',
         warning: '!',
@@ -1535,7 +1560,7 @@ return /******/ (function() { // webpackBootstrap
    * @param {string} content
    * @returns {string}
    */
-  const iconContent = content => `<div class="${swalClasses['icon-content']}">${content}</div>`;
+  const iconContent = content => "<div class=\"".concat(swalClasses['icon-content'], "\">").concat(content, "</div>");
 
   /**
    * @param {SweetAlert} instance
@@ -1612,7 +1637,7 @@ return /******/ (function() { // webpackBootstrap
   const addClasses$1 = (popup, params) => {
     const showClass = params.showClass || {};
     // Default Class + showClass when updating Swal.update({})
-    popup.className = `${swalClasses.popup} ${isVisible$1(popup) ? showClass.popup : ''}`;
+    popup.className = "".concat(swalClasses.popup, " ").concat(isVisible$1(popup) ? showClass.popup : '');
     if (params.toast) {
       addClass([document.documentElement, document.body], swalClasses['toast-shown']);
       addClass(popup, swalClasses.toast);
@@ -1628,7 +1653,7 @@ return /******/ (function() { // webpackBootstrap
 
     // Icon class (#1842)
     if (params.icon) {
-      addClass(popup, swalClasses[`icon-${params.icon}`]);
+      addClass(popup, swalClasses["icon-".concat(params.icon)]);
     }
   };
 
@@ -1743,17 +1768,26 @@ return /******/ (function() { // webpackBootstrap
   /*
    * Global function to click 'Confirm' button
    */
-  const clickConfirm = () => getConfirmButton() && getConfirmButton().click();
+  const clickConfirm = () => {
+    var _dom$getConfirmButton;
+    return (_dom$getConfirmButton = getConfirmButton()) === null || _dom$getConfirmButton === void 0 ? void 0 : _dom$getConfirmButton.click();
+  };
 
   /*
    * Global function to click 'Deny' button
    */
-  const clickDeny = () => getDenyButton() && getDenyButton().click();
+  const clickDeny = () => {
+    var _dom$getDenyButton;
+    return (_dom$getDenyButton = getDenyButton()) === null || _dom$getDenyButton === void 0 ? void 0 : _dom$getDenyButton.click();
+  };
 
   /*
    * Global function to click 'Cancel' button
    */
-  const clickCancel = () => getCancelButton() && getCancelButton().click();
+  const clickCancel = () => {
+    var _dom$getCancelButton;
+    return (_dom$getCancelButton = getCancelButton()) === null || _dom$getCancelButton === void 0 ? void 0 : _dom$getCancelButton.click();
+  };
 
   /** @typedef {'cancel' | 'backdrop' | 'close' | 'esc' | 'timer'} DismissReason */
 
@@ -1779,15 +1813,14 @@ return /******/ (function() { // webpackBootstrap
   };
 
   /**
-   * @param {SweetAlert} instance
    * @param {GlobalState} globalState
    * @param {SweetAlertOptions} innerParams
    * @param {*} dismissWith
    */
-  const addKeydownHandler = (instance, globalState, innerParams, dismissWith) => {
+  const addKeydownHandler = (globalState, innerParams, dismissWith) => {
     removeKeydownHandler(globalState);
     if (!innerParams.toast) {
-      globalState.keydownHandler = e => keydownHandler(instance, e, dismissWith);
+      globalState.keydownHandler = e => keydownHandler(innerParams, e, dismissWith);
       globalState.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup();
       globalState.keydownListenerCapture = innerParams.keydownListenerCapture;
       globalState.keydownTarget.addEventListener('keydown', globalState.keydownHandler, {
@@ -1802,6 +1835,7 @@ return /******/ (function() { // webpackBootstrap
    * @param {number} increment
    */
   const setFocus = (index, increment) => {
+    var _dom$getPopup;
     const focusableElements = getFocusableElements();
     // search for visible elements and select the next possible match
     if (focusableElements.length) {
@@ -1819,18 +1853,17 @@ return /******/ (function() { // webpackBootstrap
       return;
     }
     // no visible focusable elements, focus the popup
-    getPopup().focus();
+    (_dom$getPopup = getPopup()) === null || _dom$getPopup === void 0 || _dom$getPopup.focus();
   };
   const arrowKeysNextButton = ['ArrowRight', 'ArrowDown'];
   const arrowKeysPreviousButton = ['ArrowLeft', 'ArrowUp'];
 
   /**
-   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} innerParams
    * @param {KeyboardEvent} event
    * @param {Function} dismissWith
    */
-  const keydownHandler = (instance, event, dismissWith) => {
-    const innerParams = privateProps.innerParams.get(instance);
+  const keydownHandler = (innerParams, event, dismissWith) => {
     if (!innerParams) {
       return; // This instance has already been destroyed
     }
@@ -1848,7 +1881,7 @@ return /******/ (function() { // webpackBootstrap
 
     // ENTER
     if (event.key === 'Enter') {
-      handleEnter(instance, event, innerParams);
+      handleEnter(event, innerParams);
     }
 
     // TAB
@@ -1868,16 +1901,16 @@ return /******/ (function() { // webpackBootstrap
   };
 
   /**
-   * @param {SweetAlert} instance
    * @param {KeyboardEvent} event
    * @param {SweetAlertOptions} innerParams
    */
-  const handleEnter = (instance, event, innerParams) => {
+  const handleEnter = (event, innerParams) => {
     // https://github.com/sweetalert2/sweetalert2/issues/2386
     if (!callIfFunction(innerParams.allowEnterKey)) {
       return;
     }
-    if (event.target && instance.getInput() && event.target instanceof HTMLElement && event.target.outerHTML === instance.getInput().outerHTML) {
+    const input = getInput$1(getPopup(), innerParams.input);
+    if (event.target && input && event.target instanceof HTMLElement && event.target.outerHTML === input.outerHTML) {
       if (['textarea', 'file'].includes(innerParams.input)) {
         return; // do not submit
       }
@@ -1918,9 +1951,13 @@ return /******/ (function() { // webpackBootstrap
    * @param {string} key
    */
   const handleArrows = key => {
+    const actions = getActions();
     const confirmButton = getConfirmButton();
     const denyButton = getDenyButton();
     const cancelButton = getCancelButton();
+    if (!actions || !confirmButton || !denyButton || !cancelButton) {
+      return;
+    }
     /** @type HTMLElement[] */
     const buttons = [confirmButton, denyButton, cancelButton];
     if (document.activeElement instanceof HTMLElement && !buttons.includes(document.activeElement)) {
@@ -1928,7 +1965,10 @@ return /******/ (function() { // webpackBootstrap
     }
     const sibling = arrowKeysNextButton.includes(key) ? 'nextElementSibling' : 'previousElementSibling';
     let buttonToFocus = document.activeElement;
-    for (let i = 0; i < getActions().children.length; i++) {
+    if (!buttonToFocus) {
+      return;
+    }
+    for (let i = 0; i < actions.children.length; i++) {
       buttonToFocus = buttonToFocus[sibling];
       if (!buttonToFocus) {
         return;
@@ -1998,36 +2038,19 @@ return /******/ (function() { // webpackBootstrap
     });
   };
 
-  /* istanbul ignore file */
-
-  // Fix iOS scrolling http://stackoverflow.com/q/39626302
-
-  const iOSfix = () => {
-    const iOS =
-    // @ts-ignore
-    /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
-    if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
-      const offset = document.body.scrollTop;
-      document.body.style.top = `${offset * -1}px`;
-      addClass(document.body, swalClasses.iosfix);
-      lockBodyScroll();
-      addBottomPaddingForTallPopups();
-    }
-  };
+  // @ts-ignore
+  const isSafariOrIOS = typeof window !== 'undefined' && !!window.GestureEvent; // true for Safari desktop + all iOS browsers https://stackoverflow.com/a/70585394
 
   /**
-   * https://github.com/sweetalert2/sweetalert2/issues/1948
+   * Fix iOS scrolling
+   * http://stackoverflow.com/q/39626302
    */
-  const addBottomPaddingForTallPopups = () => {
-    const ua = navigator.userAgent;
-    const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-    const webkit = !!ua.match(/WebKit/i);
-    const iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
-    if (iOSSafari) {
-      const bottomPanelHeight = 44;
-      if (getPopup().scrollHeight > window.innerHeight - bottomPanelHeight) {
-        getContainer().style.paddingBottom = `${bottomPanelHeight}px`;
-      }
+  const iOSfix = () => {
+    if (isSafariOrIOS && !hasClass(document.body, swalClasses.iosfix)) {
+      const offset = document.body.scrollTop;
+      document.body.style.top = "".concat(offset * -1, "px");
+      addClass(document.body, swalClasses.iosfix);
+      lockBodyScroll();
     }
   };
 
@@ -2036,6 +2059,10 @@ return /******/ (function() { // webpackBootstrap
    */
   const lockBodyScroll = () => {
     const container = getContainer();
+    if (!container) {
+      return;
+    }
+    /** @type {boolean} */
     let preventTouchMove;
     /**
      * @param {TouchEvent} event
@@ -2061,6 +2088,10 @@ return /******/ (function() { // webpackBootstrap
   const shouldPreventTouchMove = event => {
     const target = event.target;
     const container = getContainer();
+    const htmlContainer = getHtmlContainer();
+    if (!container || !htmlContainer) {
+      return false;
+    }
     if (isStylus(event) || isZoom(event)) {
       return false;
     }
@@ -2071,9 +2102,9 @@ return /******/ (function() { // webpackBootstrap
     // #1603
     target.tagName !== 'TEXTAREA' &&
     // #2266
-    !(isScrollable(getHtmlContainer()) &&
+    !(isScrollable(htmlContainer) &&
     // #1944
-    getHtmlContainer().contains(target))) {
+    htmlContainer.contains(target))) {
       return true;
     }
     return false;
@@ -2127,21 +2158,26 @@ return /******/ (function() { // webpackBootstrap
    * @type {number | null}
    */
   let previousBodyPadding = null;
-  const fixScrollbar = () => {
+
+  /**
+   * @param {string} initialBodyOverflow
+   */
+  const replaceScrollbarWithPadding = initialBodyOverflow => {
     // for queues, do not do this more than once
     if (previousBodyPadding !== null) {
       return;
     }
     // if the body has overflow
-    if (document.body.scrollHeight > window.innerHeight) {
+    if (document.body.scrollHeight > window.innerHeight || initialBodyOverflow === 'scroll' // https://github.com/sweetalert2/sweetalert2/issues/2663
+    ) {
       // add padding so the content doesn't shift after removal of scrollbar
       previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
-      document.body.style.paddingRight = `${previousBodyPadding + measureScrollbar()}px`;
+      document.body.style.paddingRight = "".concat(previousBodyPadding + measureScrollbar(), "px");
     }
   };
-  const undoScrollbar = () => {
+  const undoReplaceScrollbarWithPadding = () => {
     if (previousBodyPadding !== null) {
-      document.body.style.paddingRight = `${previousBodyPadding}px`;
+      document.body.style.paddingRight = "".concat(previousBodyPadding, "px");
       previousBodyPadding = null;
     }
   };
@@ -2159,10 +2195,10 @@ return /******/ (function() { // webpackBootstrap
       restoreActiveElement(returnFocus).then(() => triggerDidCloseAndDispose(instance, didClose));
       removeKeydownHandler(globalState);
     }
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    // workaround for #2088
+
+    // workaround for https://github.com/sweetalert2/sweetalert2/issues/2088
     // for some reason removing the container in Safari will scroll the document to bottom
-    if (isSafari) {
+    if (isSafariOrIOS) {
       container.setAttribute('style', 'display:none !important');
       container.removeAttribute('class');
       container.innerHTML = '';
@@ -2170,7 +2206,7 @@ return /******/ (function() { // webpackBootstrap
       container.remove();
     }
     if (isModal()) {
-      undoScrollbar();
+      undoReplaceScrollbarWithPadding();
       undoIOSfix();
       unsetAriaHidden();
     }
@@ -2295,6 +2331,9 @@ return /******/ (function() { // webpackBootstrap
    * @param {Function} didClose
    */
   const animatePopup = (instance, popup, container, returnFocus, didClose) => {
+    if (!animationEndEvent) {
+      return;
+    }
     globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, returnFocus, didClose);
     popup.addEventListener(animationEndEvent, function (e) {
       if (e.target === popup) {
@@ -2324,7 +2363,7 @@ return /******/ (function() { // webpackBootstrap
    * Shows loader (spinner), this is useful with AJAX requests.
    * By default the loader be shown instead of the "Confirm" button.
    *
-   * @param {HTMLButtonElement} [buttonToReplace]
+   * @param {HTMLButtonElement | null} [buttonToReplace]
    */
   const showLoading = buttonToReplace => {
     let popup = getPopup();
@@ -2333,6 +2372,9 @@ return /******/ (function() { // webpackBootstrap
     }
 
     popup = getPopup();
+    if (!popup) {
+      return;
+    }
     const loader = getLoader();
     if (isToast()) {
       hide(getIcon());
@@ -2347,11 +2389,14 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * @param {HTMLElement} popup
-   * @param {HTMLButtonElement} [buttonToReplace]
+   * @param {HTMLButtonElement | null} [buttonToReplace]
    */
   const replaceButton = (popup, buttonToReplace) => {
     const actions = getActions();
     const loader = getLoader();
+    if (!actions || !loader) {
+      return;
+    }
     if (!buttonToReplace && isVisible$1(getConfirmButton())) {
       buttonToReplace = getConfirmButton();
     }
@@ -2359,14 +2404,10 @@ return /******/ (function() { // webpackBootstrap
     if (buttonToReplace) {
       hide(buttonToReplace);
       loader.setAttribute('data-button-to-replace', buttonToReplace.className);
+      actions.insertBefore(loader, buttonToReplace);
     }
-    loader.parentNode.insertBefore(loader, buttonToReplace);
     addClass([popup, actions], swalClasses.loading);
   };
-
-  /**
-   * @typedef { string | number | boolean } InputValue
-   */
 
   /**
    * @param {SweetAlert} instance
@@ -2375,7 +2416,7 @@ return /******/ (function() { // webpackBootstrap
   const handleInputOptionsAndValue = (instance, params) => {
     if (params.input === 'select' || params.input === 'radio') {
       handleInputOptions(instance, params);
-    } else if (['text', 'email', 'number', 'tel', 'textarea'].includes(params.input) && (hasToPromiseFn(params.inputValue) || isPromise(params.inputValue))) {
+    } else if (['text', 'email', 'number', 'tel', 'textarea'].some(i => i === params.input) && (hasToPromiseFn(params.inputValue) || isPromise(params.inputValue))) {
       showLoading(getConfirmButton());
       handleInputValue(instance, params);
     }
@@ -2384,7 +2425,7 @@ return /******/ (function() { // webpackBootstrap
   /**
    * @param {SweetAlert} instance
    * @param {SweetAlertOptions} innerParams
-   * @returns {string | number | File | FileList | null}
+   * @returns {SweetAlertInputValue}
    */
   const getInputValue = (instance, innerParams) => {
     const input = instance.getInput();
@@ -2419,7 +2460,7 @@ return /******/ (function() { // webpackBootstrap
    * @param {HTMLInputElement} input
    * @returns {FileList | File | null}
    */
-  const getFileValue = input => input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
+  const getFileValue = input => input.files && input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
 
   /**
    * @param {SweetAlert} instance
@@ -2427,11 +2468,18 @@ return /******/ (function() { // webpackBootstrap
    */
   const handleInputOptions = (instance, params) => {
     const popup = getPopup();
+    if (!popup) {
+      return;
+    }
     /**
      * @param {Record<string, any>} inputOptions
      */
     const processInputOptions = inputOptions => {
-      populateInputOptions[params.input](popup, formatInputOptions(inputOptions), params);
+      if (params.input === 'select') {
+        populateSelectOptions(popup, formatInputOptions(inputOptions), params);
+      } else if (params.input === 'radio') {
+        populateRadioOptions(popup, formatInputOptions(inputOptions), params);
+      }
     };
     if (hasToPromiseFn(params.inputOptions) || isPromise(params.inputOptions)) {
       showLoading(getConfirmButton());
@@ -2442,7 +2490,7 @@ return /******/ (function() { // webpackBootstrap
     } else if (typeof params.inputOptions === 'object') {
       processInputOptions(params.inputOptions);
     } else {
-      error(`Unexpected type of inputOptions! Expected object, Map or Promise, got ${typeof params.inputOptions}`);
+      error("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(typeof params.inputOptions));
     }
   };
 
@@ -2452,102 +2500,113 @@ return /******/ (function() { // webpackBootstrap
    */
   const handleInputValue = (instance, params) => {
     const input = instance.getInput();
+    if (!input) {
+      return;
+    }
     hide(input);
     asPromise(params.inputValue).then(inputValue => {
-      input.value = params.input === 'number' ? `${parseFloat(inputValue) || 0}` : `${inputValue}`;
+      input.value = params.input === 'number' ? "".concat(parseFloat(inputValue) || 0) : "".concat(inputValue);
       show(input);
       input.focus();
       instance.hideLoading();
     }).catch(err => {
-      error(`Error in inputValue promise: ${err}`);
+      error("Error in inputValue promise: ".concat(err));
       input.value = '';
       show(input);
       input.focus();
       instance.hideLoading();
     });
   };
-  const populateInputOptions = {
-    /**
-     * @param {HTMLElement} popup
-     * @param {Record<string, any>} inputOptions
-     * @param {SweetAlertOptions} params
-     */
-    select: (popup, inputOptions, params) => {
-      const select = getDirectChildByClass(popup, swalClasses.select);
-      /**
-       * @param {HTMLElement} parent
-       * @param {string} optionLabel
-       * @param {string} optionValue
-       */
-      const renderOption = (parent, optionLabel, optionValue) => {
-        const option = document.createElement('option');
-        option.value = optionValue;
-        setInnerHtml(option, optionLabel);
-        option.selected = isSelected(optionValue, params.inputValue);
-        parent.appendChild(option);
-      };
-      inputOptions.forEach(inputOption => {
-        const optionValue = inputOption[0];
-        const optionLabel = inputOption[1];
-        // <optgroup> spec:
-        // https://www.w3.org/TR/html401/interact/forms.html#h-17.6
-        // "...all OPTGROUP elements must be specified directly within a SELECT element (i.e., groups may not be nested)..."
-        // check whether this is a <optgroup>
-        if (Array.isArray(optionLabel)) {
-          // if it is an array, then it is an <optgroup>
-          const optgroup = document.createElement('optgroup');
-          optgroup.label = optionValue;
-          optgroup.disabled = false; // not configurable for now
-          select.appendChild(optgroup);
-          optionLabel.forEach(o => renderOption(optgroup, o[1], o[0]));
-        } else {
-          // case of <option>
-          renderOption(select, optionLabel, optionValue);
-        }
-      });
-      select.focus();
-    },
-    /**
-     * @param {HTMLElement} popup
-     * @param {Record<string, any>} inputOptions
-     * @param {SweetAlertOptions} params
-     */
-    radio: (popup, inputOptions, params) => {
-      const radio = getDirectChildByClass(popup, swalClasses.radio);
-      inputOptions.forEach(inputOption => {
-        const radioValue = inputOption[0];
-        const radioLabel = inputOption[1];
-        const radioInput = document.createElement('input');
-        const radioLabelElement = document.createElement('label');
-        radioInput.type = 'radio';
-        radioInput.name = swalClasses.radio;
-        radioInput.value = radioValue;
-        if (isSelected(radioValue, params.inputValue)) {
-          radioInput.checked = true;
-        }
-        const label = document.createElement('span');
-        setInnerHtml(label, radioLabel);
-        label.className = swalClasses.label;
-        radioLabelElement.appendChild(radioInput);
-        radioLabelElement.appendChild(label);
-        radio.appendChild(radioLabelElement);
-      });
-      const radios = radio.querySelectorAll('input');
-      if (radios.length) {
-        radios[0].focus();
-      }
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {InputOptionFlattened[]} inputOptions
+   * @param {SweetAlertOptions} params
+   */
+  function populateSelectOptions(popup, inputOptions, params) {
+    const select = getDirectChildByClass(popup, swalClasses.select);
+    if (!select) {
+      return;
     }
-  };
+    /**
+     * @param {HTMLElement} parent
+     * @param {string} optionLabel
+     * @param {string} optionValue
+     */
+    const renderOption = (parent, optionLabel, optionValue) => {
+      const option = document.createElement('option');
+      option.value = optionValue;
+      setInnerHtml(option, optionLabel);
+      option.selected = isSelected(optionValue, params.inputValue);
+      parent.appendChild(option);
+    };
+    inputOptions.forEach(inputOption => {
+      const optionValue = inputOption[0];
+      const optionLabel = inputOption[1];
+      // <optgroup> spec:
+      // https://www.w3.org/TR/html401/interact/forms.html#h-17.6
+      // "...all OPTGROUP elements must be specified directly within a SELECT element (i.e., groups may not be nested)..."
+      // check whether this is a <optgroup>
+      if (Array.isArray(optionLabel)) {
+        // if it is an array, then it is an <optgroup>
+        const optgroup = document.createElement('optgroup');
+        optgroup.label = optionValue;
+        optgroup.disabled = false; // not configurable for now
+        select.appendChild(optgroup);
+        optionLabel.forEach(o => renderOption(optgroup, o[1], o[0]));
+      } else {
+        // case of <option>
+        renderOption(select, optionLabel, optionValue);
+      }
+    });
+    select.focus();
+  }
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {InputOptionFlattened[]} inputOptions
+   * @param {SweetAlertOptions} params
+   */
+  function populateRadioOptions(popup, inputOptions, params) {
+    const radio = getDirectChildByClass(popup, swalClasses.radio);
+    if (!radio) {
+      return;
+    }
+    inputOptions.forEach(inputOption => {
+      const radioValue = inputOption[0];
+      const radioLabel = inputOption[1];
+      const radioInput = document.createElement('input');
+      const radioLabelElement = document.createElement('label');
+      radioInput.type = 'radio';
+      radioInput.name = swalClasses.radio;
+      radioInput.value = radioValue;
+      if (isSelected(radioValue, params.inputValue)) {
+        radioInput.checked = true;
+      }
+      const label = document.createElement('span');
+      setInnerHtml(label, radioLabel);
+      label.className = swalClasses.label;
+      radioLabelElement.appendChild(radioInput);
+      radioLabelElement.appendChild(label);
+      radio.appendChild(radioLabelElement);
+    });
+    const radios = radio.querySelectorAll('input');
+    if (radios.length) {
+      radios[0].focus();
+    }
+  }
 
   /**
    * Converts `inputOptions` into an array of `[value, label]`s
    *
    * @param {Record<string, any>} inputOptions
-   * @returns {Array<Array<string>>}
+   * @typedef {string[]} InputOptionFlattened
+   * @returns {InputOptionFlattened[]}
    */
   const formatInputOptions = inputOptions => {
+    /** @type {InputOptionFlattened[]} */
     const result = [];
-    if (typeof Map !== 'undefined' && inputOptions instanceof Map) {
+    if (inputOptions instanceof Map) {
       inputOptions.forEach((value, key) => {
         let valueFormatted = value;
         if (typeof valueFormatted === 'object') {
@@ -2571,11 +2630,11 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * @param {string} optionValue
-   * @param {InputValue | Promise<InputValue> | { toPromise: () => InputValue }} inputValue
+   * @param {SweetAlertInputValue} inputValue
    * @returns {boolean}
    */
   const isSelected = (optionValue, inputValue) => {
-    return inputValue && inputValue.toString() === optionValue.toString();
+    return !!inputValue && inputValue.toString() === optionValue.toString();
   };
 
   /**
@@ -2620,13 +2679,14 @@ return /******/ (function() { // webpackBootstrap
   const handleConfirmOrDenyWithInput = (instance, type) => {
     const innerParams = privateProps.innerParams.get(instance);
     if (!innerParams.input) {
-      error(`The "input" parameter is needed to be set when using returnInputValueOn${capitalizeFirstLetter(type)}`);
+      error("The \"input\" parameter is needed to be set when using returnInputValueOn".concat(capitalizeFirstLetter(type)));
       return;
     }
+    const input = instance.getInput();
     const inputValue = getInputValue(instance, innerParams);
     if (innerParams.inputValidator) {
       handleInputValidator(instance, inputValue, type);
-    } else if (!instance.getInput().checkValidity()) {
+    } else if (input && !input.checkValidity()) {
       instance.enableButtons();
       instance.showValidationMessage(innerParams.validationMessage);
     } else if (type === 'deny') {
@@ -2638,7 +2698,7 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * @param {SweetAlert} instance
-   * @param {string | number | File | FileList | null} inputValue
+   * @param {SweetAlertInputValue} inputValue
    * @param {'confirm' | 'deny'} type
    */
   const handleInputValidator = (instance, inputValue, type) => {
@@ -2797,16 +2857,17 @@ return /******/ (function() { // webpackBootstrap
   }
 
   /**
-   * @param {HTMLInputElement} input
+   * @param {HTMLInputElement | null} input
    * @param {boolean} disabled
    */
   function setInputDisabled(input, disabled) {
-    if (!input) {
+    const popup = getPopup();
+    if (!popup || !input) {
       return;
     }
     if (input.type === 'radio') {
-      const radiosContainer = input.parentNode.parentNode;
-      const radios = radiosContainer.querySelectorAll('input');
+      /** @type {NodeListOf<HTMLInputElement>} */
+      const radios = popup.querySelectorAll("[name=\"".concat(swalClasses.radio, "\"]"));
       for (let i = 0; i < radios.length; i++) {
         radios[i].disabled = disabled;
       }
@@ -2817,6 +2878,7 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * Enable all the buttons
+   * @this {SweetAlert}
    */
   function enableButtons() {
     setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], false);
@@ -2824,6 +2886,7 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * Disable all the buttons
+   * @this {SweetAlert}
    */
   function disableButtons() {
     setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], true);
@@ -2831,6 +2894,7 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * Enable the input field
+   * @this {SweetAlert}
    */
   function enableInput() {
     setInputDisabled(this.getInput(), false);
@@ -2838,6 +2902,7 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * Disable the input field
+   * @this {SweetAlert}
    */
   function disableInput() {
     setInputDisabled(this.getInput(), true);
@@ -2847,6 +2912,7 @@ return /******/ (function() { // webpackBootstrap
    * Show block with validation message
    *
    * @param {string} error
+   * @this {SweetAlert}
    */
   function showValidationMessage(error) {
     const domCache = privateProps.domCache.get(this);
@@ -2859,7 +2925,7 @@ return /******/ (function() { // webpackBootstrap
     show(domCache.validationMessage);
     const input = this.getInput();
     if (input) {
-      input.setAttribute('aria-invalid', true);
+      input.setAttribute('aria-invalid', 'true');
       input.setAttribute('aria-describedby', swalClasses['validation-message']);
       focusInput(input);
       addClass(input, swalClasses.inputerror);
@@ -2868,6 +2934,8 @@ return /******/ (function() { // webpackBootstrap
 
   /**
    * Hide block with validation message
+   *
+   * @this {SweetAlert}
    */
   function resetValidationMessage() {
     const domCache = privateProps.domCache.get(this);
@@ -3013,7 +3081,7 @@ return /******/ (function() { // webpackBootstrap
    */
   const checkIfParamIsValid = param => {
     if (!isValidParameter(param)) {
-      warn(`Unknown parameter "${param}"`);
+      warn("Unknown parameter \"".concat(param, "\""));
     }
   };
 
@@ -3022,7 +3090,7 @@ return /******/ (function() { // webpackBootstrap
    */
   const checkIfToastParamIsValid = param => {
     if (toastIncompatibleParams.includes(param)) {
-      warn(`The parameter "${param}" is incompatible with toasts`);
+      warn("The parameter \"".concat(param, "\" is incompatible with toasts"));
     }
   };
 
@@ -3063,7 +3131,7 @@ return /******/ (function() { // webpackBootstrap
     const popup = getPopup();
     const innerParams = privateProps.innerParams.get(this);
     if (!popup || hasClass(popup, innerParams.hideClass.popup)) {
-      warn(`You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.`);
+      warn("You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.");
       return;
     }
     const validUpdatableParams = filterValidParams(params);
@@ -3089,7 +3157,7 @@ return /******/ (function() { // webpackBootstrap
       if (isUpdatableParameter(param)) {
         validUpdatableParams[param] = params[param];
       } else {
-        warn(`Invalid parameter to update: ${param}`);
+        warn("Invalid parameter to update: ".concat(param));
       }
     });
     return validUpdatableParams;
@@ -3194,10 +3262,14 @@ return /******/ (function() { // webpackBootstrap
     update: update
   });
 
-  const handlePopupClick = (instance, domCache, dismissWith) => {
-    const innerParams = privateProps.innerParams.get(instance);
+  /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {DomCache} domCache
+   * @param {Function} dismissWith
+   */
+  const handlePopupClick = (innerParams, domCache, dismissWith) => {
     if (innerParams.toast) {
-      handleToastClick(instance, domCache, dismissWith);
+      handleToastClick(innerParams, domCache, dismissWith);
     } else {
       // Ignore click events that had mousedown on the popup but mouseup on the container
       // This can happen when the user drags a slider
@@ -3205,13 +3277,18 @@ return /******/ (function() { // webpackBootstrap
 
       // Ignore click events that had mousedown on the container but mouseup on the popup
       handleContainerMousedown(domCache);
-      handleModalClick(instance, domCache, dismissWith);
+      handleModalClick(innerParams, domCache, dismissWith);
     }
   };
-  const handleToastClick = (instance, domCache, dismissWith) => {
+
+  /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {DomCache} domCache
+   * @param {Function} dismissWith
+   */
+  const handleToastClick = (innerParams, domCache, dismissWith) => {
     // Closing toast by internal click
     domCache.popup.onclick = () => {
-      const innerParams = privateProps.innerParams.get(instance);
       if (innerParams && (isAnyButtonShown(innerParams) || innerParams.timer || innerParams.input)) {
         return;
       }
@@ -3220,13 +3297,17 @@ return /******/ (function() { // webpackBootstrap
   };
 
   /**
-   * @param {*} innerParams
+   * @param {SweetAlertOptions} innerParams
    * @returns {boolean}
    */
   const isAnyButtonShown = innerParams => {
     return innerParams.showConfirmButton || innerParams.showDenyButton || innerParams.showCancelButton || innerParams.showCloseButton;
   };
   let ignoreOutsideClick = false;
+
+  /**
+   * @param {DomCache} domCache
+   */
   const handleModalMousedown = domCache => {
     domCache.popup.onmousedown = () => {
       domCache.container.onmouseup = function (e) {
@@ -3239,20 +3320,29 @@ return /******/ (function() { // webpackBootstrap
       };
     };
   };
+
+  /**
+   * @param {DomCache} domCache
+   */
   const handleContainerMousedown = domCache => {
     domCache.container.onmousedown = () => {
       domCache.popup.onmouseup = function (e) {
         domCache.popup.onmouseup = undefined;
         // We also need to check if the mouseup target is a child of the popup
-        if (e.target === domCache.popup || domCache.popup.contains(e.target)) {
+        if (e.target === domCache.popup || e.target instanceof HTMLElement && domCache.popup.contains(e.target)) {
           ignoreOutsideClick = true;
         }
       };
     };
   };
-  const handleModalClick = (instance, domCache, dismissWith) => {
+
+  /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {DomCache} domCache
+   * @param {Function} dismissWith
+   */
+  const handleModalClick = (innerParams, domCache, dismissWith) => {
     domCache.container.onclick = e => {
-      const innerParams = privateProps.innerParams.get(instance);
       if (ignoreOutsideClick) {
         ignoreOutsideClick = false;
         return;
@@ -3275,7 +3365,7 @@ return /******/ (function() { // webpackBootstrap
         if (typeof arg === 'string' || isElement(arg)) {
           params[name] = arg;
         } else if (arg !== undefined) {
-          error(`Unexpected type of ${name}! Expected "string" or "Element", got ${typeof arg}`);
+          error("Unexpected type of ".concat(name, "! Expected \"string\" or \"Element\", got ").concat(typeof arg));
         }
       });
     }
@@ -3377,12 +3467,12 @@ return /******/ (function() { // webpackBootstrap
    * Increase timer. Returns number of milliseconds of an updated timer.
    * If `timer` parameter isn't set, returns undefined.
    *
-   * @param {number} n
+   * @param {number} ms
    * @returns {number | undefined}
    */
-  const increaseTimer = n => {
+  const increaseTimer = ms => {
     if (globalState.timeout) {
-      const remaining = globalState.timeout.increase(n);
+      const remaining = globalState.timeout.increase(ms);
       animateTimerProgressBar(remaining, true);
       return remaining;
     }
@@ -3594,7 +3684,7 @@ return /******/ (function() { // webpackBootstrap
     swalFunctions.forEach(param => {
       const paramName = param.getAttribute('name');
       const value = param.getAttribute('value');
-      result[paramName] = new Function(`return ${value}`)();
+      result[paramName] = new Function("return ".concat(value))();
     });
     return result;
   };
@@ -3610,13 +3700,13 @@ return /******/ (function() { // webpackBootstrap
     swalButtons.forEach(button => {
       showWarningsForAttributes(button, ['type', 'color', 'aria-label']);
       const type = button.getAttribute('type');
-      result[`${type}ButtonText`] = button.innerHTML;
-      result[`show${capitalizeFirstLetter(type)}Button`] = true;
+      result["".concat(type, "ButtonText")] = button.innerHTML;
+      result["show".concat(capitalizeFirstLetter(type), "Button")] = true;
       if (button.hasAttribute('color')) {
-        result[`${type}ButtonColor`] = button.getAttribute('color');
+        result["".concat(type, "ButtonColor")] = button.getAttribute('color');
       }
       if (button.hasAttribute('aria-label')) {
-        result[`${type}ButtonAriaLabel`] = button.getAttribute('aria-label');
+        result["".concat(type, "ButtonAriaLabel")] = button.getAttribute('aria-label');
       }
     });
     return result;
@@ -3735,7 +3825,7 @@ return /******/ (function() { // webpackBootstrap
     Array.from(templateContent.children).forEach(el => {
       const tagName = el.tagName.toLowerCase();
       if (!allowedElements.includes(tagName)) {
-        warn(`Unrecognized element <${tagName}>`);
+        warn("Unrecognized element <".concat(tagName, ">"));
       }
     });
   };
@@ -3747,7 +3837,7 @@ return /******/ (function() { // webpackBootstrap
   const showWarningsForAttributes = (el, allowedAttributes) => {
     Array.from(el.attributes).forEach(attribute => {
       if (allowedAttributes.indexOf(attribute.name) === -1) {
-        warn([`Unrecognized attribute "${attribute.name}" on <${el.tagName.toLowerCase()}>.`, `${allowedAttributes.length ? `Allowed attributes are: ${allowedAttributes.join(', ')}` : 'To set the value, use HTML within the element.'}`]);
+        warn(["Unrecognized attribute \"".concat(attribute.name, "\" on <").concat(el.tagName.toLowerCase(), ">."), "".concat(allowedAttributes.length ? "Allowed attributes are: ".concat(allowedAttributes.join(', ')) : 'To set the value, use HTML within the element.')]);
       }
     });
   };
@@ -3791,7 +3881,7 @@ return /******/ (function() { // webpackBootstrap
    */
   const swalOpenAnimationFinished = event => {
     const popup = getPopup();
-    if (event.target !== popup) {
+    if (event.target !== popup || !animationEndEvent) {
       return;
     }
     const container = getContainer();
@@ -3820,7 +3910,7 @@ return /******/ (function() { // webpackBootstrap
   const fixScrollContainer = (container, scrollbarPadding, initialBodyOverflow) => {
     iOSfix();
     if (scrollbarPadding && initialBodyOverflow !== 'hidden') {
-      fixScrollbar();
+      replaceScrollbarWithPadding(initialBodyOverflow);
     }
 
     // sweetalert2/issues/1247
@@ -3855,16 +3945,16 @@ return /******/ (function() { // webpackBootstrap
   var defaultInputValidators = {
     /**
      * @param {string} string
-     * @param {string} validationMessage
-     * @returns {Promise<void | string>}
+     * @param {string} [validationMessage]
+     * @returns {Promise<string | void>}
      */
     email: (string, validationMessage) => {
       return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
     },
     /**
      * @param {string} string
-     * @param {string} validationMessage
-     * @returns {Promise<void | string>}
+     * @param {string} [validationMessage]
+     * @returns {Promise<string | void>}
      */
     url: (string, validationMessage) => {
       // taken from https://stackoverflow.com/a/3809435 with a small change from #1306 and #2013
@@ -3877,12 +3967,14 @@ return /******/ (function() { // webpackBootstrap
    */
   function setDefaultInputValidators(params) {
     // Use default `inputValidator` for supported input types if not provided
-    if (!params.inputValidator) {
-      Object.keys(defaultInputValidators).forEach(key => {
-        if (params.input === key) {
-          params.inputValidator = defaultInputValidators[key];
-        }
-      });
+    if (params.inputValidator) {
+      return;
+    }
+    if (params.input === 'email') {
+      params.inputValidator = defaultInputValidators['email'];
+    }
+    if (params.input === 'url') {
+      params.inputValidator = defaultInputValidators['url'];
     }
   }
 
@@ -3920,12 +4012,20 @@ return /******/ (function() { // webpackBootstrap
 
   /** @type {SweetAlert} */
   let currentInstance;
+  var _promise = /*#__PURE__*/new WeakMap();
   class SweetAlert {
     /**
      * @param {...any} args
      * @this {SweetAlert}
      */
     constructor() {
+      /**
+       * @type {Promise<SweetAlertResult>}
+       */
+      _classPrivateFieldInitSpec(this, _promise, {
+        writable: true,
+        value: void 0
+      });
       // Prevent run in Node env
       if (typeof window === 'undefined') {
         return;
@@ -3943,8 +4043,7 @@ return /******/ (function() { // webpackBootstrap
 
       /** @type {boolean} */
       this.isAwaitingPromise = false;
-      const promise = currentInstance._main(currentInstance.params);
-      privateProps.promise.set(this, promise);
+      _classPrivateFieldSet(this, _promise, this._main(currentInstance.params));
     }
     _main(userParams) {
       let mixinParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -3976,12 +4075,10 @@ return /******/ (function() { // webpackBootstrap
 
     // `catch` cannot be the name of a module export, so we define our thenable methods here instead
     then(onFulfilled) {
-      const promise = privateProps.promise.get(this);
-      return promise.then(onFulfilled);
+      return _classPrivateFieldGet(this, _promise).then(onFulfilled);
     }
     finally(onFinally) {
-      const promise = privateProps.promise.get(this);
-      return promise.finally(onFinally);
+      return _classPrivateFieldGet(this, _promise).finally(onFinally);
     }
   }
 
@@ -4017,8 +4114,8 @@ return /******/ (function() { // webpackBootstrap
       domCache.closeButton.onclick = () => {
         dismissWith(DismissReason.close);
       };
-      handlePopupClick(instance, domCache, dismissWith);
-      addKeydownHandler(instance, globalState, innerParams, dismissWith);
+      handlePopupClick(innerParams, domCache, dismissWith);
+      addKeydownHandler(globalState, innerParams, dismissWith);
       handleInputOptionsAndValue(instance, innerParams);
       openPopup(innerParams);
       setupTimer(globalState, innerParams, dismissWith);
@@ -4139,7 +4236,7 @@ return /******/ (function() { // webpackBootstrap
     const now = new Date();
     const initiationDate = localStorage.getItem('swal-initiation');
     if (!initiationDate) {
-      localStorage.setItem('swal-initiation', `${now}`);
+      localStorage.setItem('swal-initiation', "".concat(now));
     } else if ((now.getTime() - Date.parse(initiationDate)) / (1000 * 60 * 60 * 24) > 3) {
       setTimeout(() => {
         document.body.style.pointerEvents = 'none';
@@ -4191,7 +4288,7 @@ return /******/ (function() { // webpackBootstrap
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '11.7.12';
+  SweetAlert.version = '11.7.31';
 
   const Swal = SweetAlert;
   // @ts-ignore

@@ -65,7 +65,260 @@ document.addEventListener('DOMContentLoaded', function (e) {
             }
         };
 
-    } else {
+    } else if(lang == 'de'){
+        var message = {
+            username: {
+                notEmpty: 'Bitte geben Sie einen Benutzernamen ein',
+                stringLength: 'Benutzername muss mehr als 6 Zeichen lang sein'
+            },
+            email: {
+                notEmpty: 'Bitte geben Sie Ihren Benutzernamen oder Ihre E-Mail-Adresse ein',
+                stringLength: 'Benutzername oder E-Mail-Adresse muss mehr als 6 Zeichen lang sein'
+            },
+            emailUsername: {
+                notEmpty: 'Bitte geben Sie E-Mail oder Benutzernamen ein',
+                stringLength: 'Benutzername muss mehr als 6 Zeichen lang sein'
+            },
+            password: {
+                notEmpty: 'Bitte geben Sie Ihr Passwort ein',
+                stringLength: 'Passwort muss mehr als 6 Zeichen lang sein'
+            },
+            confirmPassword: {
+                notEmpty: 'Bitte bestätigen Sie das Passwort',
+                identical: 'Das Passwort und seine Bestätigung stimmen nicht überein',
+                stringLength: 'Passwort muss mehr als 6 Zeichen lang sein'
+            },
+            terms: {
+                notEmpty: 'Bitte stimmen Sie den Nutzungsbedingungen zu'
+            }
+        };
+
+
+    } else if(lang == 'ar'){
+        var message = {
+            username: {
+                notEmpty: 'الرجاء إدخال اسم المستخدم',
+                stringLength: 'يجب أن يكون اسم المستخدم أكثر من 6 أحرف'
+            },
+            email: {
+                notEmpty: 'الرجاء إدخال اسم المستخدم أو البريد الإلكتروني',
+                stringLength: 'يجب أن يكون اسم المستخدم أو البريد الإلكتروني أكثر من 6 أحرف'
+            },
+            emailUsername: {
+                notEmpty: 'الرجاء إدخال البريد الإلكتروني / اسم المستخدم',
+                stringLength: 'يجب أن يكون اسم المستخدم أكثر من 6 أحرف'
+            },
+            password: {
+                notEmpty: 'الرجاء إدخال كلمة المرور الخاصة بك',
+                stringLength: 'يجب أن تكون كلمة المرور أكثر من 6 أحرف'
+            },
+            confirmPassword: {
+                notEmpty: 'الرجاء تأكيد كلمة المرور',
+                identical: 'كلمة المرور وتأكيدها غير متطابقين',
+                stringLength: 'يجب أن تكون كلمة المرور أكثر من 6 أحرف'
+            },
+            terms: {
+                notEmpty: 'الرجاء الموافقة على الشروط والأحكام'
+            }
+        };
+
+    } else if(lang == 'es'){
+        var message = {
+            username: {
+                notEmpty: 'Por favor, ingrese un nombre de usuario',
+                stringLength: 'El nombre de usuario debe tener más de 6 caracteres'
+            },
+            email: {
+                notEmpty: 'Por favor, ingrese su nombre de usuario o correo electrónico',
+                stringLength: 'El nombre de usuario o correo electrónico debe tener más de 6 caracteres'
+            },
+            emailUsername: {
+                notEmpty: 'Por favor, ingrese correo electrónico / nombre de usuario',
+                stringLength: 'El nombre de usuario debe tener más de 6 caracteres'
+            },
+            password: {
+                notEmpty: 'Por favor, ingrese su contraseña',
+                stringLength: 'La contraseña debe tener más de 6 caracteres'
+            },
+            confirmPassword: {
+                notEmpty: 'Por favor, confirme la contraseña',
+                identical: 'La contraseña y su confirmación no son iguales',
+                stringLength: 'La contraseña debe tener más de 6 caracteres'
+            },
+            terms: {
+                notEmpty: 'Por favor, acepte los términos y condiciones'
+            }
+        };
+
+} else if(lang == 'fr'){
+    var message = {
+        username: {
+            notEmpty: 'Veuillez entrer un nom d\'utilisateur',
+            stringLength: 'Le nom d\'utilisateur doit comporter plus de 6 caractères'
+        },
+        email: {
+            notEmpty: 'Veuillez entrer votre nom d\'utilisateur ou votre adresse e-mail',
+            stringLength: 'Le nom d\'utilisateur ou l\'adresse e-mail doit comporter plus de 6 caractères'
+        },
+        emailUsername: {
+            notEmpty: 'Veuillez entrer un e-mail / nom d\'utilisateur',
+            stringLength: 'Le nom d\'utilisateur doit comporter plus de 6 caractères'
+        },
+        password: {
+            notEmpty: 'Veuillez entrer votre mot de passe',
+            stringLength: 'Le mot de passe doit comporter plus de 6 caractères'
+        },
+        confirmPassword: {
+            notEmpty: 'Veuillez confirmer le mot de passe',
+            identical: 'Le mot de passe et sa confirmation ne sont pas identiques',
+            stringLength: 'Le mot de passe doit comporter plus de 6 caractères'
+        },
+        terms: {
+            notEmpty: 'Veuillez accepter les termes et conditions'
+        }
+    };
+
+} else if(lang == 'hi'){
+    var message = {
+        username: {
+            notEmpty: 'कृपया एक उपयोगकर्ता नाम दर्ज करें',
+            stringLength: 'उपयोगकर्ता नाम 6 अक्षरों से अधिक होना चाहिए'
+        },
+        email: {
+            notEmpty: 'कृपया अपना उपयोगकर्ता नाम या ईमेल दर्ज करें',
+            stringLength: 'उपयोगकर्ता नाम या ईमेल 6 अक्षरों से अधिक होना चाहिए'
+        },
+        emailUsername: {
+            notEmpty: 'कृपया ईमेल / उपयोगकर्ता दर्ज करें',
+            stringLength: 'उपयोगकर्ता नाम 6 अक्षरों से अधिक होना चाहिए'
+        },
+        password: {
+            notEmpty: 'कृपया अपना पासवर्ड दर्ज करें',
+            stringLength: 'पासवर्ड 6 अक्षरों से अधिक होना चाहिए'
+        },
+        confirmPassword: {
+            notEmpty: 'कृपया पासवर्ड की पुष्टि करें',
+            identical: 'पासवर्ड और इसकी पुष्टि समान नहीं हैं',
+            stringLength: 'पासवर्ड 6 अक्षरों से अधिक होना चाहिए'
+        },
+        terms: {
+            notEmpty: 'कृपया नियम और शर्तों को स्वीकार करें'
+        }
+    };
+
+} else if(lang == 'it'){
+    var message = {
+        username: {
+            notEmpty: 'Per favore, inserisci un nome utente',
+            stringLength: 'Il nome utente deve contenere più di 6 caratteri'
+        },
+        email: {
+            notEmpty: 'Per favore, inserisci il tuo nome utente o l\'indirizzo email',
+            stringLength: 'Il nome utente o l\'indirizzo email deve contenere più di 6 caratteri'
+        },
+        emailUsername: {
+            notEmpty: 'Per favore, inserisci email / nome utente',
+            stringLength: 'Il nome utente deve contenere più di 6 caratteri'
+        },
+        password: {
+            notEmpty: 'Per favore, inserisci la tua password',
+            stringLength: 'La password deve contenere più di 6 caratteri'
+        },
+        confirmPassword: {
+            notEmpty: 'Per favore, conferma la password',
+            identical: 'La password e la sua conferma non corrispondono',
+            stringLength: 'La password deve contenere più di 6 caratteri'
+        },
+        terms: {
+            notEmpty: 'Per favore, accetta i termini e le condizioni'
+        }
+    };
+
+} else if(lang == 'ja'){
+    var message = {
+        username: {
+            notEmpty: 'ユーザー名を入力してください',
+            stringLength: 'ユーザー名は6文字以上である必要があります'
+        },
+        email: {
+            notEmpty: 'ユーザー名またはメールアドレスを入力してください',
+            stringLength: 'ユーザー名またはメールアドレスは6文字以上である必要があります'
+        },
+        emailUsername: {
+            notEmpty: 'メール/ユーザー名を入力してください',
+            stringLength: 'ユーザー名は6文字以上である必要があります'
+        },
+        password: {
+            notEmpty: 'パスワードを入力してください',
+            stringLength: 'パスワードは6文字以上である必要があります'
+        },
+        confirmPassword: {
+            notEmpty: 'パスワードを確認してください',
+            identical: 'パスワードとその確認が同じではありません',
+            stringLength: 'パスワードは6文字以上である必要があります'
+        },
+        terms: {
+            notEmpty: '利用規約に同意してください'
+        }
+    };
+
+} else if(lang == 'ko'){
+    var message = {
+        username: {
+            notEmpty: '사용자 이름을 입력하세요',
+            stringLength: '사용자 이름은 6자 이상이어야 합니다'
+        },
+        email: {
+            notEmpty: '사용자 이름 또는 이메일을 입력하세요',
+            stringLength: '사용자 이름 또는 이메일은 6자 이상이어야 합니다'
+        },
+        emailUsername: {
+            notEmpty: '이메일/사용자 이름을 입력하세요',
+            stringLength: '사용자 이름은 6자 이상이어야 합니다'
+        },
+        password: {
+            notEmpty: '비밀번호를 입력하세요',
+            stringLength: '비밀번호는 6자 이상이어야 합니다'
+        },
+        confirmPassword: {
+            notEmpty: '비밀번호를 확인하세요',
+            identical: '비밀번호와 확인 비밀번호가 일치하지 않습니다',
+            stringLength: '비밀번호는 6자 이상이어야 합니다'
+        },
+        terms: {
+            notEmpty: '약관에 동의하세요'
+        }
+    };
+
+} else if(lang == 'ru'){
+    var message = {
+        username: {
+            notEmpty: 'Пожалуйста, введите имя пользователя',
+            stringLength: 'Имя пользователя должно содержать более 6 символов'
+        },
+        email: {
+            notEmpty: 'Пожалуйста, введите имя пользователя или адрес электронной почты',
+            stringLength: 'Имя пользователя или адрес электронной почты должны содержать более 6 символов'
+        },
+        emailUsername: {
+            notEmpty: 'Пожалуйста, введите электронную почту / имя пользователя',
+            stringLength: 'Имя пользователя должно содержать более 6 символов'
+        },
+        password: {
+            notEmpty: 'Пожалуйста, введите пароль',
+            stringLength: 'Пароль должен содержать более 6 символов'
+        },
+        confirmPassword: {
+            notEmpty: 'Пожалуйста, подтвердите пароль',
+            identical: 'Пароль и его подтверждение не совпадают',
+            stringLength: 'Пароль должен содержать более 6 символов'
+        },
+        terms: {
+            notEmpty: 'Пожалуйста, примите условия и положения'
+        }
+    };
+
+} else {
         var message = {
             username: {
                 notEmpty: 'Please enter username',

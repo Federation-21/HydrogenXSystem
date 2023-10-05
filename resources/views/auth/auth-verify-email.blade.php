@@ -110,6 +110,20 @@
                     </div>
                 </div>
                 <!-- / verify email basic -->
+                <div class="text-center text-muted mt-2">
+                    <a href="{{ route("change.language.english") }}" class="text-muted me-1">English</a> | <a
+                        href="{{ route("change.language.bangla") }}" class="text-muted ms-1">বাংলা</a> | <a
+                        href="{{ route("change.language.hindi") }}" class="text-muted ms-1">हिंदी</a> | <a
+                        href="{{ route("change.language.arabic") }}" class="text-muted ms-1">العربية</a> | <a
+                        href="{{ route("change.language.french") }}" class="text-muted ms-1">Français</a> | <a
+                        href="{{ route("change.language.german") }}" class="text-muted ms-1">Deutsche</a> <a
+                        href="{{ route("change.language.italian") }}" class="text-muted ms-1">Italiano</a> | <a
+                        href="{{ route("change.language.japanese") }}" class="text-muted ms-1">日本語</a> | <a
+                        href="{{ route("change.language.korean") }}" class="text-muted ms-1">한국어</a> | <a
+                        href="{{ route("change.language.russian") }}" class="text-muted ms-1">Русский</a> | <a
+                        href="{{ route("change.language.spanish") }}" class="text-muted ms-1">Español</a>
+
+                </div>
             </div>
         </div>
     @endsection
