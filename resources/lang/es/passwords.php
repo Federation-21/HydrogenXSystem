@@ -13,16 +13,15 @@ return [
     |
     */
 
-    'reset' => 'আপনার পাসওয়ার্ড পুনরায় সেট করা হয়েছে!',
-    'sent' => 'আমরা আপনার পাসওয়ার্ড রিসেট লিঙ্ক ইমেল করেছি!',
-    'throttled' => 'Please wait before retrying.',
-    'token' => 'এই পাসওয়ার্ড রিসেট টোকেন অবৈধ।',
-    'user' => "আমরা সেই ইমেল ঠিকানা সহ একজন ব্যবহারকারী খুঁজে পাচ্ছি না।",
-    'inactive' => 'আপনার একাউন্টটি সক্রিয় নয়।',
-    'expired' => 'আপনার পাসওয়ার্ড রিসেট লিঙ্ক মেয়াদ উত্তীর্ণ হয়েছে। আবার চেষ্টা করুন।',
-    'invalid' => 'আপনার পাসওয়ার্ড রিসেট লিঙ্কটি অবৈধ।',
-    'invalid_stroke' => 'Your License Key is invalid.',
-    'ghost' => 'License Key not found in provider\'s database.',
-    'attempt' => 'অনেক প্রচেষ্টা ব্যর্থ হয়েছে. আইপি ৫ মিনিটের জন্য ব্লক করা হয়েছে।',
-    'left' => 'আপনার :left_attempt টি এটেম্পট বাকি আছে।'
+    'reset' => '¡Se ha restablecido su contraseña!',
+    'sent' => '¡Hemos enviado por correo electrónico el enlace para restablecer su contraseña!',
+    'throttled' => 'Por favor, espere antes de intentarlo de nuevo.',
+    'token' => 'Este token de restablecimiento de contraseña no es válido.',
+    'user' => 'No podemos encontrar un usuario con esa dirección de correo electrónico.',
+    'inactive' => 'Su cuenta está inactiva.',
+    'expired' => 'El enlace de restablecimiento de contraseña ha caducado.',
+    'invalid' => 'El enlace de restablecimiento de contraseña no es válido.',
+    'attempt' => 'Demasiados intentos fallidos. IP bloqueada durante 5 minutos.',
+    'left' => 'Le quedan :left_attempt intentos.',
+
 ];

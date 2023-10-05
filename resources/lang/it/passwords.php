@@ -13,16 +13,16 @@ return [
     |
     */
 
-    'reset' => 'আপনার পাসওয়ার্ড পুনরায় সেট করা হয়েছে!',
-    'sent' => 'আমরা আপনার পাসওয়ার্ড রিসেট লিঙ্ক ইমেল করেছি!',
-    'throttled' => 'Please wait before retrying.',
-    'token' => 'এই পাসওয়ার্ড রিসেট টোকেন অবৈধ।',
-    'user' => "আমরা সেই ইমেল ঠিকানা সহ একজন ব্যবহারকারী খুঁজে পাচ্ছি না।",
-    'inactive' => 'আপনার একাউন্টটি সক্রিয় নয়।',
-    'expired' => 'আপনার পাসওয়ার্ড রিসেট লিঙ্ক মেয়াদ উত্তীর্ণ হয়েছে। আবার চেষ্টা করুন।',
-    'invalid' => 'আপনার পাসওয়ার্ড রিসেট লিঙ্কটি অবৈধ।',
-    'invalid_stroke' => 'Your License Key is invalid.',
-    'ghost' => 'License Key not found in provider\'s database.',
-    'attempt' => 'অনেক প্রচেষ্টা ব্যর্থ হয়েছে. আইপি ৫ মিনিটের জন্য ব্লক করা হয়েছে।',
-    'left' => 'আপনার :left_attempt টি এটেম্পট বাকি আছে।'
+    // Italian
+    'reset' => 'La tua password è stata reimpostata!',
+    'sent' => 'Abbiamo inviato il link per reimpostare la tua password via e-mail!',
+    'throttled' => 'Attendi prima di riprovare.',
+    'token' => 'Questo token per la reimpostazione della password non è valido.',
+    'user' => 'Non riusciamo a trovare un utente con questo indirizzo e-mail.',
+    'inactive' => 'Il tuo account è inattivo.',
+    'expired' => 'Il link per la reimpostazione della password è scaduto.',
+    'invalid' => 'Il link per la reimpostazione della password non è valido.',
+    'attempt' => 'Troppi tentativi falliti. IP bloccato per 5 minuti.',
+    'left' => 'Hai :left_attempt tentativi rimasti.',
+
 ];

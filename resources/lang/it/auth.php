@@ -13,8 +13,9 @@ return [
     |
     */
 
-    'failed' => 'আপনি ভুল তথ্য প্রদান করেছেন। আবার চেষ্টা করুন।',
-    'password' => 'আপনার পাসওয়ার্ডটি সঠিক নয়',
-    'throttle' => ' আপনি অনেকবার ব্যর্থ চেষ্টা করেছেন। অনুগ্রহ করে :seconds সেকেন্ড পর আবার চেষ্টা করুন।',
+    'failed' => 'Queste credenziali non corrispondono ai nostri record.',
+    'password' => 'La password fornita non è corretta.',
+    'throttle' => 'Troppi tentativi di accesso. Riprova tra :seconds secondi.',
+
 
 ];
