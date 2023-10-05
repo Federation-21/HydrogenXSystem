@@ -23,4 +23,14 @@ return [
     'reset_password_text' => 'Your new password must be different from previously used passwords',
     'new_password' => 'New Password',
     'confirm_password' => 'Confirm Password',
+    // Verify Email
+    'verify_email' => 'Verify Your Email Address',
+    'verify_email_text_1' => 'We\'ve sent a link to your registered Email Address',
+    'verify_email_text_2' => 'Please follow the link inside to continue.',
+    'verify_mail_sent' => 'New Verification Mail Sent!',
+    'verify_mail_send_text_1' => 'We have sent a new Email Verification Link which is linked with this Account. Please Check Spam Box if you are unable to get it.',
+    'did_not_receive_email' => 'Didn\'t receive the email?',
+    'resend' => 'Resend',
+    'logout' => 'Logout',
+    'skip_for_now' => 'Skip for now',
 ];

@@ -51,11 +51,9 @@
 
                         @if (session('status') == 'verification-link-sent')
 
-                            <h2 class="card-title fw-bolder mb-1">Verify your email ✉️</h2>
+                            <h2 class="card-title fw-bolder mb-1">{{__('translate.verify_email')}} ✉️</h2>
                             <p class="card-text mb-2">
-                                We've sent a link to your registered Email Address<span class="fw-bolder"></span> Please
-                                follow the
-                                link inside to continue.
+                                {{__('translate.verify_email_text_1')}} <span class="fw-bolder"></span> {{__('translate.verify_email_text_2')}}
                             </p>
 
                             <div class="alert alert-primary alert-dismissible d-flex align-items-baseline" role="alert">
@@ -63,51 +61,49 @@
                                     <i class="ti ti-send ti-sm"></i>
                                 </span>
                                 <div class="d-flex flex-column ps-1">
-                                    <h5 class="alert-heading mb-2">New Verification Mail Sent!</h5>
-                                    <p class="mb-0">We have sent a new Email Verification Link which is linked with this Account. Please Check Spam Box if you are unable to get it.</p>
+                                    <h5 class="alert-heading mb-2">{{__('translate.verify_mail_sent')}}</h5>
+                                    <p class="mb-0">{{__('translate.verify_mail_send_text_1')}}</p>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                     </button>
                                 </div>
                             </div>
 
                             <p class="mt-2 text-center">
-                                <span>Didn't receive an email? </span>
+                                <span>{{__('translate.did_not_receive_email')}}</span>
 
                             <form action="{{ route('verification.send') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-primary w-100">&nbsp;Resend</button>
+                                <button type="submit" class="btn btn-primary w-100">&nbsp;{{__('translate.resend')}}</button>
                             </form>
 
-                            <p class="mt-2 text-center">Or</p>
+                            <p class="mt-2 text-center">{{__('translate.or')}}</p>
 
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-primary w-100">&nbsp;Logout</button>
+                                <button type="submit" class="btn btn-primary w-100">&nbsp;{{__('translate.logout')}}</button>
                             </form>
                             </p>
                         @else
-                            <h2 class="card-title fw-bolder mb-1">Verify your email ✉️</h2>
+                            <h2 class="card-title fw-bolder mb-1">{{__('translate.verify_email')}} ✉️</h2>
                             <p class="card-text mb-2">
-                                We've sent a link to your registered Email Address<span class="fw-bolder"></span> Please
-                                follow the
-                                link inside to continue.
+                                {{__('translate.verify_email_text_1')}}<span class="fw-bolder"></span> {{__('translate.verify_email_text_2')}}
                             </p>
 
-                            <a href="{{ asset('/') }}" class="btn btn-outline-primary w-100">Skip for now</a>
+                            <a href="{{ asset('/') }}" class="btn btn-outline-primary w-100">{{__('translate.skip_for_now')}}</a>
 
                             <p class="mt-2 text-center">
-                                <span>Didn't receive an email? </span>
+                                <span>{{__('translate.did_not_receive_email')}} </span>
 
                             <form action="{{ route('verification.send') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-primary w-100">&nbsp;Resend</button>
+                                <button type="submit" class="btn btn-primary w-100">&nbsp;{{__('translate.resend')}}</button>
                             </form>
 
                             <p class="mt-2 text-center">Or</p>
 
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-primary w-100">&nbsp;Logout</button>
+                                <button type="submit" class="btn btn-primary w-100">&nbsp;{{__('translate.logout')}}</button>
                             </form>
                             </p>
                         @endif
