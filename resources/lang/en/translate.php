@@ -13,4 +13,14 @@ return [
     'create_an_account' => 'Create an account',
     'or' => 'or',
     'minutes_left' => 'Minute(s) Left',
+    // Forgot Password
+    'forgot_password_text' => 'Enter your email and we will send you instructions to reset your password',
+    'email' => 'Email',
+    'send_password_reset_link' => 'Send Password Reset Link',
+    'back_to_login' => 'Back to Login',
+    // Reset Password
+    'reset_password' => 'Reset Password',
+    'reset_password_text' => 'Your new password must be different from previously used passwords',
+    'new_password' => 'New Password',
+    'confirm_password' => 'Confirm Password',
 ];

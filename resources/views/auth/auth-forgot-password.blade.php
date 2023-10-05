@@ -53,9 +53,8 @@
                                 {{ session('status') }}
                             </div>
                         @else
-                            <h4 class="card-title mb-1">Forgot Password? 🔒</h4>
-                            <p class="card-text mb-2">Enter your email and we'll send you instructions to reset your
-                                password</p>
+                            <h4 class="card-title mb-1">{{__('translate.forgot_password')}} 🔒</h4>
+                            <p class="card-text mb-2">{{__('translate.forgot_password_text')}}</p>
 
                             @if ($errors->any())
                                 <div class="alert alert-danger py-1">
@@ -70,18 +69,17 @@
                                 method="POST">
                                 @csrf
                                 <div class="mb-1">
-                                    <label for="forgot-password-email" class="form-label">Email</label>
+                                    <label for="forgot-password-email" class="form-label">{{__('translate.email')}}</label>
                                     <input type="text" class="form-control" id="forgot-password-email" name="email"
                                         placeholder="john@example.com" aria-describedby="forgot-password-email"
                                         tabindex="1" autofocus required />
                                 </div>
-                                <button class="btn btn-primary w-100" tabindex="2" type="submit">Send reset
-                                    link</button>
+                                <button class="btn btn-primary w-100" tabindex="2" type="submit">{{__('translate.send_password_reset_link')}}</button>
                             </form>
                         @endif
 
                         <p class="mt-3 text-center">
-                            <a href="{{ route('login') }}" class="d-inline-flex align-items-center"> <i class="ti ti-arrow-left"></i> Back to Login </a>
+                            <a href="{{ route('login') }}" class="d-inline-flex align-items-center"> <i class="ti ti-arrow-left"></i> {{__('translate.back_to_login')}} </a>
                         </p>
                     </div>
                 </div>

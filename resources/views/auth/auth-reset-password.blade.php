@@ -46,8 +46,8 @@ $customizerHidden = 'customizer-hide';
             </a>
           </div>
           <!-- /Logo -->
-          <h4 class="mb-1 pt-2">Reset Password 🔒</h4>
-          <p class="card-text mb-2">Your new password must be different from previously used passwords</p>
+          <h4 class="mb-1 pt-2">{{__('translate.reset_password')}} 🔒</h4>
+          <p class="card-text mb-2">{{__('translate.reset_password_text')}}</p>
             @if ($errors->any())
                 <div class="alert alert-danger py-1">
                     @foreach ($errors->all() as $error)
@@ -59,14 +59,14 @@ $customizerHidden = 'customizer-hide';
           @csrf
           <input type="hidden" name="token" value="{{ request()->token }}">
             <div class="mb-3 form-password-toggle">
-              <label class="form-label" for="password">New Password</label>
+              <label class="form-label" for="password">{{__('translate.new_password')}}</label>
               <div class="input-group input-group-merge">
                 <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                 <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
               </div>
             </div>
             <div class="mb-3 form-password-toggle">
-              <label class="form-label" for="confirm-password">Confirm Password</label>
+              <label class="form-label" for="confirm-password">{{__('translate.confirm_password')}}</label>
               <div class="input-group input-group-merge">
                 <input type="password" id="confirm-password" class="form-control" name="password_confirmation" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                 <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
@@ -76,7 +76,7 @@ $customizerHidden = 'customizer-hide';
               Set new password
             </button>
             <div class="mt-3 text-center">
-                <a href="{{ route('login') }}" class="d-inline-flex align-items-center"> <i class="ti ti-arrow-left"></i> Back to Login </a>
+                <a href="{{ route('login') }}" class="d-inline-flex align-items-center"> <i class="ti ti-arrow-left"></i> {{__('translate.back_to_login')}} </a>
             </div>
           </form>
         </div>

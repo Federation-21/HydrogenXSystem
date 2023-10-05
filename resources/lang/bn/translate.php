@@ -14,4 +14,14 @@ return [
     'create_an_account' => 'একটি অ্যাকাউন্ট তৈরি করুন',
     'or' => 'অথবা',
     'minutes_left' => 'মিনিট বাকি',
+    // Forgot Password
+    'forgot_password_text' => 'আপনার ইমেলটি প্রবেশ করান এবং আমরা আপনার পাসওয়ার্ড পুনরায় সেট করতে আপনাকে নির্দেশাবলী প্রেরণ করব',
+    'email' => 'ইমেইল',
+    'send_password_reset_link' => 'পাসওয়ার্ড রিসেট লিংক প্রেরণ করুন',
+    'back_to_login' => 'লগইনে ফিরে যান',
+    // Reset Password
+    'reset_password' => 'পাসওয়ার্ড রিসেট করুন',
+    'reset_password_text' => 'আপনার নতুন পাসওয়ার্ড পূর্বে ব্যবহৃত পাসওয়ার্ড থেকে ভিন্ন হতে হবে',
+    'new_password' => 'নতুন পাসওয়ার্ড',
+    'confirm_password' => 'পাসওয়ার্ড পুনরায় লিখুন',
 ];
