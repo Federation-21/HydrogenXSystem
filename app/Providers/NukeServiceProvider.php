@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Lang;
 use App\Models\UserDumpLog;
 use Browser;
 use Illuminate\Support\Facades\App;
+use App\Models\SystemSettings;
 
 
 class NukeServiceProvider extends ServiceProvider
@@ -70,6 +71,10 @@ class NukeServiceProvider extends ServiceProvider
 
             if (!$this->checkTooManyFailedAttempts()) {
                 return session()->put(['attempt-failed' => 'passwords.attempt', 'end_time' => time() + 300]);
+            }
+
+            if(SystemSettings::where('name', 'login')->first()->value != "1") {
+                return session()->flash('error', 'translate.login_forbidden');
             }
 
             $user = User::where('email', $request->email)

@@ -13,6 +13,7 @@ return [
     'create_an_account' => 'Create an account',
     'or' => 'or',
     'minutes_left' => 'Minute(s) Left',
+    'login_forbidden' => 'Login Restricted by Administrator. Please try again when it is Available.',
     // Forgot Password
     'forgot_password_text' => 'Enter your email and we will send you instructions to reset your password',
     'email' => 'Email',

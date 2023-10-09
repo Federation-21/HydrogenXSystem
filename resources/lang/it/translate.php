@@ -14,6 +14,7 @@ return [
 'create_an_account' => 'Crea un account',
 'or' => 'o',
 'minutes_left' => 'Minuto(i) rimasto(i)',
+'login_forbidden' => 'Accesso limitato dall\'amministratore. Riprova quando sarà disponibile.',
 // Password dimenticata
 'forgot_password_text' => 'Inserisci il tuo indirizzo email e ti invieremo istruzioni per reimpostare la password',
 'email' => 'Email',

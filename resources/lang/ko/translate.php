@@ -14,6 +14,7 @@ return [
 'create_an_account' => '계정 만들기',
 'or' => '또는',
 'minutes_left' => '분 남음',
+'login_forbidden' => '관리자에 의해 로그인이 제한되었습니다. 사용 가능해지면 다시 시도하십시오.',
 // 비밀번호 잊음
 'forgot_password_text' => '이메일을 입력하시면 비밀번호 재설정 안내를 전송해드립니다',
 'email' => '이메일',
