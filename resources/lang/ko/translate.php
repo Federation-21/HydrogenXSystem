@@ -25,6 +25,9 @@ return [
 'reset_password_text' => '새 비밀번호는 이전에 사용한 비밀번호와 달라야 합니다',
 'new_password' => '새 비밀번호',
 'confirm_password' => '비밀번호 확인',
+'password_reset_success' => '비밀번호 재설정 성공!',
+'password_reset_success_text' => '비밀번호가 성공적으로 재설정되었습니다. 새 비밀번호로 로그인하세요.',
+'invalid_token' => '토큰이 만료되었거나 잘못되었습니다. 다시 시도하십시오.',
 // 이메일 확인
 'verify_email' => '이메일 주소 확인',
 'verify_email_text_1' => '등록된 이메일 주소로 링크를 전송했습니다',

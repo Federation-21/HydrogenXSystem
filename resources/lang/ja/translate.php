@@ -25,6 +25,9 @@ return [
 'reset_password_text' => '新しいパスワードは以前に使用したパスワードと異なる必要があります',
 'new_password' => '新しいパスワード',
 'confirm_password' => 'パスワードを確認',
+'password_reset_success' => 'パスワードのリセットに成功しました！',
+'password_reset_success_text' => 'パスワードのリセットに成功しました。 新しいパスワードでログインしてください。',
+'invalid_token' => 'トークンの有効期限が切れているか、無効です。 もう一度お試しください。',
 // メールアドレスを確認
 'verify_email' => 'メールアドレスを確認',
 'verify_email_text_1' => '登録したメールアドレスにリンクを送信しました',

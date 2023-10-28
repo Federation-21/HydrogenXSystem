@@ -25,6 +25,9 @@ return [
 'reset_password_text' => 'Su nueva contraseña debe ser diferente de las contraseñas utilizadas previamente',
 'new_password' => 'Nueva contraseña',
 'confirm_password' => 'Confirmar contraseña',
+'password_reset_success' => '¡Restablecimiento de contraseña exitoso!',
+'password_reset_success_text' => 'Su contraseña se ha restablecido correctamente. Inicie sesión con su nueva contraseña.',
+'invalid_token' => 'Su token ha caducado o no es válido. Por favor, inténtelo de nuevo.',
 // Verificar correo electrónico
 'verify_email' => 'Verificar su dirección de correo electrónico',
 'verify_email_text_1' => 'Hemos enviado un enlace a su dirección de correo electrónico registrada',

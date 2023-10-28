@@ -25,6 +25,9 @@ return [
 'reset_password_text' => 'La tua nuova password deve essere diversa dalle password utilizzate in precedenza',
 'new_password' => 'Nuova password',
 'confirm_password' => 'Conferma password',
+'password_reset_success' => 'Password reimpostata con successo!',
+'password_reset_success_text' => 'La tua password è stata reimpostata con successo. Accedi con la tua nuova password.',
+'invalid_token' => 'Il tuo token è scaduto o non valido. Riprova.',
 // Verifica email
 'verify_email' => 'Verifica il tuo indirizzo email',
 'verify_email_text_1' => 'Abbiamo inviato un link al tuo indirizzo email registrato',

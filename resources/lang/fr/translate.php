@@ -25,6 +25,9 @@ return [
 'reset_password_text' => 'Votre nouveau mot de passe doit être différent des mots de passe précédemment utilisés',
 'new_password' => 'Nouveau mot de passe',
 'confirm_password' => 'Confirmer le mot de passe',
+'password_reset_success' => 'Réinitialisation du mot de passe réussie !',
+'password_reset_success_text' => 'Votre mot de passe a été réinitialisé avec succès. Veuillez vous connecter avec votre nouveau mot de passe.',
+'invalid_token' => 'Votre jeton a expiré ou n\'est pas valide. Veuillez réessayer.',
 // Vérifier l'adresse e-mail
 'verify_email' => 'Vérifiez votre adresse e-mail',
 'verify_email_text_1' => 'Nous avons envoyé un lien à votre adresse e-mail enregistrée',

@@ -24,6 +24,9 @@ return [
     'reset_password_text' => 'Ihr neues Passwort muss sich von zuvor verwendeten Passwörtern unterscheiden.',
     'new_password' => 'Neues Passwort',
     'confirm_password' => 'Passwort bestätigen',
+    'password_reset_success' => 'Passwort erfolgreich zurückgesetzt!',
+    'password_reset_success_text' => 'Ihr Passwort wurde erfolgreich zurückgesetzt. Bitte melden Sie sich mit Ihrem neuen Passwort an.',
+    'invalid_token' => 'Ihr Token ist abgelaufen oder ungültig. Bitte versuchen Sie es erneut.',
     // Verify Email (E-Mail verifizieren)
     'verify_email' => 'Ihre E-Mail-Adresse verifizieren',
     'verify_email_text_1' => 'Wir haben einen Link an Ihre registrierte E-Mail-Adresse gesendet.',

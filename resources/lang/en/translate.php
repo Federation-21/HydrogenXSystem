@@ -24,6 +24,9 @@ return [
     'reset_password_text' => 'Your new password must be different from previously used passwords',
     'new_password' => 'New Password',
     'confirm_password' => 'Confirm Password',
+    'password_reset_success' => 'Password Reset Successfully!',
+    'password_reset_success_text' => 'Your password has been reset successfully. Please login with your new password.',
+    'invalid_token' => 'Your token is expired or invalid. Please try again.',
     // Verify Email
     'verify_email' => 'Verify Your Email Address',
     'verify_email_text_1' => 'We\'ve sent a link to your registered Email Address',

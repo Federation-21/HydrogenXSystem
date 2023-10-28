@@ -18,6 +18,7 @@ use App\Models\UserDumpLog;
 use Browser;
 use Illuminate\Support\Facades\App;
 use App\Models\SystemSettings;
+use DB;
 
 
 class NukeServiceProvider extends ServiceProvider
@@ -59,6 +60,12 @@ class NukeServiceProvider extends ServiceProvider
         });
 
         Fortify::resetPasswordView(function ($request) {
+            // check if token is valid
+            $token = DB::table('password_resets')->where('token', $request->token)->first();
+
+            if (!$token) {
+                return redirect()->route('login')->with('error', 'translate.invalid_token');
+            }
             return view('auth.auth-reset-password', ['request' => $request]);
         });
 
