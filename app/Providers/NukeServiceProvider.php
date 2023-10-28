@@ -61,7 +61,7 @@ class NukeServiceProvider extends ServiceProvider
 
         Fortify::resetPasswordView(function ($request) {
             // check if token is valid
-            $token = DB::table('password_resets')->where('token', $request->token)->first();
+            $token = DB::table('password_resets')->where('email', $request->email)->first();
 
             if (!$token) {
                 return redirect()->route('login')->with('error', 'translate.invalid_token');
