@@ -58,6 +58,7 @@ $customizerHidden = 'customizer-hide';
           <form class="auth-reset-password-form mt-2" action="{{ route('password.update') }}" method="POST">
           @csrf
           <input type="hidden" name="token" value="{{ request()->token }}">
+          <input type="hidden" name="email" value="{{ request()->email }}">
             <div class="mb-3 form-password-toggle">
               <label class="form-label" for="password">{{__('translate.new_password')}}</label>
               <div class="input-group input-group-merge">
