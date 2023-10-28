@@ -9,10 +9,10 @@ jobs:
     name: Create Deployment Environment
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
-            node-version: 20
+            node-version: 21
             cache: 'npm'
 
       - name: Compile Assets
@@ -84,7 +84,7 @@ jobs:
         uses: appleboy/ssh-action@master
         env:
           GITHUB_SHA: ${{github.sha}}
-          BASE_PATH: public_html/cbl_system
+          BASE_PATH: domains/codebumble.net/public_html/cbl_system
           PROJECT_ENV: ${{ SECRETS.PROJECT_ENV }}
           CONF_CACHE: ${{ SECRETS.CONF_CACHE }}
           ROUTE_CACHE: ${{ SECRETS.ROUTE_CACHE }}
