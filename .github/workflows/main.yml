@@ -3,9 +3,12 @@ name: Deploy Application
 on:
   push:
     branches: [main, revert]
+
 concurrency:
-  group: ${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
+
+
 jobs:
   create-deployment-environment:
     name: Create Deployment Environment
