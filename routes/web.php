@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HawkController;
 use App\Http\Controllers\ProfileController;
-
+// fortify Routes
+@include('fortify.php');
+// fortify Routes end
 
 /*
 |--------------------------------------------------------------------------
