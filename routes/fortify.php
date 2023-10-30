@@ -51,7 +51,7 @@ Route::group(['middleware' => config('fortify.middleware', ['web'])], function (
                 ->middleware(['guest:'.config('fortify.guard')])
                 ->name('password.request');
 
-            Route::get(RoutePath::for('password.reset', '/reset-password/{token}'), [NewPasswordController::class, 'create'])
+            Route::get(RoutePath::for('password.reset', '/reset-password/{token}/{email}'), [NewPasswordController::class, 'create'])
                 ->middleware(['guest:'.config('fortify.guard')])
                 ->name('password.reset');
         }

@@ -32,7 +32,7 @@ class FortifyServiceProvider extends ServiceProvider
 	public function boot(): void
 	{
         Fortify::ignoreRoutes();
-        
+
 		Fortify::createUsersUsing(CreateNewUser::class);
 		Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
 		Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
@@ -58,7 +58,7 @@ class FortifyServiceProvider extends ServiceProvider
 				'user' => $user,
 				'url' => route('password.reset', [
 					'token' => $token,
-					'email' => $user->email,
+					'email' => base64_encode($user->email),
 				]),
 				'ip' => request()->ip(),
 				'username' => $user->username,
