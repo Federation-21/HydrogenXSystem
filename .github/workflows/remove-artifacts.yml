@@ -7,9 +7,11 @@ on:
     # Every day at 1am
     - cron: "0 * * * *"
 
+
 jobs:
   remove-old-artifacts:
     runs-on: ubuntu-latest
+    
 
     steps:
       - name: Remove artifacts
