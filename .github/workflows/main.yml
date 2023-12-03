@@ -151,7 +151,8 @@ jobs:
             rm -rf domains/codebumble.net/public_html/cbl_system/${{github.sha}}.txt
 
     steps:
-    - uses: geekyeggo/delete-artifact@v2
-      with:
-          name: app-build
-          failOnError: false
+      - name: Cleaning Artifacts Github
+        uses: geekyeggo/delete-artifact@v2
+        with:
+            name: app-build
+            failOnError: false
