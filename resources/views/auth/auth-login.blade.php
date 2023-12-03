@@ -177,7 +177,7 @@
                                     <i class="tf-icons fa-brands fa-twitter fs-5"></i>
                                 </a>
                             </div>
-                            @end
+                            @endif
                         @endif
 
 
