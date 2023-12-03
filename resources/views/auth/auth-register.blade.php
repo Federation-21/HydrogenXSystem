@@ -53,8 +53,8 @@
                         <p class="mb-4">{{ __('translate.register_text') }} </p>
                         @if($possible == 0)
                         <div class="alert alert-danger p-1 text-center">
-                                {{ __('registration_unavailable') }}
-                                {{ __('registration_unavailable_details')}}
+                                {{ __('translate.registration_unavailable') }}
+                                {{ __('translate.registration_unavailable_details')}}
                         </div>
                         @else
                         <form id="formAuthentication" class="mb-3" action="{{ route('register') }}" method="POST"
