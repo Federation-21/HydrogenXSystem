@@ -158,7 +158,7 @@
                                         __('translate.create_an_account') }}</span>
                                 </a>
                             </p>
-                            @if($possible == 1 && possible_social == 1)
+                            @if($possible == 1 && $possible_social == 1)
                             <div class="divider my-4">
                                 <div class="divider-text">{{
                                         __('translate.or') }}</div>
