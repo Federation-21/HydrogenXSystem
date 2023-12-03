@@ -50,4 +50,7 @@ return [
 'sign_up' => 'S\'inscrire',
 'already_have_an_account' => 'Vous avez déjà un compte ?',
 'sign_in_instead' => 'Se connecter à la place',
+'registration_unavailable' => 'Inscription fermée',
+'registration_unavailable_details' => 'Désolé, nous n\'acceptons actuellement aucun nouvel utilisateur. Une invitation de notre utilisateur existant pourrait réaliser votre souhait d\'inscription. Sinon, vous devez attendre que nous changions d\'avis. Merci',
+    
 ];

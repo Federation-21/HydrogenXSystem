@@ -50,4 +50,7 @@ return [
 'sign_up' => 'Registrarse',
 'already_have_an_account' => '¿Ya tienes una cuenta?',
 'sign_in_instead' => 'Inicia sesión en su lugar',
+'registration_unavailable' => 'Registro cerrado',
+'registration_unavailable_details' => 'Lo siento, ahora no estamos aceptando nuevos usuarios. Una invitación de nuestro usuario existente puede cumplir tu deseo de registrarte. De lo contrario, tendrás que esperar hasta que cambiemos de opinión. Gracias',
+    
 ];

@@ -52,7 +52,8 @@ class NukeServiceProvider extends ServiceProvider
         });
 
         Fortify::registerView(function () {
-            return view('auth.auth-register');
+            $check_registration_possible = SystemSettings::where('name', 'registration')->first()->value;
+            return view('auth.auth-register', ['possible' => $check_registration_possible]);
         });
 
         Fortify::requestPasswordResetLinkView(function () {

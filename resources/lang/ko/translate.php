@@ -50,4 +50,7 @@ return [
 'sign_up' => '가입하기',
 'already_have_an_account' => '이미 계정이 있으신가요?',
 'sign_in_instead' => '대신 로그인하기',
+'registration_unavailable' => '등록 종료',
+'registration_unavailable_details' => '죄송합니다만, 현재 새로운 사용자를 받지 않고 있습니다. 기존 사용자의 초대로 가입을 완료할 수 있습니다. 그렇지 않으면 마음을 바꿀 때까지 기다려야 합니다. 감사합니다',
+    
 ];

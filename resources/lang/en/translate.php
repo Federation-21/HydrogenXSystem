@@ -49,4 +49,6 @@ return [
     'sign_up' => 'Sign Up',
     'already_have_an_account' => 'Already have an account?',
     'sign_in_instead' => 'Sign in instead',
+    'registration_unavailable' => 'Registration Closed',
+    'registration_unavailable_details' => 'Sorry But we are not accepting new user anymore. Please Get an invitation to Sign up Or wait until we change our mind. Thank you',
 ];

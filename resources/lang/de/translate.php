@@ -48,5 +48,8 @@ return [
     'sign_up' => 'Registrieren',
     'already_have_an_account' => 'Bereits ein Konto?',
     'sign_in_instead' => 'Stattdessen anmelden',
+    'registration_unavailable' => 'Registrierung geschlossen',
+    'registration_unavailable_details' => 'Entschuldigung, im Moment akzeptieren wir keine neuen Benutzer. Eine Einladung von unserem bestehenden Benutzer könnte Ihren Anmelde-Wunsch erfüllen. Andernfalls müssen Sie warten, bis wir unsere Meinung ändern. Danke',
+    
 
 ];

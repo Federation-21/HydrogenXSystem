@@ -51,7 +51,12 @@
                         <!-- /Logo -->
                         <h4 class="mb-1 pt-2">{{ __('translate.register') }} 🚀</h4>
                         <p class="mb-4">{{ __('translate.register_text') }} </p>
-
+                        @if($possible == 0)
+                        <div class="alert alert-danger p-1 text-center">
+                                {{ __('registration_unavailable') }}
+                                {{ __('registration_unavailable_details')}}
+                        </div>
+                        @else
                         <form id="formAuthentication" class="mb-3" action="{{ route('register') }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
@@ -135,7 +140,7 @@
                                 {{ __('translate.sign_up') }}
                             </button>
                         </form>
-
+                        @endif
                         <p class="text-center">
                             <span>{{ __('translate.already_have_an_account') }}</span>
                             <a href="{{ route('login') }}">
