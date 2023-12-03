@@ -128,6 +128,23 @@ jobs:
           script: |
             cd ${BASE_PATH} && ${ARTISAN_MIGRATE}
 
+  github-cleanup:
+    name: Cleaning Up Artifacts
+      runs-on: ubuntu-latest
+      needs:
+        [
+          create-deployment-environment,
+          prepare-release-on-server,
+          active-release,
+          migrating-db,
+        ]
+    steps:
+      - name: Cleaning Artifacts Github
+        uses: geekyeggo/delete-artifact@v2
+        with:
+            name: app-build
+            failOnError: false
+
   clean-up:
     name: Cleaning Up Artifacts
     runs-on: ubuntu-latest
@@ -150,20 +167,4 @@ jobs:
             rm -rf domains/codebumble.net/public_html/${{github.sha}}.tar.gz
             rm -rf domains/codebumble.net/public_html/cbl_system/${{github.sha}}.txt
 
-  github-cleanup:
-    name: Cleaning Up Artifacts
-      runs-on: ubuntu-latest
-      needs:
-        [
-          create-deployment-environment,
-          prepare-release-on-server,
-          active-release,
-          migrating-db,
-          clean-up,
-        ]
-    steps:
-      - name: Cleaning Artifacts Github
-        uses: geekyeggo/delete-artifact@v2
-        with:
-            name: app-build
-            failOnError: false
+  
