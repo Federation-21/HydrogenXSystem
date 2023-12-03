@@ -15,6 +15,9 @@ return [
 'or' => 'o',
 'minutes_left' => 'Minuto(i) rimasto(i)',
 'login_forbidden' => 'Accesso limitato dall\'amministratore. Riprova quando sarà disponibile.',
+'login_unavailable' => 'Accesso limitato! 😢',
+'login_unavailable_details' => 'L\'accesso di tutti gli utenti è stato limitato. Solo gli amministratori di sistema sono autorizzati a accedere. Attendere fino a quando non cambiamo idea. Grazie',
+    
 // Password dimenticata
 'forgot_password_text' => 'Inserisci il tuo indirizzo email e ti invieremo istruzioni per reimpostare la password',
 'email' => 'Email',

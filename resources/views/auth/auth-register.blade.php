@@ -59,7 +59,6 @@
                             <div class="d-flex flex-column ps-1">
                               <h5 class="alert-heading mb-2">{{__('translate.registration_unavailable')}}</h5>
                               <p class="mb-0">{{__('translate.registration_unavailable_details')}}</p>
-                              
                               </button>
                             </div>
                         </div>
@@ -154,7 +153,7 @@
                                 <span>{{ __('translate.sign_in_instead') }}</span>
                             </a>
                         </p>
-                        @if($possible == 1)
+                        @if($possible == 1 && $possible_social == 1)
                         <div class="divider my-4">
                             <div class="divider-text">{{ __('translate.or') }}</div>
                         </div>

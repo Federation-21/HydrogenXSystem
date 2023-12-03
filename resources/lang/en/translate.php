@@ -14,6 +14,8 @@ return [
     'or' => 'or',
     'minutes_left' => 'Minute(s) Left',
     'login_forbidden' => 'Login Restricted by Administrator. Please try again when it is Available.',
+    'login_unavailable' => 'Login Restricted ! 😢',
+    'login_unavailable_details' => 'All User\'s access has been restricted. Only System Admins are allowed to log. Please Wait until we change our mind. Thank You',
     // Forgot Password
     'forgot_password_text' => 'Enter your email and we will send you instructions to reset your password',
     'email' => 'Email',

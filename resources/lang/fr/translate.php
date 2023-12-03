@@ -15,6 +15,9 @@ return [
 'or' => 'ou',
 'minutes_left' => 'Minute(s) restante(s)',
 'login_forbidden' => 'Connexion restreinte par l\'administrateur. Veuillez réessayer quand elle sera disponible.',
+'login_unavailable' => 'Connexion restreinte ! 😢',
+'login_unavailable_details' => 'L\'accès de tous les utilisateurs a été restreint. Seuls les administrateurs système sont autorisés à se connecter. Veuillez patienter jusqu\'à ce que nous changions d\'avis. Merci',
+    
 // Mot de passe oublié
 'forgot_password_text' => 'Saisissez votre adresse e-mail et nous vous enverrons des instructions pour réinitialiser votre mot de passe',
 'email' => 'Adresse e-mail',
