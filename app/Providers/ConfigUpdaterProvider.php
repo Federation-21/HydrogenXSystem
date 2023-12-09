@@ -21,7 +21,12 @@ class ConfigUpdaterProvider extends ServiceProvider
      */
     public function boot(): void
     {   
-        $dataTable = DB::table('settings')->pluck('value', 'name')->toArray();
+        try {
+            $dataTable = DB::table('settings')->pluck('value', 'name')->toArray();
+        } catch (\Exception $e) {
+            
+        }
+        
         config([
             "variables.templateName" => empty($dataTable['siteName']) ? config('variables.templateName') : $dataTable['siteName'],
             "variables.templateSuffix" => empty($dataTable['suffix']) ? config('variables.templateSuffix') : $dataTable['suffix'],
