@@ -1,14 +1,16 @@
 <?php
 // Variables
 return [
-  "creatorName" => "Pixinvent",
-  "creatorUrl" => "https://pixinvent.com",
-  "templateName" => "Vuexy",
-  "templateSuffix" => "Bootstrap Admin Template",
+  "creatorName" => "Codebumble Inc.",
+  "creatorUrl" => "https://codebumble.net",
+  "templateName" => "Monarch",
+  "templateSuffix" => "Your Streaming Platform",
   "templateVersion" => "1.0.0",
   "templateFree" => false,
-  "templateDescription" => "Start your development with a Dashboard for Bootstrap 5",
-  "templateKeyword" => "dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5",
+  "templateDescription" => "Enjoy your Movie Time with Your Family and Friends. Lets Make it more easier.",
+  "support_mail" => "support@codebumble.net",
+  "url" => "monarch.codebumble.net",
+  "templateKeyword" => "movie, cinema, tvseries, film, fileserver",
   "licenseUrl" => "https://themeforest.net/licenses/standard",
   "livePreview" => "https://demos.pixinvent.com/vuexy-html-admin-template/landing/",
   "productPage" => "https://1.envato.market/vuexy_admin",
@@ -21,9 +23,9 @@ return [
   "gitRepo" => "pixinvent",
   "gitRepoAccess" => "vuexy-html-admin-template",
   "githubFreeUrl" => "https://tools.pixinvent.com/github/github-access",
-  "facebookUrl" => "https://www.facebook.com/pixinvents/",
-  "twitterUrl" => "https://twitter.com/pixinvents",
+  "facebookUrl" => "https://facebook.com/codebumble",
+  "twitterUrl" => "https://twitter.com/codebumble",
   "githubUrl" => "https://github.com/pixinvent",
   "dribbbleUrl" => "https://dribbble.com/pixinvent",
-  "instagramUrl" => "https://www.instagram.com/pixinvents/"
+  "instagramUrl" => "https://instagram.com/codebumble"
 ];

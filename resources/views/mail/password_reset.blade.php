@@ -39,8 +39,8 @@
           <table class="sm-w-full" style="width: 600px;" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
   <td class="sm-py-32 sm-px-24" style="mso-line-height-rule: exactly; padding: 48px; text-align: center; font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif;">
-    <a href="https://accounts.codebumble.net" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly;">
-      <img src="{{ asset('assets/img/logo/named-blue.png') }}" width="155" alt="Codebumble Inc." style="max-width: 100%; vertical-align: middle; line-height: 100%; border: 0;">
+    <a href="https://monarch.codebumble.net" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly;">
+      <img src="{{ asset('assets/img/logo/solo-coloured.png') }}" width="170" alt="{{config('variables.templateName')}}" style="max-width: 100%; vertical-align: middle; line-height: 100%; border: 0;">
     </a>
   </td>
 </tr>
@@ -73,7 +73,7 @@
                         <p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin: 0;">
                           If you did not intend to deactivate your account or need our help keeping the account, please
                           contact us at
-                          <a href="mailto:support@codebumble.net" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">support@codebumble.net</a>
+                          <a href="{{config('variables.support_mail')}}" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">{{config('variables.support_mail')}}</a>
                         </p>
                         <table style="width: 100%;" cellpadding="0" cellspacing="0" role="presentation">
   <tr>
@@ -84,9 +84,9 @@
 </table>
 <p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin: 0; margin-bottom: 16px;">
   Not sure why you received this email? Please
-  <a href="mailto:support@codebumble.net" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">let us know</a>.
+  <a href="{{config('variables.support_mail')}}" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">let us know</a>.
 </p>
-<p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin: 0; margin-bottom: 16px;">Thanks, <br>The Codebumble Team</p>
+<p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin: 0; margin-bottom: 16px;">Thanks, <br>The {{config('variables.templateName')}} Team</p>
                       </td>
                     </tr>
                     <tr>

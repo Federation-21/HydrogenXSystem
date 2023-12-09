@@ -107,7 +107,6 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     && !(Object.hasOwnProperty.call(target, key) // unsafe if they exist up the prototype chain,
     && Object.propertyIsEnumerable.call(target, key)); // and also unsafe if they're nonenumerable.
   }
-
   function mergeObject(target, source, options) {
     var destination = {};
     if (options.isMergeableObject(target)) {
@@ -580,7 +579,6 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       getDocumentElement(element) // fallback
     );
   }
-
   function getTrueOffsetParent(element) {
     if (!isHTMLElement(element) ||
     // https://github.com/popperjs/popper-core/issues/837
@@ -2324,7 +2322,6 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       p: outros // parent group
     };
   }
-
   function check_outros() {
     if (!outros.r) {
       run_all(outros.c);

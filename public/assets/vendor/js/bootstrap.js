@@ -2965,7 +2965,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _popperjs_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/index.js");
 /* harmony import */ var _popperjs_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/popper.js");
-var _KEY_TO_DIRECTION;
 function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -3163,7 +3162,6 @@ var noop = function noop() {};
 var reflow = function reflow(element) {
   element.offsetHeight; // eslint-disable-line no-unused-expressions
 };
-
 var getjQuery = function getjQuery() {
   if (window.jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
     return window.jQuery;
@@ -4228,7 +4226,7 @@ var SELECTOR_ITEM_IMG = '.carousel-item img';
 var SELECTOR_INDICATORS = '.carousel-indicators';
 var SELECTOR_DATA_SLIDE = '[data-bs-slide], [data-bs-slide-to]';
 var SELECTOR_DATA_RIDE = '[data-bs-ride="carousel"]';
-var KEY_TO_DIRECTION = (_KEY_TO_DIRECTION = {}, _defineProperty(_KEY_TO_DIRECTION, ARROW_LEFT_KEY$1, DIRECTION_RIGHT), _defineProperty(_KEY_TO_DIRECTION, ARROW_RIGHT_KEY$1, DIRECTION_LEFT), _KEY_TO_DIRECTION);
+var KEY_TO_DIRECTION = _defineProperty(_defineProperty({}, ARROW_LEFT_KEY$1, DIRECTION_RIGHT), ARROW_RIGHT_KEY$1, DIRECTION_LEFT);
 var Default$b = {
   interval: 5000,
   keyboard: true,
@@ -5540,7 +5538,6 @@ var Default$8 = {
   // if false, we use the backdrop helper without adding any element to the dom
   rootElement: 'body' // give the choice to place backdrop under different elements
 };
-
 var DefaultType$8 = {
   className: 'string',
   clickCallback: '(function|null)',
@@ -5685,7 +5682,6 @@ var Default$7 = {
   autofocus: true,
   trapElement: null // The element to trap focus inside of
 };
-
 var DefaultType$7 = {
   autofocus: 'boolean',
   trapElement: 'element'
@@ -7324,8 +7320,7 @@ var Popover = /*#__PURE__*/function (_Tooltip) {
   }, {
     key: "_getContentForTemplate",
     value: function _getContentForTemplate() {
-      var _ref18;
-      return _ref18 = {}, _defineProperty(_ref18, SELECTOR_TITLE, this._getTitle()), _defineProperty(_ref18, SELECTOR_CONTENT, this._getContent()), _ref18;
+      return _defineProperty(_defineProperty({}, SELECTOR_TITLE, this._getTitle()), SELECTOR_CONTENT, this._getContent());
     }
   }, {
     key: "_getContent",
