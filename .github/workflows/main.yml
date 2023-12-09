@@ -31,7 +31,10 @@ jobs:
           php-version: 8.2
 
       - name: Configure Composer
+        env:
+          TEMP_ENV: ${{ SECRETS.TEMP_ENV }}
         run: |
+          printf "%s" "$TEMP_ENV" > ".env"
           composer update
           composer install --optimize-autoloader --no-dev --no-interaction --prefer-dist
 
