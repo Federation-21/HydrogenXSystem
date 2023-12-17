@@ -87,6 +87,57 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="address" class="form-label">{{ __('translate.address') }}</label>
+                                <input type="text" class="form-control" id="address" name="address"
+                                    placeholder="1562 NYC" aria-describedby="address" tabindex="1" autofocus
+                                    required />
+                                @error('address')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="state" class="form-label">{{ __('translate.state_city') }}</label>
+                                <input type="text" class="form-control" id="state" name="state"
+                                    placeholder="Dubai" aria-describedby="state" tabindex="1" autofocus
+                                    required />
+                                @error('state')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="zip" class="form-label">{{ __('translate.zip') }}</label>
+                                <input type="text" class="form-control" id="zip" name="zip"
+                                    placeholder="Dubai" aria-describedby="zip" tabindex="1" autofocus
+                                    required />
+                                @error('zip')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="date_of_birth" class="form-label">{{ __('translate.date_of_birth') }}</label>
+                                <input type="text" class="form-control" id="date_of_birth" name="date_of_birth"
+                                    placeholder="Dubai" aria-describedby="date_of_birth" tabindex="1" autofocus
+                                    required />
+                                @error('date_of_birth')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">{{ __('translate.gender') }}</label>
+                                <input type="text" class="form-control" id="gender" name="gender"
+                                    placeholder="Dubai" aria-describedby="gender" tabindex="1" autofocus
+                                    required />
+                                @error('gender')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+
+                            <div class="mb-3">
                                 <label for="mobile-number" class="form-label">{{ __('translate.mobile_number') }}</label>
                                 <input type="tel" class="form-control" id="mobile-number" name="mobile"
                                     placeholder="01700000000" aria-describedby="mobile-number" tabindex="1"

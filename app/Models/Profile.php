@@ -14,6 +14,8 @@ class Profile extends Model
         'zip',
         'designation',
         'address',
+        'gender',
+        'dob',
         'profile_image',
         'status',
     ];

@@ -36,6 +36,11 @@ class CreateNewUser implements CreatesNewUsers
                 ],
                 'mobile' => ['required', 'string', 'max:255', 'unique:users', 'min: 8',],
                 'password' => [new PasswordStrength(), 'min:8', 'confirmed'],
+                'address' => ['required', 'string'],
+                'state' => ['required', 'string'],
+                'zip' => ['required', 'string'],
+                'gender' => ['required', 'string'],
+                'dob' => ['required', 'string'],
             ],
             [
                 'username.unique' => 'Username already taken, please try another one',
@@ -59,6 +64,11 @@ class CreateNewUser implements CreatesNewUsers
                 'password.required' => 'Password is required',
                 'password.confirmed' => 'Password confirmation does not match',
                 'password.min' => 'Password must be at least 8 characters',
+                'address.required' => 'Address is required',
+                'state.required' => 'State is required',
+                'zip'=>'State is required',
+                'gender'=> 'Gender is required',
+                'dob'=> 'Date of birth is required',
 
             ]
         )->validate();
