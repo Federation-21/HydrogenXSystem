@@ -40,7 +40,8 @@ class CreateNewUser implements CreatesNewUsers
                 'state' => ['required', 'string'],
                 'zip' => ['required', 'string'],
                 'gender' => ['required', 'string'],
-                'dob' => ['required', 'string'],
+                'date_of_birth' => ['required', 'string'],
+                'country' => ['required', 'string'],
             ],
             [
                 'username.unique' => 'Username already taken, please try another one',
@@ -68,7 +69,7 @@ class CreateNewUser implements CreatesNewUsers
                 'state.required' => 'State is required',
                 'zip'=>'State is required',
                 'gender'=> 'Gender is required',
-                'dob'=> 'Date of birth is required',
+                'date_of_birth'=> 'Date of birth is required',
 
             ]
         )->validate();
@@ -85,12 +86,27 @@ class CreateNewUser implements CreatesNewUsers
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-
+        if($input['gender'] == 'male'){
+            $profile_image='default_male.png';
+        } else if($input['gender'] == 'female') {
+            $profile_image='default_female.png';
+        } else {
+            $profile_image='default_others.png';
+        }
         Profile::create([
             'user_id' => $user->id,
             'created_at' => now(),
             'updated_at' => now(),
+            'address' => $input['address'],
+            'state' => $input['state'],
+            'zip' => $input['zip'],
+            'gender' => $input['gender'],
+            'profile_image' => $profile_image,
+            'dob' => $input['date_of_birth'],
+            'country' => $input['country'],
         ]);
+
+        
 
         return $user;
     }

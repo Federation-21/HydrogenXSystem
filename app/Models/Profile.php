@@ -18,6 +18,7 @@ class Profile extends Model
         'dob',
         'profile_image',
         'status',
+        'country',
     ];
 
     protected $table = 'profile';
