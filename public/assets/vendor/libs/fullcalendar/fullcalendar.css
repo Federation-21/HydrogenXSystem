@@ -117,11 +117,11 @@ html:not([dir=rtl]) .fc .fc-view-harness .fc-scrollgrid-section-header > * {
 .fc .fc-view-harness .fc-event .fc-daygrid-event-dot {
   display: none;
 }
+.fc .fc-daygrid-event-harness + .fc-daygrid-event-harness .fc-daygrid-event {
+  margin-top: 0.3rem !important;
+}
 .fc .fc-timegrid .fc-timegrid-divider {
   display: none;
-}
-.fc .fc-daygrid-event-harness {
-  margin-bottom: 0.3rem !important;
 }
 .fc .fc-popover {
   z-index: 1090 !important;

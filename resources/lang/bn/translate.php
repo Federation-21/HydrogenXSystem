@@ -60,5 +60,6 @@ return [
     'zip' => 'জিপ কোড',
     'gender' => 'লিঙ্গ',
     'date_of_birth' => 'জন্ম তারিখ',
+    'country' => 'দেশ',
    
 ];

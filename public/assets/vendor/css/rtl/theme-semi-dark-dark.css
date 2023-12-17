@@ -164,8 +164,9 @@ a.bg-primary:hover, a.bg-primary:focus {
 }
 
 .list-group-item-primary {
+  border-color: #7367f0;
   background-color: #3a3b64;
-  border-color: #3a3b64;
+  border-color: #7367f0;
   color: #7367f0 !important;
 }
 
@@ -176,22 +177,25 @@ button.list-group-item-primary {
 a.list-group-item-primary:hover, a.list-group-item-primary:focus,
 button.list-group-item-primary:hover,
 button.list-group-item-primary:focus {
+  border-color: #7367f0;
   background-color: #3a3b64;
   color: #7367f0;
 }
 a.list-group-item-primary.active,
 button.list-group-item-primary.active {
-  border-color: #7367f0;
-  background-color: #7367f0;
-  color: #7367f0;
+  border-color: #7367f0 !important;
+  background-color: #7367f0 !important;
+  color: #fff !important;
 }
 
 .list-group-item-action.active, .list-group-item-action.active:hover, .list-group-item-action.active:focus {
   border-color: #7367f0;
   background-color: #7367f0;
+  color: #fff;
 }
 
 .list-group.list-group-timeline .list-group-timeline-primary:before {
+  border-color: #7367f0;
   background-color: #7367f0;
 }
 
@@ -317,8 +321,8 @@ button.list-group-item-primary.active {
 
 .btn-group .btn-primary,
 .input-group .btn-primary {
-  border-right: 1px solid #685dd8;
-  border-left: 1px solid #685dd8;
+  border-right: var(--bs-border-width) solid #685dd8;
+  border-left: var(--bs-border-width) solid #685dd8;
 }
 
 .btn-group-vertical .btn-primary {
@@ -361,8 +365,8 @@ button.list-group-item-primary.active {
 
 .btn-group .btn-label-primary,
 .input-group .btn-label-primary {
-  border-right: 1px solid #3f3f71;
-  border-left: 1px solid #3f3f71;
+  border-right: var(--bs-border-width) solid #3f3f71;
+  border-left: var(--bs-border-width) solid #3f3f71;
 }
 
 .btn-group-vertical .btn-label-primary {
@@ -1158,8 +1162,8 @@ li.ui-timepicker-selected,
 }
 .shepherd-element .btn-group .shepherd-button:not(:disabled).btn-primary,
 .shepherd-element .input-group .shepherd-button:not(:disabled).btn-primary {
-  border-right: 1px solid #685dd8;
-  border-left: 1px solid #685dd8;
+  border-right: var(--bs-border-width) solid #685dd8;
+  border-left: var(--bs-border-width) solid #685dd8;
 }
 .shepherd-element .btn-group-vertical .shepherd-button:not(:disabled).btn-primary {
   border-top-color: #685dd8;
@@ -1199,8 +1203,8 @@ li.ui-timepicker-selected,
 }
 .shepherd-element .btn-group .shepherd-button:not(:disabled).btn-label-secondary,
 .shepherd-element .input-group .shepherd-button:not(:disabled).btn-label-secondary {
-  border-right: 1px solid #4c5061;
-  border-left: 1px solid #4c5061;
+  border-right: var(--bs-border-width) solid #4c5061;
+  border-left: var(--bs-border-width) solid #4c5061;
 }
 .shepherd-element .btn-group-vertical .shepherd-button:not(:disabled).btn-label-secondary {
   border-top-color: #4c5061;

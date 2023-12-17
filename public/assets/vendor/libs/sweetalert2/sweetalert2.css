@@ -1553,7 +1553,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 .light-style .swal2-popup .swal2-input,
 .light-style .swal2-popup .swal2-file,
 .light-style .swal2-popup .swal2-textarea {
-  border: 1px solid #dbdade !important;
+  border: var(--bs-border-width) solid #dbdade !important;
   font-size: 1rem;
   color: #6f6b7d;
   border-radius: 0.5rem;
@@ -1632,7 +1632,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 .dark-style .swal2-popup .swal2-file,
 .dark-style .swal2-popup .swal2-textarea {
   color: #b6bee3;
-  border: 1px solid #434968 !important;
+  border: var(--bs-border-width) solid #434968 !important;
   font-size: 1rem;
   border-radius: 0.5rem;
 }

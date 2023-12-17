@@ -58,5 +58,6 @@ return [
     'zip' => 'Postleitzahl',
     'gender' => 'Geschlecht',
     'date_of_birth' =>  'Geburtsdatum',
+    'country' => 'Land',
 
 ];

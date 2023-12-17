@@ -55,5 +55,10 @@ return [
 'sign_in_instead' => 'Accedi invece',
 'registration_unavailable' => 'Registrazione chiusa',
 'registration_unavailable_details' => 'Spiacente, al momento non accettiamo nuovi utenti. Un invito da parte del nostro utente esistente potrebbe soddisfare il tuo desiderio di iscrizione. In caso contrario, dovrai aspettare finché non cambiamo idea. Grazie',
-    
+'address' => 'Indirizzo',
+'state_city' => 'Stato / Città',
+'zip' => 'CAP',
+'date_of_birth' => 'Data di nascita',
+'gender' => 'Genere',
+'country' => 'Paese',   
 ];

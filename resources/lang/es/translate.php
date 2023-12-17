@@ -60,4 +60,5 @@ return [
 'zip' => 'Código postal',
 'gender' => 'Género',
 'date_of_birth' => 'Fecha de nacimiento',
+'country' => 'País',
 ];

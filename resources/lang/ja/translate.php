@@ -55,5 +55,10 @@ return [
 'sign_in_instead' => '代わりにサインイン',
 'registration_unavailable' => '登録終了',
 'registration_unavailable_details' => '申し訳ありませんが、現在新規ユーザーの受け付けをしていません。当社の既存ユーザーからの招待状がサインアップの希望を満たすかもしれません。それ以外の場合は、私たちが考えを変えるまでお待ちいただくか、感謝します',
-    
+'address' => '住所',
+'state_city' => '州/市',
+'zip' => '郵便番号',
+'gender' => '性別',
+'date_of_birth' => '生年月日',
+'country' => '国',
 ];

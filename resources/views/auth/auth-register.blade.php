@@ -32,7 +32,7 @@
 @section('content')
     <div class="container-xxl">
         <div class="authentication-wrapper authentication-basic container-p-y">
-            <div class="authentication-inner py-4">
+            <div class="authentication-inner py-4" style="max-width: 700px;">
 
                 <!-- Register Card -->
                 <div class="card">
@@ -66,26 +66,28 @@
                         <form id="formAuthentication" class="mb-3" action="{{ route('register') }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
-                            <div class="mb-3">
-                                <label for="register-username" class="form-label">{{ __('translate.username') }}</label>
-                                <input type="text" class="form-control" id="register-username" name="username"
-                                    placeholder="johndoe" aria-describedby="register-username" tabindex="1" autofocus
-                                    required />
-                                @error('username')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                            <div class="row">
+                                <div class="mb-3 col-12 col-md-6">
+                                    <label for="register-username" class="form-label">{{ __('translate.username') }}</label>
+                                    <input type="text" class="form-control" id="register-username" name="username"
+                                        placeholder="johndoe" aria-describedby="register-username" tabindex="1" autofocus
+                                        required />
+                                    @error('username')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+    
+                                <div class="mb-3 col-12 col-md-6">
+                                    <label for="full-name" class="form-label">{{ __('translate.full_name') }}</label>
+                                    <input type="text" class="form-control" id="full-name" name="name"
+                                        placeholder="Jhone Doe" aria-describedby="full-name" tabindex="1" autofocus
+                                        required />
+                                    @error('name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
                             </div>
-
-                            <div class="mb-3">
-                                <label for="full-name" class="form-label">{{ __('translate.full_name') }}</label>
-                                <input type="text" class="form-control" id="full-name" name="name"
-                                    placeholder="Jhone Doe" aria-describedby="full-name" tabindex="1" autofocus
-                                    required />
-                                @error('name')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
+                            
                             <div class="mb-3">
                                 <label for="address" class="form-label">{{ __('translate.address') }}</label>
                                 <input type="text" class="form-control" id="address" name="address"
@@ -107,9 +109,19 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="country" class="form-label">{{ __('translate.country') }}</label>
+                                <input type="text" class="form-control" id="country" name="country"
+                                    placeholder="Dubai" aria-describedby="country" tabindex="1" autofocus
+                                    required />
+                                @error('country')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="zip" class="form-label">{{ __('translate.zip') }}</label>
                                 <input type="text" class="form-control" id="zip" name="zip"
-                                    placeholder="Dubai" aria-describedby="zip" tabindex="1" autofocus
+                                    placeholder="123456E" aria-describedby="zip" tabindex="1" autofocus
                                     required />
                                 @error('zip')
                                     <div class="text-danger">{{ $message }}</div>
@@ -119,7 +131,7 @@
                             <div class="mb-3">
                                 <label for="date_of_birth" class="form-label">{{ __('translate.date_of_birth') }}</label>
                                 <input type="text" class="form-control" id="date_of_birth" name="date_of_birth"
-                                    placeholder="Dubai" aria-describedby="date_of_birth" tabindex="1" autofocus
+                                    placeholder="Birth Date" aria-describedby="date_of_birth" tabindex="1" autofocus
                                     required />
                                 @error('date_of_birth')
                                     <div class="text-danger">{{ $message }}</div>
@@ -139,8 +151,8 @@
 
                             <div class="mb-3">
                                 <label for="mobile-number" class="form-label">{{ __('translate.mobile_number') }}</label>
-                                <input type="tel" class="form-control" id="mobile-number" name="mobile"
-                                    placeholder="01700000000" aria-describedby="mobile-number" tabindex="1"
+                                <input type="tel" class="form-control" id="mobile" name="mobile"
+                                    placeholder="01700000000" aria-describedby="mobile" tabindex="1"
                                     pattern="[0-9]{4}[0-9]{3}[0-9]{4}" autofocus required />
                                 @error('mobile')
                                     <div class="text-danger">{{ $message }}</div>

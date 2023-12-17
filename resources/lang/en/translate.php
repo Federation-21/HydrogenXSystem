@@ -58,5 +58,6 @@ return [
     'zip' => 'Zip Code',
     'date_of_birth' => 'Birth Date',
     'gender' => 'Gender',
+    'country' => 'Country',
 
 ];

@@ -88,6 +88,7 @@
   width: 80px;
 }
 .app-email .app-email-compose .ql-editor {
+  height: 10rem;
   min-height: 10rem;
 }
 .app-email .app-email-compose .ql-snow.ql-toolbar {
@@ -212,7 +213,8 @@
   border: 0;
 }
 .app-email .app-email-view .app-email-view-content .ql-container .ql-editor {
-  min-height: 5rem;
+  height: 7rem;
+  min-height: 7rem;
 }
 .app-email .app-email-view .app-email-view-content .ql-editor,
 .app-email .app-email-view .app-email-view-content .ql-editor.ql-blank::before {

@@ -519,8 +519,8 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 
 var CSS_FILENAME_PATTERN = '%name%.css';
@@ -739,7 +739,8 @@ var TemplateCustomizer = /*#__PURE__*/function () {
     key: "setLang",
     value: function setLang(lang) {
       var _this = this;
-      var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var updateStorage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      var force = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       if (lang === this.settings.lang && !force) return;
       if (!TemplateCustomizer.LANGUAGES[lang]) throw new Error("Language \"".concat(lang, "\" not found!"));
       var t = TemplateCustomizer.LANGUAGES[lang];
@@ -755,6 +756,8 @@ var TemplateCustomizer = /*#__PURE__*/function () {
         themes[i].querySelector('.template-customizer-theme-name').textContent = tt[themeName] || this._getThemeByName(themeName).title;
       }
       this.settings.lang = lang;
+      if (updateStorage) this._setSetting('Lang', lang);
+      if (updateStorage) this.settings.onSettingsChange.call(this, this.settings);
     }
 
     // Update theme settings control
@@ -829,7 +832,7 @@ var TemplateCustomizer = /*#__PURE__*/function () {
     value: function clearLocalStorage() {
       if (this._ssr) return;
       var layoutName = this._getLayoutName();
-      var keysToRemove = ['Theme', 'Style', 'LayoutCollapsed', 'FixedNavbarOption', 'LayoutType', 'contentLayout', 'Rtl'];
+      var keysToRemove = ['Theme', 'Style', 'LayoutCollapsed', 'FixedNavbarOption', 'LayoutType', 'contentLayout', 'Rtl', 'Lang'];
       keysToRemove.forEach(function (key) {
         var localStorageKey = "templateCustomizer-".concat(layoutName, "--").concat(key);
         localStorage.removeItem(localStorageKey);
@@ -881,10 +884,13 @@ var TemplateCustomizer = /*#__PURE__*/function () {
       if (this.settings.stylesOpt === 'system') {
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
           this.settings.style = 'dark';
+          document.cookie = "style=dark"; // to fix laravel system mode issue
         } else {
           this.settings.style = 'light';
+          document.cookie = "style=light"; // to fix laravel system mode issue
         }
       } else {
+        document.cookie = "style=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;"; // to fix laravel system mode issue
         this.settings.style = this.settings.styles.indexOf(style) !== -1 ? style : this.settings.defaultStyle;
       }
       if (this.settings.styles.indexOf(this.settings.style) === -1) {
@@ -920,6 +926,11 @@ var TemplateCustomizer = /*#__PURE__*/function () {
     value: function _setup() {
       var _this2 = this;
       var _container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document;
+      // Function to create customizer elements
+      var createOptionElement = function createOptionElement(nameVal, title, inputName, isDarkStyle, image) {
+        image = image || nameVal;
+        return _this2._getElementFromString("<div class=\"col-4 px-2\">\n      <div class=\"form-check custom-option custom-option-icon mb-0\">\n        <label class=\"form-check-label custom-option-content p-0\" for=\"".concat(inputName).concat(nameVal, "\">\n          <span class=\"custom-option-body mb-0\">\n            <img src=\"").concat(assetsPath, "img/customizer/").concat(image).concat(isDarkStyle ? '-dark' : '', ".svg\" alt=\"").concat(title, "\" class=\"img-fluid scaleX-n1-rtl\" />\n          </span>\n          <input\n            name=\"").concat(inputName, "\"\n            class=\"form-check-input d-none\"\n            type=\"radio\"\n            value=\"").concat(nameVal, "\"\n            id=\"").concat(inputName).concat(nameVal, "\" />\n        </label>\n      </div>\n      <label class=\"form-check-label small text-nowrap\" for=\"").concat(inputName).concat(nameVal, "\">").concat(title, "</label>\n    </div>"));
+      };
       this._cleanup();
       this.container = this._getElementFromString((_template_customizer_template_customizer_html__WEBPACK_IMPORTED_MODULE_1___default()));
 
@@ -968,16 +979,13 @@ var TemplateCustomizer = /*#__PURE__*/function () {
       this._listeners.push([closeBtn, 'click', closeBtnCb]);
 
       // Style
-
-      //
-
       var styleW = this.container.querySelector('.template-customizer-style');
+      var styleOpt = styleW.querySelector('.template-customizer-styles-options');
       if (!this._hasControls('style')) {
         styleW.parentNode.removeChild(styleW);
       } else {
-        var styleOpt = styleW.querySelector('.template-customizer-styles-options');
         this.settings.availableStyles.forEach(function (style) {
-          var styleEl = _this2._getElementFromString("<div class=\"col-4 px-2\">\n            <div class=\"form-check custom-option custom-option-icon mb-0\">\n              <label class=\"form-check-label custom-option-content p-0\" for=\"styleRadio".concat(style.name, "\">\n                <span class=\"custom-option-body mb-0\">\n                  <img src=\"").concat(assetsPath, "img/customizer/").concat(style.name).concat(cl.contains('dark-style') ? '-dark' : '', ".svg\" alt=\"Style\" class=\"img-fluid scaleX-n1-rtl\" />\n                </span>\n                <input\n                  name=\"customRadioIcon\"\n                  class=\"form-check-input d-none\"\n                  type=\"radio\"\n                  value=\"").concat(style.name, "\"\n                  id=\"styleRadio").concat(style.name, "\" />\n              </label>\n            </div>\n            <label class=\"form-check-label small\" for=\"themeRadios").concat(style.name, "\">").concat(style.title, "</label>\n          </div>"));
+          var styleEl = createOptionElement(style.name, style.title, 'customRadioIcon', cl.contains('dark-style'));
           styleOpt.appendChild(styleEl);
         });
         styleOpt.querySelector("input[value=\"".concat(this.settings.stylesOpt, "\"]")).setAttribute('checked', 'checked');
@@ -994,12 +1002,11 @@ var TemplateCustomizer = /*#__PURE__*/function () {
       }
 
       // Theme
-
       var themesW = this.container.querySelector('.template-customizer-themes');
+      var themesWInner = themesW.querySelector('.template-customizer-themes-options');
       if (!this._hasControls('themes')) {
         themesW.parentNode.removeChild(themesW);
       } else {
-        var themesWInner = themesW.querySelector('.template-customizer-themes-options');
         this.settings.availableThemes.forEach(function (theme) {
           var image = '';
           if (theme.name === 'theme-semi-dark') {
@@ -1009,7 +1016,7 @@ var TemplateCustomizer = /*#__PURE__*/function () {
           } else {
             image = "default";
           }
-          var themeEl = _this2._getElementFromString("<div class=\"col-4 px-2\">\n          <div class=\"form-check custom-option custom-option-icon mb-0\">\n            <label class=\"form-check-label custom-option-content p-0\" for=\"themeRadios".concat(theme.name, "\">\n              <span class=\"custom-option-body mb-0\">\n                <img src=\"").concat(assetsPath, "img/customizer/").concat(image).concat(cl.contains('dark-style') ? '-dark' : '', ".svg\" alt=\"Themes\" class=\"img-fluid scaleX-n1-rtl\" />\n              </span>\n              <input\n                class=\"form-check-input d-none\"\n                type=\"radio\"\n                name=\"themeRadios\"\n                id=\"themeRadios").concat(theme.name, "\"\n                value=\"").concat(theme.name, "\" />\n            </label>\n            </div>\n            <label class=\"form-check-label small\" for=\"themeRadios").concat(theme.name, "\">").concat(theme.title, "</label>\n        </div>"));
+          var themeEl = createOptionElement(theme.name, theme.title, 'themeRadios', cl.contains('dark-style'), image);
           themesWInner.appendChild(themeEl);
         });
         themesWInner.querySelector("input[value=\"".concat(this.settings.theme.name, "\"]")).setAttribute('checked', 'checked');
@@ -1030,8 +1037,6 @@ var TemplateCustomizer = /*#__PURE__*/function () {
       }
 
       // Layout wrapper
-      //
-
       var layoutW = this.container.querySelector('.template-customizer-layout');
       if (!this._hasControls('rtl headerType contentLayout layoutCollapsed layoutNavbarOptions', true)) {
         layoutW.parentNode.removeChild(layoutW);
@@ -1046,7 +1051,7 @@ var TemplateCustomizer = /*#__PURE__*/function () {
         } else {
           var directionOpt = directionW.querySelector('.template-customizer-directions-options');
           this.settings.availableDirections.forEach(function (dir) {
-            var dirEl = _this2._getElementFromString("<div class=\"col-4 px-2\">\n              <div class=\"form-check custom-option custom-option-icon mb-0\">\n                <label class=\"form-check-label custom-option-content p-0\" for=\"directionRadio".concat(dir.name, "\">\n                  <span class=\"custom-option-body mb-0\">\n                    <img src=\"").concat(assetsPath, "img/customizer/").concat(dir.name).concat(cl.contains('dark-style') ? '-dark' : '', ".svg\" alt=\"Directions\" class=\"img-fluid\" />\n                  </span>\n                  <input\n                    name=directionRadioIcon\"\n                    class=\"form-check-input d-none\"\n                    type=\"radio\"\n                    value=\"").concat(dir.name, "\"\n                    id=\"directionRadio").concat(dir.name, "\" />\n                </label>\n              </div>\n              <label class=\"form-check-label small\" for=\"directionRadios").concat(dir.name, "\">").concat(dir.title, "</label>\n            </div>"));
+            var dirEl = createOptionElement(dir.name, dir.title, 'directionRadioIcon', cl.contains('dark-style'));
             directionOpt.appendChild(dirEl);
           });
           directionOpt.querySelector("input[value=\"".concat(this.settings.rtl ? 'rtl' : 'ltr', "\"]")).setAttribute('checked', 'checked');
@@ -1055,13 +1060,17 @@ var TemplateCustomizer = /*#__PURE__*/function () {
             _this2.setRtl(e.target.value === 'rtl', true, function () {
               _this2._loadingState(false);
             });
+            if (e.target.value === 'rtl') {
+              window.location.href = baseUrl + 'lang/ar';
+            } else {
+              window.location.href = baseUrl + 'lang/en';
+            }
           };
           directionOpt.addEventListener('change', rtlCb);
           this._listeners.push([directionOpt, 'change', rtlCb]);
         }
 
         // Header Layout Type
-        //
         var headerTypeW = this.container.querySelector('.template-customizer-headerOptions');
         var templateName = document.documentElement.getAttribute('data-template').split('-');
         if (!this._hasControls('headerType')) {
@@ -1074,7 +1083,7 @@ var TemplateCustomizer = /*#__PURE__*/function () {
             }
           }, 100);
           this.settings.availableHeaderTypes.forEach(function (header) {
-            var headerEl = _this2._getElementFromString("<div class=\"col-4 px-2\">\n                <div class=\"form-check custom-option custom-option-icon mb-0\">\n                  <label class=\"form-check-label custom-option-content p-0\" for=\"headerRadio".concat(header.name, "\">\n                    <span class=\"custom-option-body mb-0\">\n                      <img src=\"").concat(assetsPath, "img/customizer/horizontal-").concat(header.name).concat(cl.contains('dark-style') ? '-dark' : '', ".svg\" alt=\"Header Types\" class=\"img-fluid scaleX-n1-rtl\" />\n                    </span>\n                    <input\n                      name=headerRadioIcon\"\n                      class=\"form-check-input d-none\"\n                      type=\"radio\"\n                      value=\"").concat(header.name, "\"\n                      id=\"headerRadio").concat(header.name, "\" />\n                  </label>\n                </div>\n                <label class=\"form-check-label small\" for=\"headerRadios").concat(header.name, "\">").concat(header.title, "</label>\n              </div>"));
+            var headerEl = createOptionElement(header.name, header.title, 'headerRadioIcon', cl.contains('dark-style'), "horizontal-".concat(header.name));
             headerOpt.appendChild(headerEl);
           });
           headerOpt.querySelector("input[value=\"".concat(this.settings.headerType, "\"]")).setAttribute('checked', 'checked');
@@ -1095,7 +1104,7 @@ var TemplateCustomizer = /*#__PURE__*/function () {
         } else {
           var contentOpt = contentWrapper.querySelector('.template-customizer-content-options');
           this.settings.availableContentLayouts.forEach(function (content) {
-            var contentEl = _this2._getElementFromString("<div class=\"col-4 px-2\">\n              <div class=\"form-check custom-option custom-option-icon mb-0\">\n                <label class=\"form-check-label custom-option-content p-0\" for=\"contentRadio".concat(content.name, "\">\n                  <span class=\"custom-option-body mb-0\">\n                    <img src=\"").concat(assetsPath, "img/customizer/").concat(content.name).concat(cl.contains('dark-style') ? '-dark' : '', ".svg\" alt=\"content type\" class=\"img-fluid scaleX-n1-rtl\" />\n                  </span>\n                  <input\n                    name=contentRadioIcon\"\n                    class=\"form-check-input d-none\"\n                    type=\"radio\"\n                    value=\"").concat(content.name, "\"\n                    id=\"contentRadio").concat(content.name, "\" />\n                </label>\n              </div>\n              <label class=\"form-check-label small\" for=\"contentRadios").concat(content.name, "\">").concat(content.title, "</label>\n            </div>"));
+            var contentEl = createOptionElement(content.name, content.title, 'contentRadioIcon', cl.contains('dark-style'));
             contentOpt.appendChild(contentEl);
           });
           contentOpt.querySelector("input[value=\"".concat(this.settings.contentLayout, "\"]")).setAttribute('checked', 'checked');
@@ -1123,7 +1132,7 @@ var TemplateCustomizer = /*#__PURE__*/function () {
           }, 100);
           var layoutCollapsedOpt = layoutCollapsedW.querySelector('.template-customizer-layouts-options');
           this.settings.availableLayouts.forEach(function (layoutOpt) {
-            var layoutsEl = _this2._getElementFromString("<div class=\"col-4 px-2\">\n          <div class=\"form-check custom-option custom-option-icon mb-0\">\n            <label class=\"form-check-label custom-option-content p-0\" for=\"layoutsRadios".concat(layoutOpt.name, "\">\n              <span class=\"custom-option-body mb-0\">\n              <img src=\"").concat(assetsPath, "img/customizer/").concat(layoutOpt.name).concat(cl.contains('dark-style') ? '-dark' : '', ".svg\" alt=\"Layout Collapsed/Expanded\" class=\"img-fluid scaleX-n1-rtl\" />\n              </span>\n              <input\n              class=\"form-check-input d-none\"\n                type=\"radio\"\n                name=\"layoutsRadios\"\n                id=\"layoutsRadios").concat(layoutOpt.name, "\"\n                value=\"").concat(layoutOpt.name, "\" />\n            </label>\n            </div>\n            <label class=\"form-check-label small\" for=\"layoutsRadios").concat(layoutOpt.name, "\">").concat(layoutOpt.title, "</label>\n            </div>"));
+            var layoutsEl = createOptionElement(layoutOpt.name, layoutOpt.title, 'layoutsRadios', cl.contains('dark-style'));
             layoutCollapsedOpt.appendChild(layoutsEl);
           });
           layoutCollapsedOpt.querySelector("input[value=\"".concat(this.settings.layoutCollapsed ? 'collapsed' : 'expanded', "\"]")).setAttribute('checked', 'checked');
@@ -1136,7 +1145,6 @@ var TemplateCustomizer = /*#__PURE__*/function () {
         }
 
         // Layout Navbar Options
-
         var navbarOption = this.container.querySelector('.template-customizer-layoutNavbarOptions');
         if (!this._hasControls('layoutNavbarOptions')) {
           navbarOption.parentNode.removeChild(navbarOption);
@@ -1148,7 +1156,7 @@ var TemplateCustomizer = /*#__PURE__*/function () {
           }, 100);
           var navbarTypeOpt = navbarOption.querySelector('.template-customizer-navbar-options');
           this.settings.availableNavbarOptions.forEach(function (navbarOpt) {
-            var navbarEl = _this2._getElementFromString("<div class=\"col-4 px-2\">\n          <div class=\"form-check custom-option custom-option-icon mb-0\">\n            <label class=\"form-check-label custom-option-content p-0\" for=\"navbarOptionRadios".concat(navbarOpt.name, "\">\n              <span class=\"custom-option-body mb-0\">\n                <img src=\"").concat(assetsPath, "img/customizer/").concat(navbarOpt.name).concat(cl.contains('dark-style') ? '-dark' : '', ".svg\" alt=\"Navbar Type\" class=\"img-fluid scaleX-n1-rtl\" />\n              </span>\n              <input\n                class=\"form-check-input d-none\"\n                type=\"radio\"\n                name=\"navbarOptionRadios\"\n                id=\"navbarOptionRadios").concat(navbarOpt.name, "\"\n                value=\"").concat(navbarOpt.name, "\" />\n            </label>\n            </div>\n            <label class=\"form-check-label small\" for=\"navbarOptionRadios").concat(navbarOpt.name, "\">").concat(navbarOpt.title, "</label>\n        </div>"));
+            var navbarEl = createOptionElement(navbarOpt.name, navbarOpt.title, 'navbarOptionRadios', cl.contains('dark-style'));
             navbarTypeOpt.appendChild(navbarEl);
           });
           // check navbar option from settings
@@ -1166,19 +1174,24 @@ var TemplateCustomizer = /*#__PURE__*/function () {
         }
       }
       setTimeout(function () {
+        var layoutCustom = _this2.container.querySelector('.template-customizer-layout');
         if (document.querySelector('.menu-vertical')) {
           if (!_this2._hasControls('rtl contentLayout layoutCollapsed layoutNavbarOptions', true)) {
-            layoutW.parentNode.removeChild(layoutW);
+            if (layoutCustom) {
+              layoutCustom.parentNode.removeChild(layoutCustom);
+            }
           }
         } else if (document.querySelector('.menu-horizontal')) {
           if (!_this2._hasControls('rtl contentLayout headerType', true)) {
-            layoutW.parentNode.removeChild(layoutW);
+            if (layoutCustom) {
+              layoutCustom.parentNode.removeChild(layoutCustom);
+            }
           }
         }
       }, 100);
 
       // Set language
-      this.setLang(this.settings.lang, true);
+      this.setLang(this.settings.lang, false, true);
 
       // Append container
       if (_container === document) {
@@ -1515,10 +1528,10 @@ TemplateCustomizer.CONTENT = [{
 // Directions
 TemplateCustomizer.DIRECTIONS = [{
   name: 'ltr',
-  title: 'Left to Right'
+  title: 'Left to Right (En)'
 }, {
   name: 'rtl',
-  title: 'Right to Left'
+  title: 'Right to Left (Ar)'
 }];
 
 // Theme setting language
@@ -1549,6 +1562,19 @@ TemplateCustomizer.LANGUAGES = {
     layout_navbar_label: 'Type de barre de navigation',
     direction_label: 'Direction'
   },
+  ar: {
+    panel_header: 'أداة تخصيص القالب',
+    panel_sub_header: 'تخصيص ومعاينة في الوقت الحقيقي',
+    theming_header: 'السمات',
+    style_label: 'النمط (الوضع)',
+    theme_label: 'المواضيع',
+    layout_header: 'تَخطِيط',
+    layout_label: 'القائمة (الملاحة)',
+    layout_header_label: 'أنواع الرأس',
+    content_label: 'محتوى',
+    layout_navbar_label: 'نوع شريط التنقل',
+    direction_label: 'اتجاه'
+  },
   de: {
     panel_header: 'Vorlagen-Anpasser',
     panel_sub_header: 'Anpassen und Vorschau in Echtzeit',
@@ -1561,19 +1587,6 @@ TemplateCustomizer.LANGUAGES = {
     content_label: 'Inhalt',
     layout_navbar_label: 'Art der Navigationsleiste',
     direction_label: 'Richtung'
-  },
-  pt: {
-    panel_header: 'Personalizador De Modelo',
-    panel_sub_header: 'Personalize e visualize em tempo real',
-    theming_header: 'Temas',
-    style_label: 'Estilo (Modo)',
-    theme_label: 'Temas',
-    layout_header: 'Esquema',
-    layout_label: 'Menu (Navegação)',
-    layout_header_label: 'Tipos de cabeçalho',
-    content_label: 'Contente',
-    layout_navbar_label: 'Tipo de barra de navegação',
-    direction_label: 'Direção'
   }
 };
 

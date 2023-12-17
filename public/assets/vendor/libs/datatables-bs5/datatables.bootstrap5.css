@@ -724,9 +724,7 @@ div.dataTables_wrapper div.dataTables_filter {
 
 div.dataTables_wrapper div.dataTables_paginate ul.pagination .page-link {
   padding: 0.745rem;
-  min-width: calc(
-    2.38155rem + 0px
-  );
+  min-width: calc(2.38155rem + 0px);
   line-height: 1;
 }
 div.dataTables_wrapper div.dataTables_paginate ul.pagination .page-link div:not(.table-responsive) div.dataTables_wrapper .dataTables_paginate {
@@ -736,9 +734,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination .page-link div:not(
 @media screen and (max-width: 575.98px) {
   div.dataTables_wrapper div.dataTables_paginate ul.pagination .page-link {
     padding: 0.5rem 0.15rem;
-    min-width: calc(
-      1.75rem + 0px
-    );
+    min-width: calc(1.75rem + calc(0px * 2));
     font-size: 0.75rem;
     line-height: 1;
   }

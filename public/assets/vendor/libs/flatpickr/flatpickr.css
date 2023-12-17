@@ -603,10 +603,10 @@ html:not([dir=rtl]) .flatpickr-weekwrapper .flatpickr-weeks .flatpickr-weeks {
 }
 .light-style .flatpickr-calendar,
 .light-style .flatpickr-days {
-  width: calc(16.625rem + 0px) !important;
+  width: calc(16.625rem + 0px * 2) !important;
 }
 .light-style .flatpickr-calendar.hasWeeks {
-  width: calc(18.75rem + 0px) !important;
+  width: calc(18.75rem + 0px * 3) !important;
 }
 .light-style .flatpickr-calendar.open {
   z-index: 1091;
@@ -743,11 +743,10 @@ html:not([dir=rtl]) .flatpickr-weekwrapper .flatpickr-weeks .flatpickr-weeks {
 }
 .dark-style .flatpickr-calendar,
 .dark-style .flatpickr-days {
-  width: calc(16.625rem + 0px) !important;
+  width: calc(16.625rem + 0px * 2) !important;
 }
-.dark-style .flatpickr-calendar.hasWeeks,
-.dark-style .flatpickr-calendar.hasWeeks .flatpickr-days {
-  width: calc(18.75rem + 0px) !important;
+.dark-style .flatpickr-calendar.hasWeeks {
+  width: calc(18.75rem + 0px * 3) !important;
 }
 .dark-style .flatpickr-calendar.open {
   z-index: 1091;

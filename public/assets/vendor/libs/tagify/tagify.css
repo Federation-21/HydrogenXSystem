@@ -809,6 +809,11 @@
 [dir=rtl] .tagify__tag, [dir=rtl] .tagify__input {
   margin: 0.375rem 0 0 0.375rem;
 }
+[dir=rtl] .tagify + input,
+[dir=rtl] .tagify + textarea {
+  left: 0;
+  right: -9999em !important;
+}
 [dir=rtl] .tagify__tag > div {
   padding: 0 0.625rem 0 0;
 }
