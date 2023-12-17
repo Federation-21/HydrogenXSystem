@@ -97,57 +97,50 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            
-                            <div class="mb-3">
-                                <label for="state" class="form-label">{{ __('translate.state_city') }}</label>
-                                <input type="text" class="form-control" id="state" name="state"
-                                    placeholder="Dubai" aria-describedby="state" tabindex="1" autofocus
-                                    required />
-                                @error('state')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+
+                            <div class="row">
+                                <div class="mb-3 col-12 col-md-6">
+                                    <label for="state" class="form-label">{{ __('translate.state_city') }}</label>
+                                    <input type="text" class="form-control" id="state" name="state"
+                                        placeholder="Dubai" aria-describedby="state" tabindex="1" autofocus
+                                        required />
+                                    @error('state')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3 col-12 col-md-6">
+                                    <label for="country" class="form-label">{{ __('translate.country') }}</label>
+                                    <input type="text" class="form-control" id="country" name="country"
+                                        placeholder="Dubai" aria-describedby="country" tabindex="1" autofocus
+                                        required />
+                                    @error('country')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="country" class="form-label">{{ __('translate.country') }}</label>
-                                <input type="text" class="form-control" id="country" name="country"
-                                    placeholder="Dubai" aria-describedby="country" tabindex="1" autofocus
-                                    required />
-                                @error('country')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
+                            <div class="row">
+                                <div class="mb-3 col-12 col-md-6">
+                                    <label for="zip" class="form-label">{{ __('translate.zip') }}</label>
+                                    <input type="text" class="form-control" id="zip" name="zip"
+                                        placeholder="123456E" aria-describedby="zip" tabindex="1" autofocus
+                                        required />
+                                    @error('zip')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
 
-                            <div class="mb-3">
-                                <label for="zip" class="form-label">{{ __('translate.zip') }}</label>
-                                <input type="text" class="form-control" id="zip" name="zip"
-                                    placeholder="123456E" aria-describedby="zip" tabindex="1" autofocus
-                                    required />
-                                @error('zip')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                <div class="mb-3 col-12 col-md-6">
+                                    <label for="date_of_birth" class="form-label">{{ __('translate.date_of_birth') }}</label>
+                                    <input type="text" class="form-control" id="date_of_birth" name="date_of_birth"
+                                        placeholder="Birth Date" aria-describedby="date_of_birth" tabindex="1" autofocus
+                                        required />
+                                    @error('date_of_birth')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
                             </div>
-
-                            <div class="mb-3">
-                                <label for="date_of_birth" class="form-label">{{ __('translate.date_of_birth') }}</label>
-                                <input type="text" class="form-control" id="date_of_birth" name="date_of_birth"
-                                    placeholder="Birth Date" aria-describedby="date_of_birth" tabindex="1" autofocus
-                                    required />
-                                @error('date_of_birth')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="gender" class="form-label">{{ __('translate.gender') }}</label>
-                                <input type="text" class="form-control" id="gender" name="gender"
-                                    placeholder="Dubai" aria-describedby="gender" tabindex="1" autofocus
-                                    required />
-                                @error('gender')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
 
                             <div class="mb-3">
                                 <label for="mobile-number" class="form-label">{{ __('translate.mobile_number') }}</label>
@@ -194,6 +187,26 @@
                                         aria-describedby="retype-password" tabindex="3" required />
                                     <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                                 </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">{{ __('translate.gender') }}: </label>
+                                <div class="form-check form-check-inline mt-3">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender-male" value="male" />
+                                    <label class="form-check-label" for="gender-male">{{ __('translate.gender_male') }}</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender-female" value="female" />
+                                    <label class="form-check-label" for="gender-female">{{ __('translate.gender_female') }}</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender-others" value="others" />
+                                    <label class="form-check-label" for="gender-others">{{ __('translate.gender_others') }}</label>
+                                </div>
+                                  
+                                @error('gender')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="mb-3">
@@ -244,7 +257,7 @@
                         href="{{ route("change.language.hindi") }}" class="text-muted ms-1">हिंदी</a> | <a
                         href="{{ route("change.language.arabic") }}" class="text-muted ms-1">العربية</a> | <a
                         href="{{ route("change.language.french") }}" class="text-muted ms-1">Français</a> | <a
-                        href="{{ route("change.language.german") }}" class="text-muted ms-1">Deutsche</a> <a
+                        href="{{ route("change.language.german") }}" class="text-muted ms-1">Deutsche</a><br><a
                         href="{{ route("change.language.italian") }}" class="text-muted ms-1">Italiano</a> | <a
                         href="{{ route("change.language.japanese") }}" class="text-muted ms-1">日本語</a> | <a
                         href="{{ route("change.language.korean") }}" class="text-muted ms-1">한국어</a> | <a

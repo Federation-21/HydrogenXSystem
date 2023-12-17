@@ -59,5 +59,9 @@ return [
     'date_of_birth' => 'Birth Date',
     'gender' => 'Gender',
     'country' => 'Country',
+    'gender_male' => 'Male',
+    'gender_female' => 'Female',
+    'gender_others' => 'Others',
+
 
 ];

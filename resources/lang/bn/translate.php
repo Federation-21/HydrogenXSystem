@@ -61,5 +61,8 @@ return [
     'gender' => 'লিঙ্গ',
     'date_of_birth' => 'জন্ম তারিখ',
     'country' => 'দেশ',
+    'gender_male' => 'পুরুষ',
+    'gender_female' => 'মহিলা',
+    'gender_others' => 'অন্যান্য',
    
 ];

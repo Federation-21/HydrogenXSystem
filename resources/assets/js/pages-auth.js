@@ -700,6 +700,23 @@ document.addEventListener('DOMContentLoaded', function (e) {
               }
             }
           },
+          'password_confirmation': {
+            validators: {
+              notEmpty: {
+                message: message.confirmPassword.notEmpty
+              },
+              identical: {
+                compare: function () {
+                  return formAuthentication.querySelector('[name="password"]').value;
+                },
+                message: message.confirmPassword.identical
+              },
+              stringLength: {
+                min: 6,
+                message: message.confirmPassword.stringLength
+              }
+            }
+          },
           'register-privacy-policy': {
             validators: {
               notEmpty: {
