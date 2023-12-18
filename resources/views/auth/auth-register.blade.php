@@ -52,8 +52,8 @@
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-1 pt-2">{{ __('translate.register') }} 🚀</h4>
-                        <p class="mb-4">{{ __('translate.register_text') }} </p>
+                        <h4 class="mb-1 pt-2 justify-content-center">{{ __('translate.register') }} 🚀</h4>
+                        <p class="mb-4 justify-content-center">{{ __('translate.register_text') }} </p>
                         @if($possible == 0)
                         <div class="alert alert-danger d-flex align-items-baseline" role="alert">
                             <span class="alert-icon alert-icon-lg text-danger me-2">
@@ -116,7 +116,7 @@
                                     <label for="country" class="form-label">{{ __('translate.country') }}</label>
                                     <select id="country" name="country" class="selectpicker w-100 show-tick" id="selectpickerIcons" data-icon-base="ti" data-tick-icon="ti-check" data-style="btn-default" data-live-search="true">
                                         <option data-icon="fi fi-af" value="Afghanistan">Afghanistan</option>
-                                        <option data-icon="fi fi-ax" value="Åland Islands">Åland Islands</option>
+                                        <option data-icon="fi fi-ax" value="Aland Islands">Aland Islands</option>
                                         <option data-icon="fi fi-al" value="Albania">Albania</option>
                                         <option data-icon="fi fi-dz" value="Algeria">Algeria</option>
                                         <option data-icon="fi fi-as" value="American Samoa">American Samoa</option>
@@ -152,10 +152,10 @@
                                         <option data-icon="fi fi-bg" value="Bulgaria">Bulgaria</option>
                                         <option data-icon="fi fi-bf" value="Burkina Faso">Burkina Faso</option>
                                         <option data-icon="fi fi-bi" value="Burundi">Burundi</option>
-                                        <option data-icon="fi fi-cv" value="Cambodia">Cambodia</option>
-                                        <option data-icon="fi fi-kh" value="Cameroon">Cameroon</option>
-                                        <option data-icon="fi fi-cm" value="Canada">Canada</option>
-                                        <option data-icon="fi fi-ca" value="Cape Verde">Cape Verde</option>
+                                        <option data-icon="fi fi-cv" value="Cabo Verde">Cabo Verde</option>
+                                        <option data-icon="fi fi-kh" value="Cambodia">Cambodia</option>
+                                        <option data-icon="fi fi-cm" value="Cameroon">Cameroon</option>
+                                        <option data-icon="fi fi-ca" value="Canada">Canada</option>
                                         <option data-icon="fi fi-ky" value="Cayman Islands">Cayman Islands</option>
                                         <option data-icon="fi fi-cf" value="Central African Republic">Central African Republic</option>
                                         <option data-icon="fi fi-td" value="Chad">Chad</option>
@@ -172,6 +172,8 @@
                                         <option data-icon="fi fi-cw" value="Curaçao">Curaçao</option>
                                         <option data-icon="fi fi-cy" value="Cyprus">Cyprus</option>
                                         <option data-icon="fi fi-cz" value="Czech Republic">Czech Republic</option>
+                                        <option data-icon="fi fi-ci" value="Côte d'Ivoire">Côte d'Ivoire</option>
+                                        <option data-icon="fi fi-cd" value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
                                         <option data-icon="fi fi-dk" value="Denmark">Denmark</option>
                                         <option data-icon="fi fi-dj" value="Djibouti">Djibouti</option>
                                         <option data-icon="fi fi-dm" value="Dominica">Dominica</option>
@@ -182,9 +184,11 @@
                                         <option data-icon="fi fi-gq" value="Equatorial Guinea">Equatorial Guinea</option>
                                         <option data-icon="fi fi-er" value="Eritrea">Eritrea</option>
                                         <option data-icon="fi fi-ee" value="Estonia">Estonia</option>
+                                        <option data-icon="fi fi-sz" value="Eswatini">Eswatini</option>
                                         <option data-icon="fi fi-et" value="Ethiopia">Ethiopia</option>
-                                        <option data-icon="fi fi-fk" value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                                        <option data-icon="fi fi-fk" value="Falkland Islands">Falkland Islands</option>
                                         <option data-icon="fi fi-fo" value="Faroe Islands">Faroe Islands</option>
+                                        <option data-icon="fi fi-fm" value="Federated States of Micronesia">Federated States of Micronesia</option>
                                         <option data-icon="fi fi-fj" value="Fiji">Fiji</option>
                                         <option data-icon="fi fi-fi" value="Finland">Finland</option>
                                         <option data-icon="fi fi-fr" value="France">France</option>
@@ -205,11 +209,11 @@
                                         <option data-icon="fi fi-gt" value="Guatemala">Guatemala</option>
                                         <option data-icon="fi fi-gg" value="Guernsey">Guernsey</option>
                                         <option data-icon="fi fi-gn" value="Guinea">Guinea</option>
-                                        <option data-icon="fi fi-gw" value="Guinea-bissau">Guinea-bissau</option>
+                                        <option data-icon="fi fi-gw" value="Guinea-Bissau">Guinea-Bissau</option>
                                         <option data-icon="fi fi-gy" value="Guyana">Guyana</option>
                                         <option data-icon="fi fi-ht" value="Haiti">Haiti</option>
-                                        <option data-icon="fi fi-hm" value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option>
-                                        <option data-icon="fi fi-va" value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                                        <option data-icon="fi fi-hm" value="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option>
+                                        <option data-icon="fi fi-va" value="Holy See">Holy See</option>
                                         <option data-icon="fi fi-hn" value="Honduras">Honduras</option>
                                         <option data-icon="fi fi-hk" value="Hong Kong">Hong Kong</option>
                                         <option data-icon="fi fi-hu" value="Hungary">Hungary</option>
@@ -220,143 +224,146 @@
                                         <option data-icon="fi fi-iq" value="Iraq">Iraq</option>
                                         <option data-icon="fi fi-ie" value="Ireland">Ireland</option>
                                         <option data-icon="fi fi-im" value="Isle of Man">Isle of Man</option>
+                                        <option data-icon="fi fi-il" value="Israel">Israel</option>
                                         <option data-icon="fi fi-it" value="Italy">Italy</option>
                                         <option data-icon="fi fi-jm" value="Jamaica">Jamaica</option>
                                         <option data-icon="fi fi-jp" value="Japan">Japan</option>
                                         <option data-icon="fi fi-je" value="Jersey">Jersey</option>
                                         <option data-icon="fi fi-jo" value="Jordan">Jordan</option>
-                                        <option data-icon="fi fi-ax" value="Kazakhstan">Kazakhstan</option>
-                                        <option data-icon="fi fi-ax" value="Kenya">Kenya</option>
-                                        <option data-icon="fi fi-ax" value="Kiribati">Kiribati</option>
-                                        <option data-icon="fi fi-ax" value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
-                                        <option data-icon="fi fi-ax" value="Korea, Republic of">Korea, Republic of</option>
-                                        <option data-icon="fi fi-ax" value="Kuwait">Kuwait</option>
-                                        <option data-icon="fi fi-ax" value="Kyrgyzstan">Kyrgyzstan</option>
-                                        <option data-icon="fi fi-ax" value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
-                                        <option data-icon="fi fi-ax" value="Latvia">Latvia</option>
-                                        <option data-icon="fi fi-ax" value="Lebanon">Lebanon</option>
-                                        <option data-icon="fi fi-ax" value="Lesotho">Lesotho</option>
-                                        <option data-icon="fi fi-ax" value="Liberia">Liberia</option>
-                                        <option data-icon="fi fi-ax" value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
-                                        <option data-icon="fi fi-ax" value="Liechtenstein">Liechtenstein</option>
-                                        <option data-icon="fi fi-ax" value="Lithuania">Lithuania</option>
-                                        <option data-icon="fi fi-ax" value="Luxembourg">Luxembourg</option>
-                                        <option data-icon="fi fi-ax" value="Macao">Macao</option>
-                                        <option data-icon="fi fi-ax" value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
-                                        <option data-icon="fi fi-ax" value="Madagascar">Madagascar</option>
-                                        <option data-icon="fi fi-ax" value="Malawi">Malawi</option>
-                                        <option data-icon="fi fi-ax" value="Malaysia">Malaysia</option>
-                                        <option data-icon="fi fi-ax" value="Maldives">Maldives</option>
-                                        <option data-icon="fi fi-ax" value="Mali">Mali</option>
-                                        <option data-icon="fi fi-ax" value="Malta">Malta</option>
-                                        <option data-icon="fi fi-ax" value="Marshall Islands">Marshall Islands</option>
-                                        <option data-icon="fi fi-ax" value="Martinique">Martinique</option>
-                                        <option data-icon="fi fi-ax" value="Mauritania">Mauritania</option>
-                                        <option data-icon="fi fi-ax" value="Mauritius">Mauritius</option>
-                                        <option data-icon="fi fi-ax" value="Mayotte">Mayotte</option>
-                                        <option data-icon="fi fi-ax" value="Mexico">Mexico</option>
-                                        <option data-icon="fi fi-ax" value="Micronesia, Federated States of">Micronesia, Federated States of</option>
-                                        <option data-icon="fi fi-ax" value="Moldova, Republic of">Moldova, Republic of</option>
-                                        <option data-icon="fi fi-ax" value="Monaco">Monaco</option>
-                                        <option data-icon="fi fi-ax" value="Mongolia">Mongolia</option>
-                                        <option data-icon="fi fi-ax" value="Montenegro">Montenegro</option>
-                                        <option data-icon="fi fi-ax" value="Montserrat">Montserrat</option>
-                                        <option data-icon="fi fi-ax" value="Morocco">Morocco</option>
-                                        <option data-icon="fi fi-ax" value="Mozambique">Mozambique</option>
-                                        <option data-icon="fi fi-ax" value="Myanmar">Myanmar</option>
-                                        <option data-icon="fi fi-ax" value="Namibia">Namibia</option>
-                                        <option data-icon="fi fi-ax" value="Nauru">Nauru</option>
-                                        <option data-icon="fi fi-ax" value="Nepal">Nepal</option>
-                                        <option data-icon="fi fi-ax" value="Netherlands">Netherlands</option>
-                                        <option data-icon="fi fi-ax" value="Netherlands Antilles">Netherlands Antilles</option>
-                                        <option data-icon="fi fi-ax" value="New Caledonia">New Caledonia</option>
-                                        <option data-icon="fi fi-ax" value="New Zealand">New Zealand</option>
-                                        <option data-icon="fi fi-ax" value="Nicaragua">Nicaragua</option>
-                                        <option data-icon="fi fi-ax" value="Niger">Niger</option>
-                                        <option data-icon="fi fi-ax" value="Nigeria">Nigeria</option>
-                                        <option data-icon="fi fi-ax" value="Niue">Niue</option>
-                                        <option data-icon="fi fi-ax" value="Norfolk Island">Norfolk Island</option>
-                                        <option data-icon="fi fi-ax" value="Northern Mariana Islands">Northern Mariana Islands</option>
-                                        <option data-icon="fi fi-ax" value="Norway">Norway</option>
-                                        <option data-icon="fi fi-ax" value="Oman">Oman</option>
-                                        <option data-icon="fi fi-ax" value="Pakistan">Pakistan</option>
-                                        <option data-icon="fi fi-ax" value="Palau">Palau</option>
-                                        <option data-icon="fi fi-ax" value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
-                                        <option data-icon="fi fi-ax" value="Panama">Panama</option>
-                                        <option data-icon="fi fi-ax" value="Papua New Guinea">Papua New Guinea</option>
-                                        <option data-icon="fi fi-ax" value="Paraguay">Paraguay</option>
-                                        <option data-icon="fi fi-ax" value="Peru">Peru</option>
-                                        <option data-icon="fi fi-ax" value="Philippines">Philippines</option>
-                                        <option data-icon="fi fi-ax" value="Pitcairn">Pitcairn</option>
-                                        <option data-icon="fi fi-ax" value="Poland">Poland</option>
-                                        <option data-icon="fi fi-ax" value="Portugal">Portugal</option>
-                                        <option data-icon="fi fi-ax" value="Puerto Rico">Puerto Rico</option>
-                                        <option data-icon="fi fi-ax" value="Qatar">Qatar</option>
-                                        <option data-icon="fi fi-ax" value="Reunion">Reunion</option>
-                                        <option data-icon="fi fi-ax" value="Romania">Romania</option>
-                                        <option data-icon="fi fi-ax" value="Russian Federation">Russian Federation</option>
-                                        <option data-icon="fi fi-ax" value="Rwanda">Rwanda</option>
-                                        <option data-icon="fi fi-ax" value="Saint Helena">Saint Helena</option>
-                                        <option data-icon="fi fi-ax" value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-                                        <option data-icon="fi fi-ax" value="Saint Lucia">Saint Lucia</option>
-                                        <option data-icon="fi fi-ax" value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
-                                        <option data-icon="fi fi-ax" value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option>
-                                        <option data-icon="fi fi-ax" value="Samoa">Samoa</option>
-                                        <option data-icon="fi fi-ax" value="San Marino">San Marino</option>
-                                        <option data-icon="fi fi-ax" value="Sao Tome and Principe">Sao Tome and Principe</option>
-                                        <option data-icon="fi fi-ax" value="Saudi Arabia">Saudi Arabia</option>
-                                        <option data-icon="fi fi-ax" value="Senegal">Senegal</option>
-                                        <option data-icon="fi fi-ax" value="Serbia">Serbia</option>
-                                        <option data-icon="fi fi-ax" value="Seychelles">Seychelles</option>
-                                        <option data-icon="fi fi-ax" value="Sierra Leone">Sierra Leone</option>
-                                        <option data-icon="fi fi-ax" value="Singapore">Singapore</option>
-                                        <option data-icon="fi fi-ax" value="Slovakia">Slovakia</option>
-                                        <option data-icon="fi fi-ax" value="Slovenia">Slovenia</option>
-                                        <option data-icon="fi fi-ax" value="Solomon Islands">Solomon Islands</option>
-                                        <option data-icon="fi fi-ax" value="Somalia">Somalia</option>
-                                        <option data-icon="fi fi-ax" value="South Africa">South Africa</option>
-                                        <option data-icon="fi fi-ax" value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
-                                        <option data-icon="fi fi-ax" value="Spain">Spain</option>
-                                        <option data-icon="fi fi-ax" value="Sri Lanka">Sri Lanka</option>
-                                        <option data-icon="fi fi-ax" value="Sudan">Sudan</option>
-                                        <option data-icon="fi fi-ax" value="Suriname">Suriname</option>
-                                        <option data-icon="fi fi-ax" value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
-                                        <option data-icon="fi fi-ax" value="Swaziland">Swaziland</option>
-                                        <option data-icon="fi fi-ax" value="Sweden">Sweden</option>
-                                        <option data-icon="fi fi-ax" value="Switzerland">Switzerland</option>
-                                        <option data-icon="fi fi-ax" value="Syrian Arab Republic">Syrian Arab Republic</option>
-                                        <option data-icon="fi fi-ax" value="Taiwan">Taiwan</option>
-                                        <option data-icon="fi fi-ax" value="Tajikistan">Tajikistan</option>
-                                        <option data-icon="fi fi-ax" value="Tanzania, United Republic of">Tanzania, United Republic of</option>
-                                        <option data-icon="fi fi-ax" value="Thailand">Thailand</option>
-                                        <option data-icon="fi fi-ax" value="Timor-leste">Timor-leste</option>
-                                        <option data-icon="fi fi-ax" value="Togo">Togo</option>
-                                        <option data-icon="fi fi-ax" value="Tokelau">Tokelau</option>
-                                        <option data-icon="fi fi-ax" value="Tonga">Tonga</option>
-                                        <option data-icon="fi fi-ax" value="Trinidad and Tobago">Trinidad and Tobago</option>
-                                        <option data-icon="fi fi-ax" value="Tunisia">Tunisia</option>
-                                        <option data-icon="fi fi-ax" value="Turkey">Turkey</option>
-                                        <option data-icon="fi fi-ax" value="Turkmenistan">Turkmenistan</option>
-                                        <option data-icon="fi fi-ax" value="Turks and Caicos Islands">Turks and Caicos Islands</option>
-                                        <option data-icon="fi fi-ax" value="Tuvalu">Tuvalu</option>
-                                        <option data-icon="fi fi-ax" value="Uganda">Uganda</option>
-                                        <option data-icon="fi fi-ax" value="Ukraine">Ukraine</option>
-                                        <option data-icon="fi fi-ax" value="United Arab Emirates">United Arab Emirates</option>
-                                        <option data-icon="fi fi-ax" value="United Kingdom">United Kingdom</option>
-                                        <option data-icon="fi fi-ax" value="United States">United States</option>
-                                        <option data-icon="fi fi-ax" value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
-                                        <option data-icon="fi fi-ax" value="Uruguay">Uruguay</option>
-                                        <option data-icon="fi fi-ax" value="Uzbekistan">Uzbekistan</option>
-                                        <option data-icon="fi fi-ax" value="Vanuatu">Vanuatu</option>
-                                        <option data-icon="fi fi-ax" value="Venezuela">Venezuela</option>
-                                        <option data-icon="fi fi-ax" value="Viet Nam">Viet Nam</option>
-                                        <option data-icon="fi fi-ax" value="Virgin Islands, British">Virgin Islands, British</option>
-                                        <option data-icon="fi fi-ax" value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
-                                        <option data-icon="fi fi-ax" value="Wallis and Futuna">Wallis and Futuna</option>
-                                        <option data-icon="fi fi-ax" value="Western Sahara">Western Sahara</option>
-                                        <option data-icon="fi fi-ax" value="Yemen">Yemen</option>
-                                        <option data-icon="fi fi-ax" value="Zambia">Zambia</option>
-                                        <option data-icon="fi fi-ax" value="Zimbabwe">Zimbabwe</option>
+                                        <option data-icon="fi fi-kz" value="Kazakhstan">Kazakhstan</option>
+                                        <option data-icon="fi fi-ke" value="Kenya">Kenya</option>
+                                        <option data-icon="fi fi-ki" value="Kiribati">Kiribati</option>
+                                        <option data-icon="fi fi-kw" value="Kuwait">Kuwait</option>
+                                        <option data-icon="fi fi-kg" value="Kyrgyzstan">Kyrgyzstan</option>
+                                        <option data-icon="fi fi-la" value="Laos">Laos</option>
+                                        <option data-icon="fi fi-lv" value="Latvia">Latvia</option>
+                                        <option data-icon="fi fi-lb" value="Lebanon">Lebanon</option>
+                                        <option data-icon="fi fi-ls" value="Lesotho">Lesotho</option>
+                                        <option data-icon="fi fi-lr" value="Liberia">Liberia</option>
+                                        <option data-icon="fi fi-ly" value="Libya">Libya</option>
+                                        <option data-icon="fi fi-li" value="Liechtenstein">Liechtenstein</option>
+                                        <option data-icon="fi fi-lt" value="Lithuania">Lithuania</option>
+                                        <option data-icon="fi fi-lu" value="Luxembourg">Luxembourg</option>
+                                        <option data-icon="fi fi-mo" value="Macau">Macau</option>
+                                        <option data-icon="fi fi-mg" value="Madagascar">Madagascar</option>
+                                        <option data-icon="fi fi-mw" value="Malawi">Malawi</option>
+                                        <option data-icon="fi fi-my" value="Malaysia">Malaysia</option>
+                                        <option data-icon="fi fi-mv" value="Maldives">Maldives</option>
+                                        <option data-icon="fi fi-ml" value="Mali">Mali</option>
+                                        <option data-icon="fi fi-mt" value="Malta">Malta</option>
+                                        <option data-icon="fi fi-mh" value="Marshall Islands">Marshall Islands</option>
+                                        <option data-icon="fi fi-mq" value="Martinique">Martinique</option>
+                                        <option data-icon="fi fi-mr" value="Mauritania">Mauritania</option>
+                                        <option data-icon="fi fi-mu" value="Mauritius">Mauritius</option>
+                                        <option data-icon="fi fi-yt" value="Mayotte">Mayotte</option>
+                                        <option data-icon="fi fi-mx" value="Mexico">Mexico</option>
+                                        <option data-icon="fi fi-md" value="Moldova">Moldova</option>
+                                        <option data-icon="fi fi-mc" value="Monaco">Monaco</option>
+                                        <option data-icon="fi fi-mn" value="Mongolia">Mongolia</option>
+                                        <option data-icon="fi fi-me" value="Montenegro">Montenegro</option>
+                                        <option data-icon="fi fi-ms" value="Montserrat">Montserrat</option>
+                                        <option data-icon="fi fi-ma" value="Morocco">Morocco</option>
+                                        <option data-icon="fi fi-mz" value="Mozambique">Mozambique</option>
+                                        <option data-icon="fi fi-mm" value="Myanmar">Myanmar</option>
+                                        <option data-icon="fi fi-na" value="Namibia">Namibia</option>
+                                        <option data-icon="fi fi-nr" value="Nauru">Nauru</option>
+                                        <option data-icon="fi fi-np" value="Nepal">Nepal</option>
+                                        <option data-icon="fi fi-nl" value="Netherlands">Netherlands</option>
+                                        <option data-icon="fi fi-nc" value="New Caledonia">New Caledonia</option>
+                                        <option data-icon="fi fi-nz" value="New Zealand">New Zealand</option>
+                                        <option data-icon="fi fi-ni" value="Nicaragua">Nicaragua</option>
+                                        <option data-icon="fi fi-ne" value="Niger">Niger</option>
+                                        <option data-icon="fi fi-ng" value="Nigeria">Nigeria</option>
+                                        <option data-icon="fi fi-nu" value="Niue">Niue</option>
+                                        <option data-icon="fi fi-nf" value="Norfolk Island">Norfolk Island</option>
+                                        <option data-icon="fi fi-kp" value="North Korea">North Korea</option>
+                                        <option data-icon="fi fi-mk" value="North Macedonia">North Macedonia</option>
+                                        <option data-icon="fi fi-mp" value="Northern Mariana Islands">Northern Mariana Islands</option>
+                                        <option data-icon="fi fi-no" value="Norway">Norway</option>
+                                        <option data-icon="fi fi-om" value="Oman">Oman</option>
+                                        <option data-icon="fi fi-pk" value="Pakistan">Pakistan</option>
+                                        <option data-icon="fi fi-pw" value="Palau">Palau</option>
+                                        <option data-icon="fi fi-pa" value="Panama">Panama</option>
+                                        <option data-icon="fi fi-pg" value="Papua New Guinea">Papua New Guinea</option>
+                                        <option data-icon="fi fi-py" value="Paraguay">Paraguay</option>
+                                        <option data-icon="fi fi-pe" value="Peru">Peru</option>
+                                        <option data-icon="fi fi-ph" value="Philippines">Philippines</option>
+                                        <option data-icon="fi fi-pn" value="Pitcairn">Pitcairn</option>
+                                        <option data-icon="fi fi-pl" value="Poland">Poland</option>
+                                        <option data-icon="fi fi-pt" value="Portugal">Portugal</option>
+                                        <option data-icon="fi fi-pr" value="Puerto Rico">Puerto Rico</option>
+                                        <option data-icon="fi fi-qa" value="Qatar">Qatar</option>
+                                        <option data-icon="fi fi-cg" value="Republic of the Congo">Republic of the Congo</option>
+                                        <option data-icon="fi fi-ro" value="Romania">Romania</option>
+                                        <option data-icon="fi fi-ru" value="Russia">Russia</option>
+                                        <option data-icon="fi fi-rw" value="Rwanda">Rwanda</option>
+                                        <option data-icon="fi fi-re" value="Réunion">Réunion</option>
+                                        <option data-icon="fi fi-bl" value="Saint Barthélemy">Saint Barthélemy</option>
+                                        <option data-icon="fi fi-sh" value="Saint Helena, Ascension and Tristan da Cunha">Saint Helena, Ascension and Tristan da Cunha</option>
+                                        <option data-icon="fi fi-kn" value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                        <option data-icon="fi fi-lc" value="Saint Lucia">Saint Lucia</option>
+                                        <option data-icon="fi fi-mf" value="Saint Martin">Saint Martin</option>
+                                        <option data-icon="fi fi-pm" value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                                        <option data-icon="fi fi-vc" value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                                        <option data-icon="fi fi-ws" value="Samoa">Samoa</option>
+                                        <option data-icon="fi fi-sm" value="San Marino">San Marino</option>
+                                        <option data-icon="fi fi-st" value="Sao Tome and Principe">Sao Tome and Principe</option>
+                                        <option data-icon="fi fi-sa" value="Saudi Arabia">Saudi Arabia</option>
+                                        <option data-icon="fi fi-sn" value="Senegal">Senegal</option>
+                                        <option data-icon="fi fi-rs" value="Serbia">Serbia</option>
+                                        <option data-icon="fi fi-sc" value="Seychelles">Seychelles</option>
+                                        <option data-icon="fi fi-sl" value="Sierra Leone">Sierra Leone</option>
+                                        <option data-icon="fi fi-sg" value="Singapore">Singapore</option>
+                                        <option data-icon="fi fi-sx" value="Sint Maarten">Sint Maarten</option>
+                                        <option data-icon="fi fi-sk" value="Slovakia">Slovakia</option>
+                                        <option data-icon="fi fi-si" value="Slovenia">Slovenia</option>
+                                        <option data-icon="fi fi-sb" value="Solomon Islands">Solomon Islands</option>
+                                        <option data-icon="fi fi-so" value="Somalia">Somalia</option>
+                                        <option data-icon="fi fi-za" value="South Africa">South Africa</option>
+                                        <option data-icon="fi fi-gs" value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option>
+                                        <option data-icon="fi fi-kr" value="South Korea">South Korea</option>
+                                        <option data-icon="fi fi-ss" value="South Sudan">South Sudan</option>
+                                        <option data-icon="fi fi-es" value="Spain">Spain</option>
+                                        <option data-icon="fi fi-lk" value="Sri Lanka">Sri Lanka</option>
+                                        <option data-icon="fi fi-ps" value="State of Palestine">State of Palestine</option>
+                                        <option data-icon="fi fi-sd" value="Sudan">Sudan</option>
+                                        <option data-icon="fi fi-sr" value="Suriname">Suriname</option>
+                                        <option data-icon="fi fi-sj" value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                                        <option data-icon="fi fi-se" value="Sweden">Sweden</option>
+                                        <option data-icon="fi fi-ch" value="Switzerland">Switzerland</option>
+                                        <option data-icon="fi fi-sy" value="Syria">Syria</option>
+                                        <option data-icon="fi fi-tw" value="Taiwan">Taiwan</option>
+                                        <option data-icon="fi fi-tj" value="Tajikistan">Tajikistan</option>
+                                        <option data-icon="fi fi-tz" value="Tanzania">Tanzania</option>
+                                        <option data-icon="fi fi-th" value="Thailand">Thailand</option>
+                                        <option data-icon="fi fi-tl" value="Timor-Leste">Timor-Leste</option>
+                                        <option data-icon="fi fi-tg" value="Togo">Togo</option>
+                                        <option data-icon="fi fi-tk" value="Tokelau">Tokelau</option>
+                                        <option data-icon="fi fi-to" value="Tonga">Tonga</option>
+                                        <option data-icon="fi fi-tt" value="Trinidad and Tobago">Trinidad and Tobago</option>
+                                        <option data-icon="fi fi-tn" value="Tunisia">Tunisia</option>
+                                        <option data-icon="fi fi-tm" value="Turkmenistan">Turkmenistan</option>
+                                        <option data-icon="fi fi-tc" value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                                        <option data-icon="fi fi-tv" value="Tuvalu">Tuvalu</option>
+                                        <option data-icon="fi fi-tr" value="Türkiye">Türkiye</option>
+                                        <option data-icon="fi fi-ug" value="Uganda">Uganda</option>
+                                        <option data-icon="fi fi-ua" value="Ukraine">Ukraine</option>
+                                        <option data-icon="fi fi-ae" value="United Arab Emirates">United Arab Emirates</option>
+                                        <option data-icon="fi fi-gb" value="United Kingdom">United Kingdom</option>
+                                        <option data-icon="fi fi-um" value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                                        <option data-icon="fi fi-us" value="United States of America">United States of America</option>
+                                        <option data-icon="fi fi-uy" value="Uruguay">Uruguay</option>
+                                        <option data-icon="fi fi-uz" value="Uzbekistan">Uzbekistan</option>
+                                        <option data-icon="fi fi-vu" value="Vanuatu">Vanuatu</option>
+                                        <option data-icon="fi fi-ve" value="Venezuela">Venezuela</option>
+                                        <option data-icon="fi fi-vn" value="Vietnam">Vietnam</option>
+                                        <option data-icon="fi fi-vg" value="Virgin Islands (British)">Virgin Islands (British)</option>
+                                        <option data-icon="fi fi-vi" value="Virgin Islands (U.S.)">Virgin Islands (U.S.)</option>
+                                        <option data-icon="fi fi-wf" value="Wallis and Futuna">Wallis and Futuna</option>
+                                        <option data-icon="fi fi-eh" value="Western Sahara">Western Sahara</option>
+                                        <option data-icon="fi fi-ye" value="Yemen">Yemen</option>
+                                        <option data-icon="fi fi-zm" value="Zambia">Zambia</option>
+                                        <option data-icon="fi fi-zw" value="Zimbabwe">Zimbabwe</option>
                                     </select>
                                     @error('country')
                                         <div class="text-danger">{{ $message }}</div>
