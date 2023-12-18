@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 stringLength: 'Password must be more than 6 characters'
             },
             confirmPassword: {
-                notEmpty: 'Please re-enter your password',
+                notEmpty: 'Please confirm password',
                 identical: 'The password and its confirm are not the same',
                 stringLength: 'Password must be more than 6 characters'
             },
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 stringLength: 'পাসওয়ার্ড অবশ্যই ৬ অক্ষরের বেশি হতে হবে'
             },
             confirmPassword: {
-                notEmpty: 'অনুগ্রহ করে পাসওয়ার্ড নিশ্চিতকরণ করুন',
+                notEmpty: 'পাসওয়ার্ড নিশ্চিত করুন',
                 identical: 'পাসওয়ার্ড এবং তার নিশ্চিতকরণ পাসওয়ার্ড এক নয়',
                 stringLength: 'পাসওয়ার্ড অবশ্যই ৬ অক্ষরের বেশি হতে হবে'
             },

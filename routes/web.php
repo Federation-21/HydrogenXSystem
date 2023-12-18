@@ -28,10 +28,15 @@ Route::post('/test_post', function (Request $request) {
 
 Route::middleware(['auth', 'verified'])->prefix('hawk')->group(function () {
     Route::get('home', [HawkController::class, 'index'])->name('hawk.home');
-    Route::get('profile', [ProfileController::class, 'index'])->name('hawk.profile');
     Route::get('test', function(Request $request){
         return Auth::user();
     })->middleware('role:admin');
+});
+
+Route::middleware(['auth', 'verified'])->prefix('pumpkin')->group(function () {
+    Route::get('/', [ProfileController::class, 'index'])->name('pumpkin.profile');
+    Route::get('{username}', [ProfileController::class, 'visitor'])->name('pumpkin.visitor');
+    
 });
 
 // Language Handler
