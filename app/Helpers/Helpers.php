@@ -91,11 +91,16 @@ class Helpers
         }
       }
     }
+    $styleVal = $data['myStyle'] == "dark" ? "dark" : "light";
+    if (isset($_COOKIE['style'])) {
+      $styleVal = $_COOKIE['style'];
+    }
     //layout classes
     $layoutClasses = [
       'layout' => $data['myLayout'],
       'theme' => $data['myTheme'],
       'style' => $data['myStyle'],
+      'styleOpt' => $data['myStyle'],
       'rtlSupport' => $data['myRTLSupport'],
       'rtlMode' => $data['myRTLMode'],
       'textDirection' => $data['myRTLMode'],
